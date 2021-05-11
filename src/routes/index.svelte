@@ -154,7 +154,7 @@
 						"I can see Somaliland as a member of UN but it needs one country to take first step".
 					</h4>
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="3">
-						<img src="assets/img/forground/james.jpeg" alt="Video Thumbnail" />
+						<img src="assets/img/forground/james-ker.jpeg" alt="Video Thumbnail" />
 					</div>
 				</div>
 			</div>
