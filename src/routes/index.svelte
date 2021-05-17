@@ -4,11 +4,11 @@
 		<div class="container">
 			<div class="wrap">
 				<div class="fix-5-12">
-					<div class="fix-3-12 margin-bottom-5">
+					<div class="fix-3-12 margin-bottom-1">
 						<h1>Bill Gates</h1>
 					</div>
-					<h4 class="margin-bottom-5">"Somaliland is very small. But it is phenomenal".</h4>
-					<h4 class="margin-bottom-5">
+					<h4 class="margin-bottom-1">"Somaliland is very small. But it is phenomenal".</h4>
+					<h4 class="margin-bottom-2">
 						"if there is one emerging economy that India should look at, it is Somaliland".
 					</h4>
 
@@ -99,10 +99,10 @@
 		<div class="container">
 			<div class="wrap">
 				<div class="fix-6-12">
-					<div class="fix-6-12 margin-bottom-5">
+					<div class="fix-6-12 margin-bottom-1">
 						<h2>Jendayi Frazer</h2>
 					</div>
-					<h4 class="margin-bottom-5">
+					<h4 class="margin-bottom-1">
 						"One of my regrest as assistant secretary was that I didn't push hard enough for us to
 						recognize Somaliland. I think we should have".
 					</h4>
@@ -144,14 +144,12 @@
 		<div class="container">
 			<div class="wrap">
 				<div class="fix-6-12">
-					<div class="fix-6-12 margin-bottom-5">
-						<h2>Dr. James Ker-Lindsay</h2>
+					<div class="fix-6-12 margin-bottom-2">
+						<h2>James Ker-Lindsay</h2>
 					</div>
-					<h4 class="margin-bottom-5">
-						"Somaliland deseves recognition more than any other de facto country".
-					</h4>
-					<h4 class="margin-bottom-5">
-						"I can see Somaliland as a member of UN but it needs one country to take first step".
+					<h4 class="margin-bottom-2">
+						"I can see Somaliland as a member of UN but it needs one country to take the first
+						step".
 					</h4>
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="3">
 						<img src="assets/img/forground/james-ker.jpeg" alt="Video Thumbnail" />
