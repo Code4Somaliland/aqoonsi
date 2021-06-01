@@ -1,3 +1,28 @@
+<!-- Slide 0 (#0) -->
+<section class="slide fade-6 kenBurns">
+	<div class="content">
+		<div class="container">
+			<div class="wrap">
+				<div class="fix-6-12">
+					<div class="fix-6-12 margin-bottom-1">
+						<h2>Zitto Kabwe</h2>
+					</div>
+					<h4 class="margin-bottom-2">LET US MAKE SOMALILAND THE 55th AU member</h4>
+					<div>
+						<a target="_blank" href="https://twitter.com/zittokabwe/status/1399724271946158083">
+							<img src="assets/img/forground/zitto.jpeg" alt="zitto" />
+						</a>
+						<p class="margin-top-1">
+							Party Leader of Alliance for Change & Transparency Wazalendo (Tanzania)
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="background" style="background-image:url(assets/img/background/ocean-dark.jpeg)" />
+</section>
+
 <!-- Slide 1 (#04) -->
 <section class="slide fade-6 kenBurns">
 	<div class="content">
@@ -7,10 +32,7 @@
 					<div class="fix-3-12 margin-bottom-1">
 						<h1>Bill Gates</h1>
 					</div>
-					<h4 class="margin-bottom-1">"Somaliland is very small. But it is phenomenal".</h4>
-					<h4 class="margin-bottom-2">
-						"if there is one emerging economy that India should look at, it is Somaliland".
-					</h4>
+					<h4 class="margin-bottom-2">Somaliland is very small but it is phenomenal</h4>
 
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="1">
 						<img src="assets/img/forground/bill-gates.jpeg" alt="Video Thumbnail" />
@@ -54,7 +76,7 @@
 					<div class="fix-6-12 margin-bottom-5">
 						<h2>Somaliland deserves international recognition</h2>
 					</div>
-					<h4 class="margin-bottom-5">"To recognise that is to recognise reality".</h4>
+					<h4 class="margin-bottom-5">To recognise that is to recognise reality</h4>
 					<div>
 						<a
 							href="https://www.economist.com/leaders/2021/05/08/somaliland-deserves-international-recognition"
@@ -79,7 +101,7 @@
 						<h2>President Tsai Ing Wen</h2>
 					</div>
 					<h4 class="margin-bottom-5">
-						"Somaliland and Taiwan are bonded by shared democratic values and freedoms".
+						Somaliland and Taiwan are bonded by shared democratic values and freedoms
 					</h4>
 					<div>
 						<a href="https://english.president.gov.tw/News/6052">
@@ -103,8 +125,8 @@
 						<h2>Jendayi Frazer</h2>
 					</div>
 					<h4 class="margin-bottom-1">
-						"One of my regrest as assistant secretary was that I didn't push hard enough for us to
-						recognize Somaliland. I think we should have".
+						One of my regrest as assistant secretary was that I didn't push hard enough for us to
+						recognize Somaliland. I think we should have
 					</h4>
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="2">
 						<img src="assets/img/forground/jendayi.jpeg" alt="Video Thumbnail" />
@@ -148,8 +170,7 @@
 						<h2>James Ker-Lindsay</h2>
 					</div>
 					<h4 class="margin-bottom-2">
-						"I can see Somaliland as a member of UN but it needs one country to take the first
-						step".
+						I can see Somaliland as a member of UN but it needs one country to take the first step
 					</h4>
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="3">
 						<img src="assets/img/forground/james-ker.jpeg" alt="Video Thumbnail" />
@@ -192,7 +213,7 @@
 					<div class="fix-6-12 margin-bottom-2">
 						<h2>Ambassador Prof Iqbal Jhazbhay</h2>
 					</div>
-					<h4 class="margin-bottom-2">"Somaliland has a very good case in international law".</h4>
+					<h4 class="margin-bottom-2">Somaliland has a very good case in international law</h4>
 					<div class="videoThumbnail shadow rounded ae-4 fromCenter popupTrigger" data-popup-id="4">
 						<img src="assets/img/forground/iqbal.jpeg" alt="Video Thumbnail" />
 					</div>
@@ -236,8 +257,8 @@
 						<h2>Tibor Nagy</h2>
 					</div>
 					<h4 class="margin-bottom-2">
-						"The US should definitely look at a formal relationship with Somaliland because it's a
-						state that works"
+						The US should definitely look at a formal relationship with Somaliland because it's a
+						state that works
 					</h4>
 					<div>
 						<a target="_blank" href="https://twitter.com/Somaliland_Now/status/1394666704714747904">
