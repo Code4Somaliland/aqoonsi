@@ -153,7 +153,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					target="_blank"
 					title="Jendayi Frazer"
 				>
-					<figure><img src="/assets/img/forground/Iqbal.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
+					<figure><img src="/assets/img/forground/iqbal.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
 					<blockquote>
 						<p>&ldquo; Somaliland has a very good case in international law. &rdquo; (Watch more)</p>
 						<p><cite>Ambassador Prof Iqbal Jhazbhay</cite></p>
