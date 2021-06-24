@@ -1,8 +1,8 @@
 <article id="webslides">
 	<section class="fullscreen bg-blue aligncenter">
 		<div class="embed dark">
-			<video autoplay loop muted poster="../assets/img/forground/landing.png">
-				<source src="../assets/vid/Somaliland.mp4" type="video/mp4" />
+			<video autoplay loop muted poster="/assets/img/forground/landing.png">
+				<source src="/assets/vid/Somaliland.mp4" type="video/mp4" />
 			</video>
 		</div>
 		<!-- .end .embed -->

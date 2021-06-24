@@ -9,7 +9,7 @@
 				<blockquote>
 					<p>
 						<a target="_blank" href="https://www.economist.com/leaders/2021/05/08/somaliland-deserves-international-recognition">
-													<img src="../assets/img/forground/the-economist.png" />
+													<img src="/assets/img/forground/the-economist.png" />
 													</a>
 
 					</p>
@@ -26,7 +26,7 @@
 	<section class="bg-primary">
 		<span
 			class="background-left-bottom"
-			style="background-image:url('../assets/img/forground/zitto.png')"
+			style="background-image:url('/assets/img/forground/zitto.png')"
 		/>
 		<div class="wrap">
 			<div class="content-right">
@@ -47,7 +47,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					href="https://www.youtube.com/embed/azAebCFoJ80?start=142"
 					title="Bill Gates"
 				>
-					<figure><img src="../assets/img/forground/gates.png" alt="Bill Gates" /></figure>
+					<figure><img src="/assets/img/forground/gates.png" alt="Bill Gates" /></figure>
 					<blockquote>
 						<p>&ldquo;Somaliland is very small but it is phenomenal.&rdquo; (Watch more)</p>
 						<p><cite>Bill Gates</cite></p>
@@ -67,7 +67,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 				<blockquote>
 					<p>
 						<a target="_blank" href="https://english.president.gov.tw/News/6052">
-													<img src="../assets/img/forground/tsai.jpeg" />
+													<img src="/assets/img/forground/tsai.jpeg" />
 													</a>
 
 					</p>
@@ -90,7 +90,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					target="_blank"
 					title="Jendayi Frazer"
 				>
-					<figure><img src="../assets/img/forground/jendayi.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
+					<figure><img src="/assets/img/forground/jendayi.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
 					<blockquote>
 						<p>&ldquo; One of my regrest as assistant secretary was that I didn't push hard enough for us to recognize Somaliland. &rdquo; (Watch more)</p>
 						<p><cite>Jendayi Frazer (US A. Secretary of State for Africa
@@ -108,7 +108,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					href="https://www.youtube.com/watch?v=vYLLNJ53S80"
 					title="Raila odinga"
 				>
-					<figure><img src="../assets/img/forground/odinga.jpg" alt="Raila odinga" style="max-width: 50%;" /></figure>
+					<figure><img src="/assets/img/forground/odinga.jpg" alt="Raila odinga" style="max-width: 50%;" /></figure>
 					<blockquote>
 						<p>&ldquo; I am a strong supporter for the recognition of Somaliland&rdquo; (Watch more)</p>
 						<p><cite>President Raila odinga</cite></p>
@@ -129,7 +129,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 				<blockquote>
 					<p>
 						<a target="_blank" href="https://twitter.com/Somaliland_Now/status/1394666704714747904">
-													<img src="../assets/img/forground/tibor.jpeg" />
+													<img src="/assets/img/forground/tibor.jpeg" />
 													</a>
 
 					</p>
@@ -153,7 +153,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					target="_blank"
 					title="Jendayi Frazer"
 				>
-					<figure><img src="../assets/img/forground/Iqbal.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
+					<figure><img src="/assets/img/forground/Iqbal.jpeg" alt="Jendayi Frazer" style="max-width: 50%;" /></figure>
 					<blockquote>
 						<p>&ldquo; Somaliland has a very good case in international law. &rdquo; (Watch more)</p>
 						<p><cite>Ambassador Prof Iqbal Jhazbhay</cite></p>
@@ -171,7 +171,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					target="_blank"
 					title="Sultan Ahmed Bin Sulayem"
 				>
-					<figure><img src="../assets/img/forground/sultan.jpeg" alt="Sultan" /></figure>
+					<figure><img src="/assets/img/forground/sultan.jpeg" alt="Sultan" /></figure>
 					<blockquote>
 						<p>&ldquo;Rwanda, Senegal, Egypt, Angola and Somaliland to name a few are clear examples where foreign direct investment can stimulate economic growth and deliver prosperity for all.
 .&rdquo;</p>
@@ -190,7 +190,7 @@ So poor but brave to face their challenges. The future is here. LET US MAKE SOMA
 					target="_blank"
 					title="James Ker-Lindsay"
 				>
-					<figure><img src="../assets/img/forground/james-ker.jpeg" alt="James Ker-Lindsay"  style="max-width: 50%;" /></figure>
+					<figure><img src="/assets/img/forground/james-ker.jpeg" alt="James Ker-Lindsay"  style="max-width: 50%;" /></figure>
 					<blockquote>
 						<p>&ldquo;I can see Somaliland as a member of UN but it needs one country to take the first step
 .&rdquo; (Watch more)</p>
