@@ -15,18 +15,29 @@
 							<p class="text-symbols">* * *</p>
 
 			<p>
-								<a
-					class="button ghost"
-					href="/5days"
-					title="The 5 Days Challenge"
-					>The 5 Days Challenge</a
-				>
 				<a
 					class="button ghost"
 					href="/why"
 					title="Why recognize Somaliland"
 					> Why recognize Somaliland</a
 				>
+				
+				<a
+					class="button ghost"
+					href="https://youtube.com/playlist?list=PLnzGXugYZ3HTh_wZW39TuEkN01S0BP4AA"
+					target="blank"
+					title="Somaliland Recognition Playlist"
+					>Somaliland Playlist</a
+				>
+
+				<a
+					class="button ghost"
+					href="/assets/file/country-profile.pdf"
+					target="blank"
+					title="Country Profile"
+					>Country Profile</a
+				>
+				
 			</p>
 		</div>
 		<!-- .end .wrap -->
