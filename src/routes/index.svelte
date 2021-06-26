@@ -32,7 +32,7 @@
 
 				<a
 					class="button ghost"
-					href="/assets/file/country-profile.pdf"
+					href="https://tolyeelo.ams3.cdn.digitaloceanspaces.com/blogs/country-profile.pdf"
 					target="blank"
 					title="Country Profile"
 					>Country Profile</a
