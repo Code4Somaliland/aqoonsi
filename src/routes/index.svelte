@@ -10,16 +10,15 @@
 		<div class="wrap">
 			<h1><strong>Aqoonsi</strong></h1>
 			<h4>Aqoonsi is the Somali word for recognition</h4>
-				<p class="text-symbols">* * *</p>
 			<h4>A portal for Somaliland advocates and friends</h4>
 							<p class="text-symbols">* * *</p>
 
 			<p>
 				<a
 					class="button ghost"
-					href="/why"
-					title="Why recognize Somaliland"
-					> Why recognize Somaliland</a
+					href="/world"
+					title="World on Somaliland"
+					> World Leaders' view</a
 				>
 				
 				<a
@@ -32,12 +31,18 @@
 
 				<a
 					class="button ghost"
+					href="/maps"
+					title="Somaliland maps"
+					> Somaliland Maps</a
+				>
+				
+								<a
+					class="button ghost"
 					href="https://tolyeelo.ams3.cdn.digitaloceanspaces.com/blogs/country-profile.pdf"
 					target="blank"
 					title="Country Profile"
 					>Country Profile</a
 				>
-				
 			</p>
 		</div>
 		<!-- .end .wrap -->
