@@ -38,8 +38,8 @@
 				
 								<a
 					class="button ghost"
-					href="https://tolyeelo.ams3.cdn.digitaloceanspaces.com/blogs/country-profile.pdf"
-					target="blank"
+					href="https://www.somalilandprofile.com/"
+					target="_blank"
 					title="Country Profile"
 					>Country Profile</a
 				>
