@@ -113,7 +113,7 @@
 					target="_blank"
 					href="https://www.aei.org/articles/the-us-needs-to-recognize-somaliland-before-russia-does/"
 				>
-					<img src="/assets/img/forground/mrubin.jpeg" style="max-width: 75%;" />
+					<img src="/assets/img/forground/mrubin.jpeg" style="max-width: 60%;" />
 
 					<h4>
 						&ldquo;The US needs to recognize Somaliland before Russia does &rdquo; (Read more)
