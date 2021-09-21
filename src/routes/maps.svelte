@@ -7,7 +7,7 @@
 					<strong>Somaliland Maps</strong>
 				</h1>
 				<h2>
-					Loyalty free (Made by
+					Royalty free (Made by
 					<a href="hhttps://twitter.com/Five_Maps" title="Five_Maps">@Five_Maps</a>)
 				</h2>
 			</div>
