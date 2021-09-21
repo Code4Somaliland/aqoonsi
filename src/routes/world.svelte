@@ -30,24 +30,16 @@
 	<section>
 		<div class="wrap">
 			<div class="card-50">
-				<a
-					href="/assets/file/au-fact-finding.pdf"
-					target="_blank"
-					title="AU fact finding mission"
-				>
+				<a href="/assets/file/au-fact-finding.pdf" target="_blank" title="AU fact finding mission">
 					<figure>
-						<img
-							src="/assets/img/forground/au.png"
-							alt="African Union"
-							style="max-width: 50%;"
-						/>
+						<img src="/assets/img/forground/au.png" alt="African Union" style="max-width: 50%;" />
 					</figure>
 					<blockquote>
 						<p>
-							&ldquo;The fact that the "union
-between Somaliland and Somalia was never ratified" and also malfunctioned when it
-went into went into action from 1960 to 1990, makes Somaliland's search for recognition
-historically unique and self-justified in African political history&rdquo; (Read more)
+							&ldquo;The fact that the "union between Somaliland and Somalia was never ratified" and
+							also malfunctioned when it went into went into action from 1960 to 1990, makes
+							Somaliland's search for recognition historically unique and self-justified in African
+							political history&rdquo; (Read more)
 						</p>
 						<p><cite>African Union 2005</cite></p>
 					</blockquote>
@@ -104,13 +96,37 @@ historically unique and self-justified in African political history&rdquo; (Read
 						<cite
 							><a
 								href="https://twitter.com/search?q=somaliland%20from%3A%20zittokabwe&src=typed_query"
-								>Zitto Kabwe (A Tanzanian Party Leader) </a
-							></cite
+								>Zitto Kabwe (A Tanzanian Party Leader)
+							</a></cite
 						>
 					</p>
 				</blockquote>
 			</div>
 		</div>
+	</section>
+	<section>
+		<!--.wrap = container (width: 90%) -->
+		<div class="wrap">
+			<!-- alignment [class*="content-"] = container max-width:50% = 600px -->
+			<div class="content-center">
+				<a
+					target="_blank"
+					href="https://www.aei.org/articles/the-us-needs-to-recognize-somaliland-before-russia-does/"
+				>
+					<img src="/assets/img/forground/mrubin.jpeg" style="max-width: 75%;" />
+
+					<h4>
+						&ldquo;The US needs to recognize Somaliland before Russia does &rdquo; (Read more)
+					</h4>
+				</a>
+				<blockquote>
+					<p>
+						<cite> Michael Rubin (US Foreign and Defense Policy Senior Scholar) </cite>
+					</p>
+				</blockquote>
+			</div>
+		</div>
+		<!-- .end .wrap -->
 	</section>
 	<section>
 		<div class="wrap">
@@ -341,6 +357,6 @@ historically unique and self-justified in African political history&rdquo; (Read
 	</section>
 	<div id="navigation">
 		<a id="next" href="#" title="Arrow Keys">→</a><a id="previous" href="#" title="Arrow Keys">←</a
-		><span id="counter"><a href="#" title="View all slides">1 / 13</a></span>
+		><span id="counter"><a href="#" title="View all slides">1 / 14</a></span>
 	</div>
 </article>
