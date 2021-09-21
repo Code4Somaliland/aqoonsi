@@ -20,7 +20,36 @@
 							accurately, thanks to Taipei, the second step—to bring Somaliland fully into the
 							community of nations .&rdquo; (Read more)
 						</p>
-						<p><cite>Robert C. O’Brien</cite></p>
+						<p><cite>Robert C. O’Brien (28th U.S. National Security Advisor)</cite></p>
+					</blockquote>
+				</a>
+			</div>
+		</div>
+		<!-- .end .wrap -->
+	</section>
+	<section>
+		<div class="wrap">
+			<div class="card-50">
+				<a
+					href="/assets/file/au-fact-finding.pdf"
+					target="_blank"
+					title="AU fact finding mission"
+				>
+					<figure>
+						<img
+							src="/assets/img/forground/au.png"
+							alt="African Union"
+							style="max-width: 50%;"
+						/>
+					</figure>
+					<blockquote>
+						<p>
+							&ldquo;The fact that the "union
+between Somaliland and Somalia was never ratified" and also malfunctioned when it
+went into went into action from 1960 to 1990, makes Somaliland's search for recognition
+historically unique and self-justified in African political history&rdquo; (Read more)
+						</p>
+						<p><cite>African Union 2005</cite></p>
 					</blockquote>
 				</a>
 			</div>
@@ -75,7 +104,7 @@
 						<cite
 							><a
 								href="https://twitter.com/search?q=somaliland%20from%3A%20zittokabwe&src=typed_query"
-								>Zitto Kabwe</a
+								>Zitto Kabwe (A Tanzanian Party Leader) </a
 							></cite
 						>
 					</p>
@@ -312,6 +341,6 @@
 	</section>
 	<div id="navigation">
 		<a id="next" href="#" title="Arrow Keys">→</a><a id="previous" href="#" title="Arrow Keys">←</a
-		><span id="counter"><a href="#" title="View all slides">1 / 12</a></span>
+		><span id="counter"><a href="#" title="View all slides">1 / 13</a></span>
 	</div>
 </article>
