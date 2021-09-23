@@ -2012,7 +2012,8 @@ img size recommended:800x600px
 .flexblock.gallery li img {
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto; 
+  max-height: 183px;}
 
 @media (min-width: 600px) {
   .flexblock.gallery {
