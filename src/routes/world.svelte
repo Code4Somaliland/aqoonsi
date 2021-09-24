@@ -97,7 +97,7 @@
 							<img alt="Thumbnail" src="/assets/img/forground/odinga.jpg" />
 							<figcaption>
 								<h2>Raila Odinga</h2>
-								<p>Former Kenyan President</p>
+								<p>Kenya's Former Prime Minister</p>
 							</figcaption>
 						</figure>
 					</a>

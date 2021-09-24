@@ -13,7 +13,7 @@
 						<p>
 							&ldquo; I am a strong supporter for the recognition of Somaliland&rdquo; (Watch more)
 						</p>
-						<p><cite>President Raila odinga</cite></p>
+						<p><cite>Raila odinga (Kenya's Former Prime Minister)</cite></p>
 					</blockquote>
 				</a>
 			</div>
