@@ -1,3 +1,9 @@
+<script>
+import StatementItem from "../components/StatementItem.svelte";
+import { statementList } from "../data/statementList";
+const model = statementList.find((model) => model.modelName === 'au');
+
+</script>
 <article  id="webslides">
 	<section>
 		<div class="wrap">
@@ -15,17 +21,7 @@
 						</figure>
 					</a>
 				</li>
-				<li>
-					<a href="au">
-						<figure>
-							<img alt="Thumbnail" src="/assets/img/forground/au.png" />
-							<figcaption>
-								<h2>African Union</h2>
-								<p>2005 fact finding mission</p>
-							</figcaption>
-						</figure>
-					</a>
-				</li>
+					<StatementItem model={model} />
 				<li>
 					<a href="/economist">
 						<figure>
