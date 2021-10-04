@@ -1,8 +1,6 @@
 <script>
 	import StatementItem from '../components/StatementItem.svelte';
 	import { statementList } from '../data/statementList';
-	import _ from 'lodash';
-	const models = _.shuffle(statementList);
 </script>
 
 <svelte:head>
@@ -15,7 +13,7 @@
 			<h3>Entities, experts & leaders</h3>
 			<h3>Supporting Somaliland</h3>
 			<ul class="flexblock gallery">
-				{#each models as model}
+				{#each statementList as model}
 					<StatementItem {model} />
 				{/each}
 			</ul>
