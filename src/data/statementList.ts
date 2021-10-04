@@ -1,6 +1,16 @@
 import { StatementModel } from '../Models/statementModel';
 export const statementList: StatementModel[] = [
     new StatementModel({
+        modelName: "chris",
+        text: `There is one oasis of stability and that is Somaliland, which is a de facto independent from Somalia, I would like to hear comments from both State and USAID as to how to better recognize Somaliland in the global community`,
+        url: `https://www.youtube.com/embed/MYovVN7WA3E?t=902`,
+        title: `Chris Smith`,
+        subtitle: ` U.S. Representative for New Jersey`,
+        image: `/assets/img/forground/chris.jpeg`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Read more)`
+    }),
+    new StatementModel({
         modelName: "robert",
         text: `The time is now for the United States to take the first step—or more
 							accurately, thanks to Taipei, the second step—to bring Somaliland fully into the
@@ -162,16 +172,6 @@ export const statementList: StatementModel[] = [
         title: `Dr. J. Peter Pham`,
         subtitle: `Special Envoy for the Sahel Region`,
         image: `/assets/img/forground/peterpham.jpeg`,
-        imageStyle: `max-width: 50%;"`,
-        moreText: `(Read more)`
-    }),
-    new StatementModel({
-        modelName: "chris",
-        text: `There is one oasis of stability and that is Somaliland, which is a de facto independent from Somalia, I would like to hear comments from both State and USAID as to how to better recognize Somaliland in the global community`,
-        url: `https://www.youtube.com/embed/MYovVN7WA3E?t=902`,
-        title: `Chris Smith`,
-        subtitle: ` U.S. Representative for New Jersey`,
-        image: `/assets/img/forground/chris.jpeg`,
         imageStyle: `max-width: 50%;"`,
         moreText: `(Read more)`
     })
