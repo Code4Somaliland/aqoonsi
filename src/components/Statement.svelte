@@ -3,7 +3,12 @@
 	export let model: StatementModel;
 </script>
 
-<section>
+
+<svelte:head>
+	<title>{model.title}</title>
+</svelte:head>
+
+<section class="bg-secondary">
 	<div class="wrap">
 		<div class="card-50">
 			<a href={model.url} target="_blank" title={model.title}>
@@ -14,7 +19,7 @@
 					<p>
 						&ldquo;{model.text}&rdquo; {model.moreText}
 					</p>
-					<p><cite>{model.title}</cite></p>
+					<p><cite>{model.title} ({model.subtitle})</cite></p>
 				</blockquote>
 			</a>
 		</div>

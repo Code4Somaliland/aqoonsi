@@ -1,4 +1,7 @@
-export type modelNames = "au";
+export type modelNames = 'au' | 'robert' | 'economist' | 'zitto' |
+    'rubin' | 'bill' | 'taiwan' | 'frazer' |
+    'raila' | 'tibor' | 'cannon' | 'iqbal' |
+    'dpworld' | 'lindsay' | 'pham' | 'chris';
 
 export class StatementModel {
     readonly text: string;

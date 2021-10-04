@@ -4,7 +4,7 @@
 </script>
 
 <li>
-	<a href="{model.modelName}">
+	<a href="/{model.modelName}">
 		<figure>
 			<img alt="Thumbnail" src="{model.image}" />
 			<figcaption>
