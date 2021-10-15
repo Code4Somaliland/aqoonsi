@@ -132,6 +132,16 @@ export const statementList: StatementModel[] = [
         moreText: `(Read more)`
     }),
     new StatementModel({
+        modelName: "cohen",
+        text: `In view of the history, the African Union should recognize Somaliland as an independent state`,
+        url: `https://twitter.com/CohenOnAfrica/status/1449095395473231878`,
+        title: `Herman J. Cohen`,
+        subtitle: `Former US Ambassador & Asst. Secretary of State.`,
+        image: `/assets/img/forground/cohen.jpeg`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Read more)`
+    }),
+    new StatementModel({
         modelName: "iqbal",
         text: `Somaliland has a very good case in international law.`,
         url: `https://www.youtube.com/embed/UqaE6ldUems?start=253`,
