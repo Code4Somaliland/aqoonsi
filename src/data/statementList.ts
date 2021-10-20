@@ -36,6 +36,16 @@ export const statementList: StatementModel[] = [
         moreText: `(Read more)`
     }),
     new StatementModel({
+        modelName: "heritage",
+        text: `Somaliland has been de facto independent for 30 years. The U.S. should recognize this and build a facts-based policy that better serves its strategic interests.`,
+        url: `https://www.heritage.org/global-politics/report/the-us-should-recognize-somaliland`,
+        title: `The Heritage Foundation`,
+        subtitle: `American public policy think tank`,
+        image: `/assets/img/forground/bell.png`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Read more)`
+    }),
+    new StatementModel({
         modelName: "economist",
         text: `Somaliland deserves international recognition`,
         url: `https://www.economist.com/leaders/2021/05/08/somaliland-deserves-international-recognition`,
