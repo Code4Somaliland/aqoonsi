@@ -194,5 +194,15 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/peterpham.jpeg`,
         imageStyle: `max-width: 50%;"`,
         moreText: `(Read more)`
+    }),
+    new StatementModel({
+        modelName: "schwartz",
+        text: `Should Somalia fail to negotiate in good faith to resolve Somaliland’s status, Secretary of State Tony Blinken should consider Josh Meservey’s proposal and write a similar letter to the authorities in Hargeisa.`,
+        url: `https://www.fpri.org/article/2021/11/the-african-union-should-resolve-somalilands-status/`,
+        title: `Stephen Schwartz`,
+        subtitle: `Former United States Ambassador to Somalia`,
+        image: `/assets/img/forground/schwartz.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Read more)`
     })
 ]
