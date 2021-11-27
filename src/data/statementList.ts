@@ -1,6 +1,16 @@
 import { StatementModel } from '../Models/statementModel';
 export const statementList: StatementModel[] = [
     new StatementModel({
+        modelName: "gavin",
+        text: `We will fight with heart and passion in order to put the arguments for recognition of Somaliland`,
+        url: `https://twitter.com/Gobannimo/status/1464132572951240722`,
+        title: `Gavin Williamson`,
+        subtitle: `Conservative Member of UK's Parliament`,
+        image: `/assets/img/forground/gavin.jpeg`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Watch more)`
+    }),
+    new StatementModel({
         modelName: "chris",
         text: `There is one oasis of stability and that is Somaliland, which is a de facto independent from Somalia, I would like to hear comments from both State and USAID as to how to better recognize Somaliland in the global community`,
         url: `https://www.youtube.com/embed/MYovVN7WA3E?t=902`,
