@@ -182,6 +182,16 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/sultan.jpeg`,
         imageStyle: `max-width: 50%;"`,
         moreText: `(Read more)`
+    }),    
+    new StatementModel({
+        modelName: "guled",
+        text: `Somaliland; the most valuable real estate in the Horn of Africa right now- this country earned & reached the "Decision Point" to be recognized. Time to rethink to adapt Somaliland as recognized country just like #ClimateChange`,
+        url: `https://www.mei.edu/blog/somalilands-ports-horn-africas-most-valuable-real-estate`,
+        title: `Guled Wiliq`,
+        subtitle: `Non-Resident Scholar at Middle East Inst`,
+        image: `/assets/img/forground/guled.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `(Read more)`
     }),
     new StatementModel({
         modelName: "lindsay",

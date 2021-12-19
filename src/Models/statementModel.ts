@@ -3,7 +3,7 @@ export type modelNames = 'au' | 'robert' | 'economist' | 'zitto' |
     'raila' | 'tibor' | 'cannon' | 'iqbal' |
     'dpworld' | 'lindsay' | 'pham' | 'chris'|
     'cohen' | 'heritage' | 'schwartz' |
-    'gavin';
+    'gavin'| 'guled';
 
 export class StatementModel {
     readonly text: string;
