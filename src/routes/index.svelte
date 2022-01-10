@@ -17,8 +17,8 @@
 				<a
 					class="button ghost"
 					href="/world"
-					title="Pro-Somaliland Celebrities"
-					> Pro-Somaliland Celebrities</a
+					title="Somaliland Supporters"
+					> Somaliland Supporters</a
 				>
 				
 				<a
