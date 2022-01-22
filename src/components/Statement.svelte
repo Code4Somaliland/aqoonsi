@@ -3,7 +3,24 @@
 	export let model: StatementModel;
 </script>
 
-
+<header>
+	<div class="alignleft" onclick="history.back()">
+		<h2>
+			<svg class="fa-chevron-left">
+				<use xlink:href="#fa-chevron-left" />
+			</svg>
+		</h2>
+	</div>
+	<div class="alignright">
+				<a href="/">
+					<h2>
+						<svg class="fa-bars">
+							<use xlink:href="#fa-bars" />
+						</svg>
+					</h2>
+				</a>
+			</div>
+</header>
 <svelte:head>
 	<title>{model.title}</title>
 </svelte:head>
@@ -17,9 +34,15 @@
 				</figure>
 				<blockquote>
 					<p>
-						&ldquo;{model.text}&rdquo; {model.moreText}
+						&ldquo;{model.text}&rdquo;
 					</p>
 					<p><cite>{model.title} ({model.subtitle})</cite></p>
+					<h6>
+						{model.moreText}
+						<svg class="fa-external-link">
+							<use xlink:href="#fa-external-link" />
+						</svg>
+					</h6>
 				</blockquote>
 			</a>
 		</div>

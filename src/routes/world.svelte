@@ -4,14 +4,13 @@
 </script>
 
 <svelte:head>
-	<title>Entities, experts & leaders Supporting Somaliland</title>
+	<title>Somaliland Supporters</title>
 </svelte:head>
 
 <article id="webslides">
 	<section>
 		<div class="wrap">
-			<h3>Entities, experts & leaders</h3>
-			<h3>Supporting Somaliland</h3>
+			<h3>Somaliland Supporters</h3>
 			<ul class="flexblock gallery">
 				{#each statementList as model}
 					<StatementItem {model} />
