@@ -4,17 +4,10 @@
 </script>
 
 <svelte:head>
-	<title>UK Parliment Somaliland debate 2022</title>
+	<title>UK Parliment on Somaliland</title>
 </svelte:head>
 
 <header>
-	<div class="alignleft" onclick="history.back()">
-		<h2>
-			<svg class="fa-chevron-left">
-				<use xlink:href="#fa-chevron-left" />
-			</svg>
-		</h2>
-	</div>
 	<div class="alignright">
 				<a href="/">
 					<h2>
@@ -29,7 +22,7 @@
 <article id="webslides">
 	<section>
 		<div class="wrap">
-			<h3>UK Parliment Somaliland debate 2022</h3>
+			<h3>UK Parliment on Somaliland</h3>
 			<ul class="flexblock gallery">
 				{#each statementList as model}
 					<StatementItem {model} />

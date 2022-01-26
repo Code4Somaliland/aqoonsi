@@ -4,13 +4,6 @@
 </script>
 
 <header>
-	<div class="alignleft" onclick="history.back()">
-		<h2>
-			<svg class="fa-chevron-left">
-				<use xlink:href="#fa-chevron-left" />
-			</svg>
-		</h2>
-	</div>
 	<div class="alignright">
 				<a href="/">
 					<h2>
