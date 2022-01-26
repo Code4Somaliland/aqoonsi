@@ -1,12 +1,12 @@
 import { StatementModel } from '../Models/statementModel';
 export const statementList: StatementModel[] = [
     new StatementModel({
-        modelName: "gavin",
-        text: `We will fight with heart and passion in order to put the arguments for recognition of Somaliland`,
-        url: `https://twitter.com/Gobannimo/status/1464132572951240722`,
-        title: `Gavin Williamson`,
-        subtitle: `Conservative Member of UK's Parliament`,
-        image: `/assets/img/forground/gavin.jpeg`,
+        modelName: "uk",
+        text: ``,
+        url: ``,
+        title: `UK Parliment`,
+        subtitle: `Conservative & Labour Party members`,
+        image: `/assets/img/forground/uk.png`,
         imageStyle: `max-width: 50%;"`,
         moreText: `Watch more`
     }),
@@ -62,6 +62,16 @@ export const statementList: StatementModel[] = [
         title: `The Economist`,
         subtitle: `May 2021 Edition`,
         image: `/assets/img/forground/the-economist.png`,
+        imageStyle: `max-width: 50%;"`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
+        modelName: "loone",
+        text: `Somaliland has created remarkable state and society in recent 30 years and serves as beacon of peace in the region. It deserves to be recognised as such.`,
+        url: `https://twitter.com/OudekkiLoone/status/1483359019230285827`,
+        title: `Oudekki Loone`,
+        subtitle: `Member of the Parliament of Estonia`,
+        image: `/assets/img/forground/loone.jpeg`,
         imageStyle: `max-width: 50%;"`,
         moreText: `Read more`
     }),
