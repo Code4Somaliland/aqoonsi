@@ -23,6 +23,7 @@ export class StatementModel {
     readonly moreText: string;
     readonly subtitle: string;
     readonly modelName: modelNames;
+    readonly country: string;
     constructor(init?: Partial<StatementModel>) {
         Object.assign(this, init);
     }

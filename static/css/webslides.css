@@ -3790,3 +3790,11 @@ Slides Index
 
 .text-slide-number {
   color: #abc; }
+
+/*============================
+Flags for cards
+============================== */
+figure span{
+  position: absolute;
+  font-size: xxx-large;
+} 

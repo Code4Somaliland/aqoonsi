@@ -8,6 +8,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for South Staffordshire`,
         image: `/assets/img/forground/gavin.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country:`🇬🇧`,
         moreText: `Watch more`
     }),
     // new StatementModel({
@@ -18,7 +19,8 @@ export const statementList: StatementModel[] = [
     //     subtitle: `Conservative Member of UK's Parliament`,
     //     image: `/assets/img/forground/gavin.jpeg`,
     //     imageStyle: `max-width: 50%;"`,
-    //     moreText: `Watch more`
+    //     country: `🇬🇧`,
+    //    moreText: `Watch more`
     // }),
     new StatementModel({
         modelName: "rushanara",
@@ -28,6 +30,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Bethnal Green and Bow`,
         image: `/assets/img/forground/rushanara.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -38,6 +41,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Tonbridge and Malling`,
         image: `/assets/img/forground/tugendhat.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -48,6 +52,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Sutton Coldfield`,
         image: `/assets/img/forground/mitchell.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -58,6 +63,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Elmet and Rothwell`,
         image: `/assets/img/forground/alec.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -68,6 +74,8 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for South Swindon`,
         image: `/assets/img/forground/buckland.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -78,6 +86,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Liverpool & Riverside`,
         image: `/assets/img/forground/johnson.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -88,6 +97,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Brent North`,
         image: `/assets/img/forground/gardiner.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -98,6 +108,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Sheffield South East`,
         image: `/assets/img/forground/betts.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -108,6 +119,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Wolverhampton South West`,
         image: `/assets/img/forground/anderson.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -118,6 +130,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Warley`,
         image: `/assets/img/forground/spellar.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -128,6 +141,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Vale of Glamorgan`,
         image: `/assets/img/forground/cairns.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -138,6 +152,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Beckenham`,
         image: `/assets/img/forground/stewart.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -148,6 +163,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Sheffield Central`,
         image: `/assets/img/forground/blomfield.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -158,6 +174,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Newport West`,
         image: `/assets/img/forground/jones.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -168,6 +185,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Bury North`,
         image: `/assets/img/forground/daly.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -179,6 +197,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Nottingham South`,
         image: `/assets/img/forground/greenwood.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -190,6 +209,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Bristol East`,
         image: `/assets/img/forground/mccarthy.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -201,6 +221,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Bethnal Green and Bow`,
         image: `/assets/img/forground/rushanara.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -212,6 +233,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for Beckenham`,
         image: `/assets/img/forground/stewart.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -222,6 +244,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Cardiff South and Penarth`,
         image: `/assets/img/forground/doughty.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -232,6 +255,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Labour MP for Kingston upon Hull West & Hessle`,
         image: `/assets/img/forground/hardy.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Read more`
     })
 ]

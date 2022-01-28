@@ -6,7 +6,9 @@
 <li>
 	<a href="/{model.modelName}">
 		<figure>
-			<img alt="Thumbnail" src="{model.image}" />
+						<span>{model.country}  </span>
+			<img alt="Thumbnail" src={model.image} />
+
 			<figcaption>
 				<h2>{model.title}</h2>
 				<p>{model.subtitle}</p>

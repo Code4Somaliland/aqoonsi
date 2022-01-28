@@ -8,6 +8,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative & Labour Party members`,
         image: `/assets/img/forground/uk.png`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -18,6 +19,7 @@ export const statementList: StatementModel[] = [
         subtitle: ` U.S. Representative for New Jersey`,
         image: `/assets/img/forground/chris.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -30,6 +32,7 @@ export const statementList: StatementModel[] = [
         subtitle: `28th U.S. National Security Advisor`,
         image: `/assets/img/forground/Robert.jpg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -43,6 +46,7 @@ export const statementList: StatementModel[] = [
         subtitle: `2005 fact finding mission`,
         image: `/assets/img/forground/au.png`,
         imageStyle: `max-width: 50%;"`,
+        country: `🌍`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -53,6 +57,7 @@ export const statementList: StatementModel[] = [
         subtitle: `American public policy think tank`,
         image: `/assets/img/forground/bell.png`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -63,6 +68,7 @@ export const statementList: StatementModel[] = [
         subtitle: `May 2021 Edition`,
         image: `/assets/img/forground/the-economist.png`,
         imageStyle: `max-width: 50%;"`,
+        country: `🌎`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -73,6 +79,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Member of the Parliament of Estonia`,
         image: `/assets/img/forground/loone.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇪🇪`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -86,6 +93,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Tanzanian Party Leader`,
         image: `/assets/img/forground/zitto.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇹🇿`,
         moreText: `See all his tweets`
     }),
     new StatementModel({
@@ -96,6 +104,7 @@ export const statementList: StatementModel[] = [
         subtitle: `US Foreign and Defense Policy Senior Scholar`,
         image: `/assets/img/forground/mrubin.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -106,6 +115,7 @@ export const statementList: StatementModel[] = [
         subtitle: `American business magnate`,
         image: `/assets/img/forground/billgates.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -116,6 +126,7 @@ export const statementList: StatementModel[] = [
         subtitle: `President of Taiwan`,
         image: `/assets/img/forground/tsai.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇹🇼`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -127,6 +138,7 @@ export const statementList: StatementModel[] = [
         subtitle: `US A. Secretary of State for Africa`,
         image: `/assets/img/forground/jendayi.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -137,6 +149,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Kenya's Former Prime Minister`,
         image: `/assets/img/forground/odinga.jpg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇰🇪`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -148,6 +161,7 @@ export const statementList: StatementModel[] = [
         subtitle: `US A. Secretary of State for Africa`,
         image: `/assets/img/forground/tibor.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -159,6 +173,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Professor of IR @ Khalifa University`,
         image: `/assets/img/forground/cannon.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -169,6 +184,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Former US Ambassador & Asst. Secretary of State.`,
         image: `/assets/img/forground/cohen.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -179,6 +195,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Ambassador & Author`,
         image: `/assets/img/forground/iqbal.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇿🇦`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -191,6 +208,7 @@ export const statementList: StatementModel[] = [
         subtitle: `DP World`,
         image: `/assets/img/forground/sultan.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇦🇪`,
         moreText: `Read more`
     }),    
     new StatementModel({
@@ -201,6 +219,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Non-Resident Scholar at Middle East Inst`,
         image: `/assets/img/forground/guled.jpg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸🇸🇴`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -212,6 +231,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Professor in IR @ LSEE`,
         image: `/assets/img/forground/james.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({
@@ -223,6 +243,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Special Envoy for the Sahel Region`,
         image: `/assets/img/forground/peterpham.jpeg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
@@ -233,6 +254,7 @@ export const statementList: StatementModel[] = [
         subtitle: `Former United States Ambassador to Somalia`,
         image: `/assets/img/forground/schwartz.jpg`,
         imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     })
 ]
