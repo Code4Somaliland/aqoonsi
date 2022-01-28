@@ -8,8 +8,7 @@
 		<!-- .end .embed -->
 		<!-- .wrap = container (width: 90%) -->
 		<div class="wrap">
-			<h1><strong>Aqoonsi</strong></h1>
-			<h4>Aqoonsi is the Somali word for recognition</h4>
+			<h1><strong>Somaliland Recognition</strong></h1>
 			<h4>A portal for Somaliland advocates and friends</h4>
 							<p class="text-symbols">* * *</p>
 
