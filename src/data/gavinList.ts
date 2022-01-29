@@ -75,7 +75,6 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/buckland.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        country: `🇬🇧`,
         moreText: `Watch more`
     }),
     new StatementModel({

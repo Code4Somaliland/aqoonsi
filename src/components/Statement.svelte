@@ -20,8 +20,7 @@
 
 <section class="bg-secondary">
 	<div class="wrap">
-		<div class="card-50">
-			<a href={model.url} target="_blank" title={model.title}>
+		<div class="card-50">			
 				<figure>
 					<img src={model.image} alt={model.title} style={model.imageStyle} />
 				</figure>
@@ -30,14 +29,16 @@
 						&ldquo;{model.text}&rdquo;
 					</p>
 					<p><cite>{model.title} ({model.subtitle})</cite></p>
+				<a href={model.url} target="_blank" title={model.title}>
 					<h6>
 						{model.moreText}
 						<svg class="fa-external-link">
 							<use xlink:href="#fa-external-link" />
 						</svg>
 					</h6>
+					</a>
 				</blockquote>
-			</a>
+			
 		</div>
 	</div>
 	<!-- .end .wrap -->

@@ -72,6 +72,17 @@ export const statementList: StatementModel[] = [
         moreText: `Read more`
     }),
     new StatementModel({
+        modelName: "hamdy",
+        text: `Will Egypt, with the Arab countries behind it, lead the campaign to defend the Egyptian and Arab strategic depth by supporting the aspirations of the people of Somaliland before it is too late?`,
+        url: `https://masr.masr360.net/%d9%88%d8%ac%d9%87%d8%a7%d8%aa-%d9%86%d8%b8%d8%b1/%d8%b5%d9%88%d9%85%d8%a7%d9%84%d9%8a%d9%84%d8%a7%d9%86%d8%af-%d9%88%d8%a7%d9%84%d8%ac%d8%a7%d8%a6%d8%b2%d8%a9-%d8%a7%d9%84%d9%83%d8%a8%d8%b1%d9%89/`,
+        title: `Dr.Hamdy A.Hassan`,
+        subtitle: `Professor of Political Science @ Cairo University`,
+        image: `/assets/img/forground/hamdy.png`,
+        imageStyle: `max-width: 32%;"`,
+        country: `🇪🇬`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
         modelName: "loone",
         text: `Somaliland has created remarkable state and society in recent 30 years and serves as beacon of peace in the region. It deserves to be recognised as such.`,
         url: `https://twitter.com/OudekkiLoone/status/1483359019230285827`,

@@ -11,7 +11,7 @@ export type modelNames = ''|'au' | 'robert' | 'economist' | 'zitto' |
     |'stewart' | 'blomfield'|'jones'|
     'daly' |'gavin2'|'greenwood'|
     'mccarthy'|'rushanara2'|'stewart2'
-    |'hardy' |'loone';
+    | 'hardy' | 'loone' |'hamdy';
 
 export class StatementModel {
     readonly text: string;
