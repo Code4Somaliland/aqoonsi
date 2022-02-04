@@ -38,7 +38,7 @@ export const statementList: StatementModel[] = [
     new StatementModel({
         modelName: "au",
         text: `The fact that the "union between Somaliland and Somalia was never ratified" and
-						also malfunctioned when it went into went into action from 1960 to 1990, makes
+						also malfunctioned when it went into action from 1960 to 1990, makes
 						Somaliland's search for recognition historically unique and self-justified in African
 						political history`,
         url: `/assets/file/au-fact-finding.pdf`,
