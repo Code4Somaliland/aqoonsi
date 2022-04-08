@@ -10,37 +10,28 @@
 		<div class="wrap">
 			<h1><strong>Somaliland Recognition</strong></h1>
 			<h4>A portal for Somaliland advocates and friends</h4>
-							<p class="text-symbols">* * *</p>
+			<p class="text-symbols">* * *</p>
 
 			<p>
-				<a
-					class="button ghost"
-					href="/world"
-					title="Somaliland Supporters"
-					> Somaliland Supporters</a
+				<a class="button ghost" href="/fire" title="2022 Hargeisa Inferno">
+					2022 Hargeisa Inferno</a
 				>
-				
+				<a class="button ghost" href="/world" title="Somaliland Supporters">
+					Somaliland Supporters</a
+				>
+
 				<a
 					class="button ghost"
 					href="https://youtube.com/playlist?list=PLnzGXugYZ3HTh_wZW39TuEkN01S0BP4AA"
 					target="blank"
-					title="Somaliland Recognition Playlist"
-					>Somaliland Playlist</a
+					title="Somaliland Recognition Playlist">Somaliland Playlist</a
 				>
 
 				<a
 					class="button ghost"
-					href="/maps"
-					title="Somaliland maps"
-					> Somaliland Maps</a
-				>
-				
-								<a
-					class="button ghost"
 					href="https://www.somalilandprofile.com/"
 					target="_blank"
-					title="Country Profile"
-					>Country Profile</a
+					title="Country Profile">Country Profile</a
 				>
 			</p>
 		</div>

@@ -1,4 +1,4 @@
-export type modelNames = ''|'au' | 'robert' | 'economist' | 'zitto' |
+export type modelNames = ''|'world'|'au' | 'robert' | 'economist' | 'zitto' |
     'rubin' | 'bill' | 'taiwan' | 'frazer' |
     'raila' | 'tibor' | 'cannon' | 'iqbal' |
     'dpworld' | 'lindsay' | 'pham' | 'chris'|
@@ -11,8 +11,11 @@ export type modelNames = ''|'au' | 'robert' | 'economist' | 'zitto' |
     |'stewart' | 'blomfield'|'jones'|
     'daly' |'gavin2'|'greenwood'|
     'mccarthy'|'rushanara2'|'stewart2'
-    | 'hardy' | 'loone' |'hamdy';
-
+    | 'hardy' | 'loone' |'hamdy'
+    | 'fire' | 'fire/what' | 'fire/where'
+    | 'fire/donate' | 'fire/recognise' |'fire/what-arial'
+    | 'fire/what-satellite' | 'fire/what-1988' | 'fire/what-15h' 
+    | 'fire/what-morning' | 'fire/what-messages';
 export class StatementModel {
     readonly text: string;
     readonly url: string;
@@ -24,6 +27,7 @@ export class StatementModel {
     readonly subtitle: string;
     readonly modelName: modelNames;
     readonly country: string;
+    readonly page: string;
     constructor(init?: Partial<StatementModel>) {
         Object.assign(this, init);
     }
