@@ -13,9 +13,6 @@
 			<p class="text-symbols">* * *</p>
 
 			<p>
-				<a class="button ghost" href="/fire" title="2022 Hargeisa Inferno">
-					2022 Hargeisa Inferno</a
-				>
 				<a class="button ghost" href="/world" title="Somaliland Supporters">
 					Somaliland Supporters</a
 				>

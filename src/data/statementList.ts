@@ -1,10 +1,21 @@
 import { StatementModel } from '../Models/statementModel';
 export const statementList: StatementModel[] = [
     new StatementModel({
+        modelName: "hoover",
+        text: `The Kosovo Conditions And The Case For American Unilateral Recognition Of Somaliland: The United States should consult but not seek concurrence from the African Union on sovereign recognition of Somaliland. The decision should be treated as strictly a bilateral diplomatic move.`,
+        url: `https://www.hoover.org/research/kosovo-conditions-and-case-american-unilateral-recognition-somaliland`,
+        title: `Hoover Institution`,
+        subtitle: `Kosovo precedent can be applied to Somaliland`,
+        image: `/assets/img/forground/hoover.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
         modelName: "uk",
         text: ``,
         url: ``,
-        title: `UK Parliment`,
+        title: `UK Parliment Debate`,
         subtitle: `Conservative & Labour Party members`,
         image: `/assets/img/forground/uk.png`,
         imageStyle: `max-width: 50%;"`,
@@ -221,7 +232,7 @@ export const statementList: StatementModel[] = [
         imageStyle: `max-width: 50%;"`,
         country: `🇦🇪`,
         moreText: `Read more`
-    }),    
+    }),
     new StatementModel({
         modelName: "guled",
         text: `Somaliland; the most valuable real estate in the Horn of Africa right now- this country earned & reached the "Decision Point" to be recognized. Time to rethink to adapt Somaliland as recognized country just like #ClimateChange`,
