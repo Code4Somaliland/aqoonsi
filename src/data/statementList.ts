@@ -50,7 +50,7 @@ export const statementList: StatementModel[] = [
         url: `https://twitter.com/SenateForeign/status/1604552078466097152`,
         title: `Sen. Jim Risch`,
         subtitle: `Senate Foreign Relations Ranking Member`,
-        image: `/assets/img/forground/risch.jpg`,
+        image: `/assets/img/forground/risch1.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`,
         moreText: `Read more`
