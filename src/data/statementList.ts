@@ -45,14 +45,51 @@ export const statementList: StatementModel[] = [
         moreText: `Read more`
     }),
     new StatementModel({
+        modelName: "risch",
+        text: `I'm pleased to see the most important part of my #Somaliland legislation included in the FY2023 #NDAA. This will require the United States to explore all possible mutually-beneficial relationships with stable and democratic partners, including Somaliland.`,
+        url: `https://twitter.com/SenateForeign/status/1604552078466097152`,
+        title: `Sen. Jim Risch`,
+        subtitle: `Senate Foreign Relations Ranking Member`,
+        image: `/assets/img/forground/risch.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
+        modelName: "ndaa2023",
+        text: `NDAA 2023: determines whether opportunities exist for 
+                greater collaboration in the pursuit of United States 
+                national security interests in the Horn of Africa, the 
+                Gulf of Aden, and the Indo-Pacific region with the 
+                Federal Government of Somalia and Somaliland`,
+        url: `https://www.congress.gov/bill/117th-congress/house-bill/7776/text`,
+        title: `Somaliland Partnership in US law`,
+        subtitle: `US Law (NDAA 2023)`,
+        image: `/assets/img/forground/ndaa2023.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
         modelName: "wiechel",
         text: `Almost nine years have passed since I wrote my first motion on #Somaliland recognition in the Swedish Parliament. Back then, this issue was not discussed at all and hardly any politicians in parliament seemed to know about the situation. Today it’s completely different. Two political parties, the Sweden Democrats and the Christian Democrats are pushing for recognition`,
-        url: `https://bills.parliament.uk/bills/3485`,
+        url: `https://twitter.com/MarkusWiechel/status/1666714751450095617`,
         title: `Markus Wiechel`,
         subtitle: `Member of the Swedish Parliament`,
         image: `/assets/img/forground/wiechel.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇸🇪`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
+        modelName: "perry",
+        text: `The President is authorized to recognize Somaliland of the Federal Republic of Somalia as a separate, independent country, in accordance with subsection (a)`,
+        url: `https://www.congress.gov/bill/117th-congress/house-bill/7170/text?s=1&r=3&q=%7B%22search%22%3A%22Somaliland%22%7D`,
+        title: `Somaliland Independence Act`,
+        subtitle: `Bill by US Rep. Scott Perry`,
+        image: `/assets/img/forground/perry.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇺🇸`,
         moreText: `Read more`
     }),
     new StatementModel({
