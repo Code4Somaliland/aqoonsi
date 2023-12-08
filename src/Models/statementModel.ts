@@ -16,7 +16,7 @@ export type modelNames = '' | 'world' | 'au' | 'robert' | 'economist' | 'zitto' 
     | 'fire/donate' | 'fire/recognise' | 'fire/what-arial'
     | 'fire/what-satellite' | 'fire/what-1988' | 'fire/what-15h'
     | 'fire/what-morning' | 'fire/what-messages'
-    | 'hoover' | 'gavinbill' | 'wiechel' | 'kingi';
+    | 'hoover' | 'gavinbill' | 'wiechel' | 'kingi' | 'cadic';
 export class StatementModel {
     readonly text: string;
     readonly url: string;

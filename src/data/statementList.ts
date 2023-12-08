@@ -34,6 +34,17 @@ export const statementList: StatementModel[] = [
         moreText: `Read more`
     }),
     new StatementModel({
+        modelName: "cadic",
+        text: `Are we going to evolve on the question of official recognition of Somaliland to promote its development or are we going to continue to limit ourselves to relations with the regime of`,
+        url: `https://twitter.com/OlivierCadic/status/1668253565498843136`,
+        title: `Olivier Cadic`,
+        subtitle: `Senator of France`,
+        image: `/assets/img/forground/cadic.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇫🇷`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
         modelName: "wiechel",
         text: `Almost nine years have passed since I wrote my first motion on #Somaliland recognition in the Swedish Parliament. Back then, this issue was not discussed at all and hardly any politicians in parliament seemed to know about the situation. Today it’s completely different. Two political parties, the Sweden Democrats and the Christian Democrats are pushing for recognition`,
         url: `https://bills.parliament.uk/bills/3485`,
