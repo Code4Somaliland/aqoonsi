@@ -1,6 +1,17 @@
 import { StatementModel } from '../Models/statementModel';
 export const statementList: StatementModel[] = [
     new StatementModel({
+        modelName: "kingi",
+        text: `Kenya and the Republic of Somaliland enjoy ties that stretch back to days under British colonial rule, which bequeathed them almost similar systems and structures of governance at independence. `,
+        url: `https://twitter.com/cabdirashed/status/1732092975558086842`,
+        title: `Rt. Hon. Amason Kingi`,
+        subtitle: `Speaker of The Senate,  Republic of Kenya`,
+        image: `/assets/img/forground/kingi.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇰🇪`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
         modelName: "hoover",
         text: `The Kosovo Conditions And The Case For American Unilateral Recognition Of Somaliland: The United States should consult but not seek concurrence from the African Union on sovereign recognition of Somaliland. The decision should be treated as strictly a bilateral diplomatic move.`,
         url: `https://www.hoover.org/research/kosovo-conditions-and-case-american-unilateral-recognition-somaliland`,
@@ -9,6 +20,28 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/hoover.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
+        modelName: "gavinbill",
+        text: `...require His Majesty’s Government to recognise formally the Republic of Somaliland`,
+        url: `https://bills.parliament.uk/bills/3485`,
+        title: `UK-Somaliland Recognition Bill`,
+        subtitle: `UK House of Commons`,
+        image: `/assets/img/forground/gavin.jpeg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇬🇧`,
+        moreText: `Read more`
+    }),
+    new StatementModel({
+        modelName: "wiechel",
+        text: `Almost nine years have passed since I wrote my first motion on #Somaliland recognition in the Swedish Parliament. Back then, this issue was not discussed at all and hardly any politicians in parliament seemed to know about the situation. Today it’s completely different. Two political parties, the Sweden Democrats and the Christian Democrats are pushing for recognition`,
+        url: `https://bills.parliament.uk/bills/3485`,
+        title: `Markus Wiechel`,
+        subtitle: `Member of the Swedish Parliament`,
+        image: `/assets/img/forground/wiechel.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇸🇪`,
         moreText: `Read more`
     }),
     new StatementModel({
