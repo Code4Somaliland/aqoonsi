@@ -26,7 +26,7 @@
 
 				<a
 					class="button ghost"
-					href="/assets/file/country-profile.pdf"
+					href="https://somalilandchronicle.com/wp-content/uploads/2021/06/Country-GUIDE-March-2021.pdf"
 					target="_blank"
 					title="Country Profile">Country Profile</a
 				>
