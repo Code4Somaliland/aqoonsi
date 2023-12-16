@@ -240,7 +240,7 @@ export const statementList: StatementModel[] = [
         url: `https://twitter.com/Somaliland_Now/status/1394666704714747904`,
         title: `Tibor Nagy`,
         subtitle: `US A. Secretary of State for Africa`,
-        image: `/assets/img/forground/tibor.jpeg`,
+        image: `/assets/img/forground/tibor.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`
     }),
