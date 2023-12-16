@@ -30,6 +30,12 @@
 					target="_blank"
 					title="Country Profile">Country Profile</a
 				>
+				<a
+					class="button ghost"
+					href="https://chat.openai.com/g/g-isMWlBf9v-somaliland-gpt"
+					target="_blank"
+					title="Somaliland AI/GPT">Somaliland AI/GPT</a
+				>
 			</p>
 		</div>
 		<!-- .end .wrap -->
