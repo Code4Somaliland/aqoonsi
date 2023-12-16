@@ -26,7 +26,7 @@
 
 				<a
 					class="button ghost"
-					href="https://www.somalilandprofile.com/"
+					href="/assets/file/country-profile.pdf"
 					target="_blank"
 					title="Country Profile">Country Profile</a
 				>
