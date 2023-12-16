@@ -127,7 +127,7 @@ export const statementList: StatementModel[] = [
         subtitle: `2005 fact finding mission`,
         image: `/assets/img/forground/au.png`,
         imageStyle: `max-width: 50%;"`,
-        country: `🌍`
+        country: `🌎`
     }),
     new StatementModel({
         modelName: "heritage",
