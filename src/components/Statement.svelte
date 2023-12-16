@@ -46,7 +46,7 @@
 				</h6>
 			</a>
 			{#if nextModel}
-				<a href={nextModel} title={model.title}>
+				<a href="/{nextModel}" title={model.title}>
 					<h6>
 						Next
 						<svg class="fa-arrow-circle-right">
