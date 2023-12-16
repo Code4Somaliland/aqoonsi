@@ -8,20 +8,9 @@ export const statementList: StatementModel[] = [
         subtitle: `Conservative MP for South Staffordshire`,
         image: `/assets/img/forground/gavin.jpeg`,
         imageStyle: `max-width: 50%;"`,
-        country:`🇬🇧`,
-        moreText: `Watch more`
+        country: `🇬🇧`,
+        list: 'uk'
     }),
-    // new StatementModel({
-    //     modelName: "gavin",
-    //     text: `We will fight with heart and passion in order to put the arguments for recognition of Somaliland`,
-    //     url: `https://twitter.com/Gobannimo/status/1464132572951240722`,
-    //     title: `Gavin Williamson`,
-    //     subtitle: `Conservative Member of UK's Parliament`,
-    //     image: `/assets/img/forground/gavin.jpeg`,
-    //     imageStyle: `max-width: 50%;"`,
-    //     country: `🇬🇧`,
-    //    moreText: `Watch more`
-    // }),
     new StatementModel({
         modelName: "rushanara",
         text: `It (Somaliland) has built up its own independent Government, its own currency and democratic elections. It has shown the capability to establish a state. Is it not time that the UK Government formally recognise its right to self-determination and its need to be an independent state?`,
@@ -31,7 +20,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/rushanara.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "tugendhat",
@@ -42,7 +31,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/tugendhat.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "mitchell",
@@ -53,7 +42,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/mitchell.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "alec",
@@ -64,7 +53,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/alec.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "buckland",
@@ -75,7 +64,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/buckland.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "johnson",
@@ -86,7 +75,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/johnson.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "gardiner",
@@ -97,7 +86,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/gardiner.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "betts",
@@ -108,7 +97,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/betts.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "anderson",
@@ -119,7 +108,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/anderson.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "spellar",
@@ -130,7 +119,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/spellar.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "cairns",
@@ -141,7 +130,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/cairns.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "stewart",
@@ -152,7 +141,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/stewart.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "blomfield",
@@ -163,7 +152,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/blomfield.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "jones",
@@ -174,7 +163,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/jones.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "daly",
@@ -185,19 +174,19 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/daly.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "greenwood",
         text: `Does he agree that Somaliland stands as a beacon of hope and shows what can be achieved where there is democracy, and that that is part of the reason why the UK Government should officially recognise it for the work that it does and the leadership it can offer within Africa?`,
         url: `https://youtu.be/YW2TMP0ziXQ?t=2381`,
-        url2:`https://hansard.parliament.uk//commons/2022-01-18/debates/8DBF2CDF-6DDF-4E0A-A2C6-9D677628EBFB/UKGovernmentRecognitionOfSomaliland#contribution-696EC423-38BA-4029-969D-0ACFB45C2C6D`,
+        url2: `https://hansard.parliament.uk//commons/2022-01-18/debates/8DBF2CDF-6DDF-4E0A-A2C6-9D677628EBFB/UKGovernmentRecognitionOfSomaliland#contribution-696EC423-38BA-4029-969D-0ACFB45C2C6D`,
         title: `Lilian Greenwood`,
         subtitle: `Labour MP for Nottingham South`,
         image: `/assets/img/forground/greenwood.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "mccarthy",
@@ -209,7 +198,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/mccarthy.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "rushanara2",
@@ -221,7 +210,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/rushanara.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "stewart2",
@@ -233,7 +222,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/stewart.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "doughty",
@@ -244,7 +233,7 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/doughty.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Watch more`
+        list: 'uk'
     }),
     new StatementModel({
         modelName: "hardy",
@@ -255,6 +244,15 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/hardy.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇬🇧`,
-        moreText: `Read more`
+        list: 'uk'
+    }),
+    new StatementModel({
+        modelName: "world",
+        title: `World List`,
+        subtitle: `Back to world list`,
+        image: `/assets/img/forground/world.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🌍`,
+        list: 'uk'
     })
 ]

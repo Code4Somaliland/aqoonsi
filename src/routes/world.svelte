@@ -1,6 +1,12 @@
 <script>
+	import { modelNamesArray } from '../Models/statementModel';
 	import StatementItem from '../components/StatementItem.svelte';
 	import { statementList } from '../data/statementList';
+	const statementList1 = statementList.sort((a, b) => {
+		const indexA = modelNamesArray.indexOf(a.modelName);
+		const indexB = modelNamesArray.indexOf(b.modelName);
+		return indexA > indexB ? 1 : indexA < indexB ? -1 : 0;
+	});
 </script>
 
 <svelte:head>
@@ -12,7 +18,7 @@
 		<div class="wrap">
 			<h3>Somaliland Supporters</h3>
 			<ul class="flexblock gallery">
-				{#each statementList as model}
+				{#each statementList1 as model}
 					<StatementItem {model} />
 				{/each}
 			</ul>
