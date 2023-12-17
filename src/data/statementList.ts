@@ -145,7 +145,7 @@ export const statementList: StatementModel[] = [
         url: `https://www.economist.com/leaders/2021/05/08/somaliland-deserves-international-recognition`,
         title: `The Economist`,
         subtitle: `May 2021 Edition`,
-        image: `/assets/img/forground/the-economist.png`,
+        image: `/assets/img/forground/the-economist_2.png`,
         imageStyle: `max-width: 50%;"`,
         country: `🌎`
     }),

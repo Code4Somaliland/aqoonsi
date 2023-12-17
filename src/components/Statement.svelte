@@ -22,7 +22,46 @@
 	</div>
 </header>
 <svelte:head>
-	<title>{model.title}</title>
+	<title>{model.title} supports Somaliland</title>
+	<meta name="description" content={model.text} />
+
+	<!-- URL CANONICAL -->
+	<link rel="canonical" href="https://SomalilandRecognition.com/{model.modelName}" />
+
+	<!-- FACEBOOK -->
+	<meta property="og:url" content="https://SomalilandRecognition.com/{model.modelName}" />
+	<!-- YOUR URL -->
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{model.title} supports Somaliland" />
+	<!-- EDIT -->
+	<meta property="og:description" content={model.text} />
+	<!-- EDIT -->
+	<meta property="og:updated_time" content="2023-12-17T00:20:50" />
+	<!-- EDIT -->
+	<meta property="og:image" content={model.image} />
+	<!-- EDIT -->
+
+	<!-- TWITTER -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="https://SomalilandRecognition.com/{model.modelName}" />
+	<!-- EDIT -->
+	<meta name="twitter:creator" content="@haadka" />
+	<!-- EDIT -->
+	<meta name="twitter:title" content="{model.title} supports Somaliland" />
+	<!-- EDIT -->
+	<meta name="twitter:description" content={model.text} />
+	<!-- EDIT -->
+	<meta name="twitter:image" content={model.image} />
+	<!-- EDIT -->
+
+	<!-- FAVICONS -->
+	<link rel="shortcut icon" sizes="16x16" href="/favicon.ico" />
+	<link rel="shortcut icon" sizes="32x32" href="/favicon.ico" />
+	<link rel="apple-touch-icon icon" sizes="76x76" href="/favicon.ico" />
+	<link rel="apple-touch-icon icon" sizes="120x120" href="/favicon.ico" />
+	<link rel="apple-touch-icon icon" sizes="152x152" href="/favicon.ico" />
+	<link rel="apple-touch-icon icon" sizes="180x180" href="/favicon.ico" />
+	<link rel="apple-touch-icon icon" sizes="192x192" href="/favicon.ico" />
 </svelte:head>
 {#if visible}
 	<div transition:slide class="bg-secondary" style="background-image: url('{model.image}')" />

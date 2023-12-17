@@ -81,7 +81,7 @@
 						<a
 							href="https://www.economist.com/leaders/2021/05/08/somaliland-deserves-international-recognition"
 						>
-							<img src="assets/img/forground/the-economist.png" alt="the-economist" />
+							<img src="assets/img/forground/the-economist_2.png" alt="the-economist_2" />
 						</a>
 					</div>
 				</div>
