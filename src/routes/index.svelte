@@ -7,7 +7,14 @@
 		</div>
 		<!-- .end .embed -->
 		<!-- .wrap = container (width: 90%) -->
+
 		<div class="wrap">
+			<img
+				src="/assets/img/logos/logo.png"
+				alt="our logo"
+				style="display: block; margin: auto;max-height:100px"
+			/>
+
 			<h1><strong>Somaliland Recognition</strong></h1>
 			<h4>A portal for Somaliland advocates and friends</h4>
 			<p class="text-symbols">* * *</p>
