@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { StatementModel } from 'src/Models/statementModel';
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import { slide, blur, fade } from 'svelte/transition';
 	let visible = true;
 	export let model: StatementModel;
 	const nextModel = model.getNextModelName(model.modelName);
 	onMount(() => {
-		setTimeout(() => (visible = false), 1350);
+		setTimeout(() => (visible = false), 750);
 	});
 </script>
 
@@ -64,7 +64,7 @@
 	<link rel="apple-touch-icon icon" sizes="192x192" href="/favicon.ico" />
 </svelte:head>
 {#if visible}
-	<div transition:slide class="bg-secondary" style="background-image: url('{model.image}')" />
+	<div transition:blur class="bg-secondary" style="background-image: url('{model.image}')" />
 {/if}
 <section>
 	<div class="wrap">
@@ -88,8 +88,8 @@
 				<a href="/{nextModel}" title={model.title}>
 					<h6>
 						Next
-						<svg class="fa-arrow-circle-right">
-							<use xlink:href="#fa-arrow-circle-right" />
+						<svg class="fa-camera">
+							<use xlink:href="#fa-camera" />
 						</svg>
 					</h6>
 				</a>
