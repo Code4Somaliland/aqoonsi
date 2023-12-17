@@ -39,9 +39,9 @@
 				>
 				<a
 					class="button ghost"
-					href="https://chat.openai.com/g/g-isMWlBf9v-somaliland-gpt"
+					href="https://chat.openai.com/g/g-Ioqe8hdJ9-somaliland-recognition"
 					target="_blank"
-					title="Somaliland AI/GPT">Somaliland AI/GPT</a
+					title="Somaliland Recognition AI/GPT">Somaliland Recognition AI/GPT</a
 				>
 			</p>
 		</div>
