@@ -13,9 +13,9 @@ export const statementList: StatementModel[] = [
     new StatementModel({
         modelName: "hoover",
         text: `The Kosovo Conditions And The Case For American Unilateral Recognition Of Somaliland: The United States should consult but not seek concurrence from the African Union on sovereign recognition of Somaliland. The decision should be treated as strictly a bilateral diplomatic move.`,
-        url: `https://www.hoover.org/research/kosovo-conditions-and-case-american-unilateral-recognition-somaliland`,
+        url: `/assets/file/kosovo-conditions.pdf`,
         title: `Hoover Institution`,
-        subtitle: `Kosovo precedent can be applied to Somaliland`,
+        subtitle: `Somaliland meets Four Kosovo conditions`,
         image: `/assets/img/forground/hoover.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`
@@ -58,7 +58,7 @@ export const statementList: StatementModel[] = [
                 Gulf of Aden, and the Indo-Pacific region with the 
                 Federal Government of Somalia and Somaliland`,
         url: `https://www.congress.gov/bill/117th-congress/house-bill/7776/text`,
-        title: `Somaliland Partnership in US law`,
+        title: `Somaliland in US law`,
         subtitle: `US Law (NDAA 2023)`,
         image: `/assets/img/forground/ndaa2023.jpg`,
         imageStyle: `max-width: 50%;"`,
@@ -154,7 +154,7 @@ export const statementList: StatementModel[] = [
         text: `Will Egypt, with the Arab countries behind it, lead the campaign to defend the Egyptian and Arab strategic depth by supporting the aspirations of the people of Somaliland before it is too late?`,
         url: `https://masr.masr360.net/%d9%88%d8%ac%d9%87%d8%a7%d8%aa-%d9%86%d8%b8%d8%b1/%d8%b5%d9%88%d9%85%d8%a7%d9%84%d9%8a%d9%84%d8%a7%d9%86%d8%af-%d9%88%d8%a7%d9%84%d8%ac%d8%a7%d8%a6%d8%b2%d8%a9-%d8%a7%d9%84%d9%83%d8%a8%d8%b1%d9%89/`,
         title: `Dr.Hamdy A.Hassan`,
-        subtitle: `Professor of Political Science @ Cairo University`,
+        subtitle: `Political Science @ Cairo University`,
         image: `/assets/img/forground/hamdy.png`,
         imageStyle: `max-width: 32%;"`,
         country: `🇪🇬`,
@@ -235,9 +235,8 @@ export const statementList: StatementModel[] = [
     }),
     new StatementModel({
         modelName: "tibor",
-        text: `The US should definitely look at a formal relationship with Somaliland because it's
-					a state that works`,
-        url: `https://twitter.com/Somaliland_Now/status/1394666704714747904`,
+        text: `Washington is partly hampered by incorporating the fiction that Somaliland is functionally part of Somalia into its policies. It is time for a pragmatic American approach that correctly calculates U.S. interests, starting with working to ease the tensions around the proposed Ethiopia-Somaliland port deal`,
+        url: `https://nationalinterest.org/feature/east-african-port-deal-world-should-applaud-210010`,
         title: `Tibor Nagy`,
         subtitle: `US A. Secretary of State for Africa`,
         image: `/assets/img/forground/tibor.jpg`,
@@ -260,7 +259,7 @@ export const statementList: StatementModel[] = [
         text: `In view of the history, the African Union should recognize Somaliland as an independent state`,
         url: `https://twitter.com/CohenOnAfrica/status/1449095395473231878`,
         title: `Herman J. Cohen`,
-        subtitle: `Former US Ambassador & Asst. Secretary of State.`,
+        subtitle: `US A. Secretary of State for Africa`,
         image: `/assets/img/forground/cohen.jpeg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`
@@ -300,9 +299,8 @@ export const statementList: StatementModel[] = [
     }),
     new StatementModel({
         modelName: "pham",
-        text: `What you've done largely on your own since 18 May 1991 - including democratic
-							presidential, legislative & municipal elections - deserves recognition.`,
-        url: `https://mobile.twitter.com/DrJPPham/status/1394487598840700929`,
+        text: `Why the current administration is so stubbornly bent on propping up a sclerotic, untrustworthy regime in Somalia with little legitimacy and even less effectiveness. Better relations with Ethiopia and Somaliland would contribute to regional security and prosperity.`,
+        url: `https://nationalinterest.org/feature/washington%E2%80%99s-%E2%80%9Cone-somalia%E2%80%9D-delusion-210151`,
         title: `Dr. J. Peter Pham`,
         subtitle: `Special Envoy for the Sahel Region`,
         image: `/assets/img/forground/peterpham.jpeg`,
@@ -318,5 +316,25 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/schwartz.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇺🇸`
-    })
+    }),
+    new StatementModel({
+        modelName: "olawunmi",
+        text: `I don't see why Somaliland should not be recognised by the AU or by the United Nations. If you look at Somaliland today, they're better positioned to claim sovereignty`,
+        url: `https://youtu.be/FWpcOxil1o8?t=391`,
+        title: `COMM. Adekunle Olawunmi`,
+        subtitle: `Veteran, military diplomat & academic`,
+        image: `/assets/img/forground/olawunmi.png`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇳🇬`
+    }),
+    new StatementModel({
+        modelName: "mou",
+        text: `MoU reportedly includes a provision stating Ethiopia would recognize Somaliland as an independent state in the future, which would make it the first UN member state to do so.`,
+        url: `https://en.wikipedia.org/wiki/2024_Ethiopia%E2%80%93Somaliland_memorandum_of_understanding`,
+        title: `Ethiopia - Somaliland 2024 MoU`,
+        subtitle: `Deal with the Republic of Somaliland`,
+        image: `/assets/img/forground/mou.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇪🇹`
+    }),
 ]
