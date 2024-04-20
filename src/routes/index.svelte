@@ -37,12 +37,6 @@
 					target="_blank"
 					title="Country Profile">Country Profile</a
 				>
-				<a
-					class="button ghost"
-					href="https://chat.openai.com/g/g-Ioqe8hdJ9-somaliland-recognition"
-					target="_blank"
-					title="Somaliland Recognition AI/GPT">Somaliland Recognition AI/GPT</a
-				>
 			</p>
 		</div>
 		<!-- .end .wrap -->
