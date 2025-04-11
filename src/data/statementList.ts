@@ -328,7 +328,7 @@ export const statementList: StatementModel[] = [
         country: `🇳🇬`
     }),
     new StatementModel({
-        modelName: "mou",
+        modelName: "mou-jan",
         text: `MoU reportedly includes a provision stating Ethiopia would recognize Somaliland as an independent state in the future, which would make it the first UN member state to do so.`,
         url: `https://en.wikipedia.org/wiki/2024_Ethiopia%E2%80%93Somaliland_memorandum_of_understanding`,
         title: `Ethiopia - Somaliland 2024 MoU`,
@@ -336,5 +336,25 @@ export const statementList: StatementModel[] = [
         image: `/assets/img/forground/mou.jpg`,
         imageStyle: `max-width: 50%;"`,
         country: `🇪🇹`
+    }),
+    new StatementModel({
+        modelName: "obadare",
+        text: `You could at least argue that the AU is being inconsistent. They’re essentially continuing the legacy of the Organization of African Unity, which, in 1963, decided to respect colonial borders. Yet, in the case of Somaliland, everyone is simply saying, 'We’re going to maintain the status quo.'`,
+        url: `https://youtu.be/tpn0oybImD4?t=638`,
+        title: `Dr. Ebenezer Obadare`,
+        subtitle: `Douglas Dillon Senior Fellow for Africa Studies`,
+        image: `/assets/img/forground/obadare.png`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇳🇬`
+    }),
+    new StatementModel({
+        modelName: "terdiman",
+        text: `I hope Somaliland gains recognition, as it is, alongside Djibouti, one of the most stable countries in the Horn of Africa. There is no terrorism in Somaliland—no al-Shabaab, no ISIS, nothing. It’s a very secure country, setting a strong example for other African nations.`,
+        url: `https://youtu.be/tpn0oybImD4?t=1259`,
+        title: `Dr. Moshe Terdiman`,
+        subtitle: `Research Fellow, Israel-Africa Relations Institute`,
+        image: `/assets/img/forground/terdiman.jpg`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇮🇱`
     }),
 ]
