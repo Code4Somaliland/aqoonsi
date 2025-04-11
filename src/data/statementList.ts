@@ -328,7 +328,7 @@ export const statementList: StatementModel[] = [
         country: `🇳🇬`
     }),
     new StatementModel({
-        modelName: "mou-jan",
+        modelName: "mou",
         text: `MoU reportedly includes a provision stating Ethiopia would recognize Somaliland as an independent state in the future, which would make it the first UN member state to do so.`,
         url: `https://en.wikipedia.org/wiki/2024_Ethiopia%E2%80%93Somaliland_memorandum_of_understanding`,
         title: `Ethiopia - Somaliland 2024 MoU`,
