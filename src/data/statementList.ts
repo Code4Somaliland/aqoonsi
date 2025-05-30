@@ -203,6 +203,16 @@ export const statementList: StatementModel[] = [
         country: `🇺🇸`
     }),
     new StatementModel({
+        modelName: 'veit',
+        title: 'Veit Dengler',
+        subtitle: 'Member of the Austrian 🇦🇹 Parliament',
+        text: `One of Africa's success stories is Somaliland - yet, it is not getting the support it deserves, starting with recognition`,
+        image: '/assets/img/forground/veit.jpg',
+        url: 'https://x.com/veitdengler/status/1927456830445277440',
+        country: '🇦🇹',
+        list: 'Read more on X'
+    }),
+    new StatementModel({
         modelName: "taiwan",
         text: `Somaliland and Taiwan are bonded by shared democratic values and freedoms`,
         url: `https://english.president.gov.tw/News/6052`,
