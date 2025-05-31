@@ -184,6 +184,17 @@
             fill: #2F4F2F;
         }
 
+        /* Somalia-specific text colors - black dates and blue text matching dot color */
+        .event-date.somalia {
+            fill: #000000;
+            /* Black for Somalia dates */
+        }
+
+        .event-title.somalia {
+            fill: #0066CC;
+            /* Blue matching Somalia dot color */
+        }
+
         .section-header {
             font-size: 24px;
             font-weight: 700;
@@ -1555,7 +1566,7 @@
 
                 // Date with better positioning
                 const dateText = textGroup.append("text")
-                    .attr("class", "event-date")
+                    .attr("class", `event-date ${event.country}`)
                     .attr("x", cardX + padding)
                     .attr("y", event.y - 18)
                     .attr("fill", "#C8102E")
@@ -1576,7 +1587,7 @@
                 if (isMobile) {
                     // On mobile, use multiline text wrapping instead of truncation
                     const titleElement = textGroup.append("text")
-                        .attr("class", "event-title")
+                        .attr("class", `event-title ${event.country}`)
                         .attr("x", cardX + padding)
                         .attr("y", event.y - 2)
                         .attr("fill", "#8B0000")
@@ -1597,7 +1608,7 @@
                     const truncatedTitle = this.truncateText(titleText, textWidth, titleSize);
 
                     const titleElement = textGroup.append("text")
-                        .attr("class", "event-title")
+                        .attr("class", `event-title ${event.country}`)
                         .attr("x", cardX + padding)
                         .attr("y", event.y - 2)
                         .attr("fill", "#8B0000")
