@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timeline - Somaliland Recognition</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/webslides.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/svg-icons.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <style>
+        /* D3.js Timeline Styles */
+        .timeline-container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(#000, rgba(0, 0, 0, 0)), url(/assets/img/timeline/lasgeel.webp);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .timeline-subtitle {
+            font-size: 2.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .legend-dot.somalia {
+            background-color: #0066CC;
+        }
+
+        .legend-dot.somaliland {
+            background-color: #C8102E;
+        }
+
+        .legend-text {
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        /* SVG Timeline Styles */
+        .timeline-svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        /* Section styles for different historical periods - Somaliland flag colors only */
+        .muslim-empires { fill: #FFED4E; }
+        .protectorate { fill: #DC143C; }
+        .independence { fill: #228B22; }
+        .defacto-union { fill: #A0522D; }
+        .restoration { fill: #B22222; }
+        .democracy { fill: #f8f8ff; }
+
+        /* Period background sections */
+        .period-background {
+            opacity: 0.5;
+        }
+
+        .period-text {
+            font-size: 82px;
+            font-weight: 900;
+            opacity: 0.6;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+
+        .period-emoji {
+            font-size: 64px;
+            text-anchor: middle;
+            opacity: 0.7;
+        }
+
+        /* Timeline line */
+        .timeline-line {
+            stroke: #ffffff;
+            stroke-width: 4;
+            fill: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* Timeline dots with updated colors */
+        .timeline-dot.somalia {
+            fill: #0066CC;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+        }
+
+        .timeline-dot.somaliland {
+            fill: #C8102E;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+        }
+
+        /* Event cards with enhanced contrast */
+        .event-card {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        .event-card rect {
+            fill: rgba(255, 255, 255, 0.98);
+            rx: 8;
+        }
+
+        /* Connector lines with better visibility */
+        .connector-line {
+            stroke: #ffffff;
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.9;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+        }
+
+        /* Text styles with Somaliland flag colors - Enhanced for desktop */
+        .event-date {
+            font-size: 22px;
+            font-weight: 600;
+            fill: #C8102E;
+        }
+
+        .event-title {
+            font-size: 26px;
+            font-weight: 700;
+            fill: #8B0000;
+        }
+
+        .event-description {
+            font-size: 20px;
+            fill: #2F4F2F;
+        }
+
+        .section-header {
+            font-size: 24px;
+            font-weight: 700;
+            fill: #ffffff;
+            text-anchor: middle;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(248, 249, 250, 0.95)), url('/assets/img/timeline/lasgeel.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 3% auto;
+            padding: 30px;
+            border: none;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Event image container - centered above content */
+        .modal-event-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .modal-event-image.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive image sizing */
+        @media (max-width: 768px) {
+            .modal-event-image {
+                max-width: 100%;
+                max-height: 220px;
+                margin: 15px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-event-image {
+                max-height: 180px;
+                margin: 10px auto;
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            line-height: 1.2;
+            max-width: 70%;
+        }
+
+        .modal-year {
+            font-size: 1.4rem;
+            color: #C8102E;
+            font-weight: 500;
+            background: rgba(200, 16, 46, 0.1);
+            padding: 3px 10px;
+            border-radius: 15px;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            padding: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #C8102E;
+        }
+
+        .modal-body {
+            color: #000;
+            line-height: 1.6;
+            font-size: 1.8rem;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Desktop modal body font size increase */
+        @media (min-width: 1024px) {
+            .modal-details {
+                font-size: 2.6rem;
+            }
+        }
+
+        .modal-description {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 500;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+        }
+
+        .modal-details {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+        }
+
+        .modal-source {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #C8102E;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-source-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.2rem;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+        }
+
+        .modal-source-link {
+            color: #C8102E;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .modal-source-link:hover {
+            color: #8B0000;
+            text-decoration: underline;
+        }
+
+        .country-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .country-badge.somalia {
+            background: rgba(0, 102, 204, 0.1);
+            color: #0066CC;
+            border: 1px solid rgba(0, 102, 204, 0.3);
+        }
+
+        .country-badge.somaliland {
+            background: rgba(200, 16, 46, 0.1);
+            color: #C8102E;
+            border: 1px solid rgba(200, 16, 46, 0.3);
+        }
+
+        /* Mobile modal styles */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 2% auto;
+                width: 95%;
+                max-width: none;
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 3.0rem;
+                line-height: 1.2;
+            }
+
+            .modal-year {
+                font-size: 2.0rem;
+                padding: 6px 16px;
+            }
+
+            .close {
+                font-size: 40px;
+            }
+
+            .modal-body {
+                font-size: 1.9rem;
+            }
+
+            .modal-description {
+                font-size: 1.8rem;
+            }
+
+            .modal-details {
+                font-size: 1.9rem;
+            }
+
+            .modal-source-title {
+                font-size: 1.8rem;
+            }
+
+            .modal-source-link {
+                font-size: 1.5rem;
+            }
+
+            .country-badge {
+                font-size: 1.5rem;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                margin: 1% auto;
+                width: 98%;
+                padding: 15px;
+            }
+
+            .modal-title {
+                font-size: 2.6rem;
+                line-height: 1.1;
+            }
+
+            .modal-year {
+                font-size: 1.8rem;
+                padding: 5px 12px;
+            }
+
+            .close {
+                font-size: 36px;
+            }
+
+            .modal-body {
+                font-size: 1.8rem;
+            }
+
+            .modal-description {
+                font-size: 1.7rem;
+            }
+
+            .modal-details {
+                font-size: 1.4rem;
+            }
+
+            .modal-source-title {
+                font-size: 1.4rem;
+            }
+
+            .modal-source-link {
+                font-size: 1.4rem;
+            }
+
+            .country-badge {
+                font-size: 1.4rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .timeline-container {
+                padding: 10px;
+                overflow-x: hidden;
+            }
+
+            .timeline-title {
+                font-size: 2.4rem;
+                line-height: 1.2;
+                margin-bottom: 0.8rem;
+            }
+
+            .timeline-subtitle {
+                font-size: 1.8rem;
+                padding: 0 10px;
+                margin-bottom: 1rem;
+            }
+
+            .legend {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            .legend-text {
+                font-size: 18px;
+            }
+            
+            .event-title {
+                font-size: 16px !important;
+            }
+            
+            .event-description {
+                font-size: 14px !important;
+            }
+
+            .event-date {
+                font-size: 16px !important;
+            }
+
+            /* Improve event card visibility on mobile with better shadows */
+            .event-card rect {
+                filter: drop-shadow(0 3px 8px rgba(0,0,0,0.35));
+                fill: rgba(255, 255, 255, 0.99);
+            }
+
+            /* Make period text smaller on mobile */
+            .period-text {
+                font-size: 24px !important;
+                opacity: 0.1 !important;
+            }
+
+            .period-emoji {
+                font-size: 48px !important;
+                opacity: 0.15 !important;
+            }
+
+            /* Better connector lines on mobile with enhanced visibility */
+            .connector-line {
+                stroke: #ffffff;
+                opacity: 0.8;
+                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+            }
+
+            /* Timeline dots responsive */
+            .timeline-dot {
+                filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline-container {
+                padding: 5px;
+                overflow-x: hidden;
+            }
+
+            .timeline-title {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                padding: 0 5px;
+            }
+
+            .timeline-subtitle {
+                font-size: 1.6rem;
+                margin-bottom: 0.5rem;
+                padding: 0 5px;
+                line-height: 1.3;
+            }
+
+            .timeline-header {
+                margin-bottom: 20px;
+            }
+
+            .legend-dot {
+                width: 12px;
+                height: 12px;
+                border: 2px solid white;
+            }
+
+            .legend-text {
+                font-size: 16px;
+            }
+
+            .event-title {
+                font-size: 14px !important;
+                line-height: 1.2;
+            }
+            
+            .event-description {
+                font-size: 12px !important;
+                line-height: 1.3;
+            }
+
+            .event-date {
+                font-size: 14px !important;
+            }
+
+            /* Ensure text stays within bounds */
+            .event-card text {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Reduce visual noise on very small screens */
+            .period-text {
+                font-size: 16px !important;
+                opacity: 0.05 !important;
+            }
+
+            .period-emoji {
+                font-size: 30px !important;
+                opacity: 0.08 !important;
+            }
+
+            /* Optimize timeline line for small screens with better visibility */
+            .timeline-line {
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+            }
+
+            .connector-line {
+                opacity: 0.7;
+                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            }
+        }
+
+        /* Prevent horizontal scrolling on all screen sizes */
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .timeline-svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <a href="/" style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 8px; backdrop-filter: blur(10px);">
+            <svg class="fa-bars" width="24" height="24">
+                <use xlink:href="#fa-bars" />
+            </svg>
+        </a>
+    </header>
+
+    <div class="timeline-container">
+        <div class="timeline-header">
+            <h1 class="timeline-title">The Somaliland - Somalia  Timeline</h1>
+            <p class="timeline-subtitle">700 Years of distinct histories</p>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot somalia"></div>
+                    <span class="legend-text">Somalia</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot somaliland"></div>
+                    <span class="legend-text">Somaliland</span>
+                </div>
+            </div>
+        </div>
+        <svg id="timeline-svg" class="timeline-svg"></svg>
+    </div>
+
+    <!-- Modal for event details -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; flex: 1;">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-year" id="modalYear"></div>
+                </div>
+                <span class="close" id="modalClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="country-badge" id="modalCountry"></div>
+                <div class="modal-description" id="modalDescription"></div>
+                <img id="modalEventImage" class="modal-event-image" style="display: none;" />
+                <div class="modal-details" id="modalDetails"></div>
+                <div class="modal-source" id="modalSource">
+                    <span class="modal-source-title">Source:</span>
+                    <a href="#" class="modal-source-link" id="modalSourceLink" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/svg-icons.js"></script>
+    
+    <script>
+        // D3.js Unified Timeline Implementation
+        class D3UnifiedTimeline {
+            constructor() {
+                this.width = window.innerWidth - 40;
+                this.height = 0; // Will be calculated based on events
+                this.margin = { top: 100, right: 100, bottom: 100, left: 100 };
+                this.centerX = this.width / 2;
+                this.eventSpacing = 120; // Minimum spacing between events
+                this.cardWidth = 300;
+                this.cardHeight = 95; // Increased for larger text
+                
+                // Mobile responsive adjustments
+                if (window.innerWidth <= 768) {
+                    this.margin = { top: 60, right: 20, bottom: 60, left: 20 };
+                    this.cardWidth = Math.min(250, window.innerWidth - 120);
+                    this.cardHeight = 70;
+                    this.eventSpacing = 100;
+                }
+                
+                if (window.innerWidth <= 480) {
+                    this.margin = { top: 40, right: 10, bottom: 40, left: 10 };
+                    this.cardWidth = Math.min(200, window.innerWidth - 80);
+                    this.cardHeight = 60;
+                    this.eventSpacing = 80;
+                }
+                
+                this.timelineData = this.prepareUnifiedData();
+                this.calculateLayout();
+                this.initializeSVG();
+                this.render();
+                this.setupModal();
+            }
+
+            setupModal() {
+                const modal = document.getElementById('eventModal');
+                const closeBtn = document.getElementById('modalClose');
+                
+                // Close modal when clicking close button
+                closeBtn.onclick = () => {
+                    modal.style.display = 'none';
+                };
+                
+                // Close modal when clicking outside
+                window.onclick = (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                };
+                
+                // Close modal with ESC key
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+
+            showEventModal(eventData) {
+                const modal = document.getElementById('eventModal');
+                const modalContent = modal.querySelector('.modal-content');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalYear = document.getElementById('modalYear');
+                const modalCountry = document.getElementById('modalCountry');
+                const modalDescription = document.getElementById('modalDescription');
+                const modalDetails = document.getElementById('modalDetails');
+                const modalSourceLink = document.getElementById('modalSourceLink');
+                const modalSource = document.getElementById('modalSource');
+                const modalEventImage = document.getElementById('modalEventImage');
+                
+                // Get detailed information for the event
+                const detailedInfo = this.getEventDetails(eventData);
+                
+                modalTitle.textContent = eventData.title;
+                modalYear.textContent = this.formatYear(eventData.year);
+                modalCountry.textContent = eventData.country === 'somalia' ? 'Somalia' : eventData.country === 'somaliland' ? 'Somaliland' : 'Timeline';
+                modalCountry.className = `country-badge ${eventData.country}`;
+                modalDescription.textContent = eventData.description;
+                modalDetails.innerHTML = detailedInfo.details;
+                modalSourceLink.textContent = detailedInfo.sourceTitle;
+                modalSourceLink.href = detailedInfo.sourceUrl;
+                
+                // Set event image
+                this.setModalEventImage(modalEventImage, eventData.id);
+                
+                // Hide source section for Somalia events
+                if (eventData.country === 'somalia') {
+                    modalSource.style.display = 'none';
+                } else {
+                    modalSource.style.display = 'block';
+                }
+                
+                modal.style.display = 'block';
+            }
+
+            setModalEventImage(imageElement, eventId) {
+                const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
+                let imageFound = false;
+                
+                // Reset image first
+                imageElement.style.display = 'none';
+                imageElement.classList.remove('loaded');
+                imageElement.src = '';
+                
+                // Function to try loading an image with a specific extension
+                const tryLoadImage = (index) => {
+                    if (index >= imageExtensions.length || imageFound) {
+                        return;
+                    }
+                    
+                    const ext = imageExtensions[index];
+                    const imagePath = `/assets/img/timeline/${eventId}${ext}`;
+                    const img = new Image();
+                    
+                    img.onload = () => {
+                        if (!imageFound) {
+                            imageElement.src = imagePath;
+                            imageElement.style.display = 'block';
+                            // Add a small delay for smooth animation
+                            setTimeout(() => {
+                                imageElement.classList.add('loaded');
+                            }, 50);
+                            imageFound = true;
+                        }
+                    };
+                    
+                    img.onerror = () => {
+                        // Try next extension
+                        tryLoadImage(index + 1);
+                    };
+                    
+                    img.src = imagePath;
+                };
+                
+                // Start trying with the first extension
+                tryLoadImage(0);
+            }
+
+            getEventDetails(event) {
+                const eventDetails = {
+                    // Somaliland Events - Using GUID as key
+                    '11223344-5566-4778-1122-334455667788': {
+                        details: `The Ifat Sultanate (1285-1415) was one of the earliest Islamic states in the Horn of Africa, with its capital at Zeila in present-day Somaliland. This powerful sultanate controlled important trade routes along the Red Sea and Gulf of Aden, establishing Zeila as a major commercial center connecting Africa with Arabia and beyond. The Ifat Sultanate laid the foundation for Somaliland's rich Islamic heritage and maritime trading tradition.`,
+                        sourceTitle: 'Encyclopedia Britannica - Ifat Sultanate',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Sultanate_of_Ifat'
+                    },
+                    '22334455-6677-4889-2233-445566778899': {
+                        details: `The Adal Sultanate (1415-1577) emerged as the successor to Ifat, becoming one of the most powerful Islamic states in the Horn of Africa. Centered in Zeila, Adal controlled vast territories including most of present-day Somaliland, eastern Ethiopia, and parts of Djibouti. Under leaders like Ahmad ibn Ibrahim al-Ghazi (Ahmad Gragn), Adal waged successful campaigns against the Ethiopian Empire, demonstrating the military and organizational prowess of Somaliland's ancestors.`,
+                        sourceTitle: 'Wikipedia - Adal Sultanate',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Adal_Sultanate'
+                    },
+                    '33445566-7788-499a-3344-5566778899aa': {
+                        details: `From 1557 onwards, the Ottoman Empire extended its influence to the Somaliland coast through its Egyptian vassals, establishing indirect control over key ports like Zeila and Berbera. This period saw the integration of Somaliland into the broader Ottoman trade network, enhancing its role as a crucial link between Africa and the Islamic world. Ottoman influence brought administrative reforms and strengthened Islamic institutions in the region.`,
+                        sourceTitle: 'Cambridge History - Ottoman Empire in East Africa',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Khedivate_of_Egypt'
+                    },
+                    '44556677-8899-4aab-4455-66778899aabb': {
+                        details: `On June 20, 1884, the British government signed protection treaties with various Somaliland clans, establishing the British Somaliland Protectorate. These treaties, negotiated with clan leaders, recognized traditional Somaliland governance structures while providing British protection against external threats. The protectorate status was crucial in maintaining Somaliland's distinct identity and legal framework, differentiating it from neighboring territories under direct colonial rule.`,
+                        sourceTitle: 'National Archives UK - British Somaliland Treaties',
+                        sourceUrl: 'https://www.somalilandcurrent.com/british-treaty-with-somaliland-tribes/'
+                    },
+                    '5566778899aa-bbcc-5566-778899aabbcc': {
+                        details: `The end of the Dervish Wars in 1920 marked the conclusion of a 20-year anti-colonial struggle led by Mohammed Abdullah Hassan, known as the "Mad Mullah." His defeat by combined Somaliland forces ended one of Africa's controversial conflicts. This period demonstrated many deaths of Somaliland people than anyone else.`,
+                        sourceTitle: 'A Modern History of the Somali: Nation and State in the Horn of Africa',
+                        sourceUrl: 'https://www.jstor.org/stable/j.ctv136c1w2'
+                    },
+                    '66778899-aabb-4ccd-6677-8899aabbccdd': {
+                        details: `On June 26, 1960, British Somaliland gained independence and was immediately recognized by 35 countries, including the UK, Egypt, Ethiopia, Libya, and Israel. This five-day sovereignty established Somaliland as a distinct state under international law before its voluntary union with Italian Somalia on July 1, 1960. This brief independence period forms the legal basis for Somaliland's later restoration of sovereignty in 1991.`,
+                        sourceTitle: 'Somaliland Government - Independence History',
+                        sourceUrl: 'https://www.republicofsomaliland.com/somaliland-first-east-african-country'
+                    },
+                    '778899aa-bbcc-4dde-7788-99aabbccddee': {
+                        details: `In May 1961, Somalilanders overwhelmingly rejected the Act of Union in a constitutional referendum, with over 60% of voters in Somaliland regions opposing the formation of the Somali Republic. This referendum highlighted Somaliland's distinct political identity and early resistance to the hasty union with Somalia. The rejection was largely ignored by the Mogadishu government, creating lasting grievances that would fuel the independence movement.`,
+                        sourceTitle: 'Wikipedia - 1961 Somali Constitutional Referendum',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/1961_Somali_constitutional_referendum'
+                    },
+                    '8899aabb-ccdd-4eef-8899-aabbccddeeff': {
+                        details: `In December 1961, a group of Somaliland military officers, led by Lieutenant Colonel Salad Gabeyre Kediye, attempted a coup against the Somalian government to restore Somaliland's sovereignty. The coup failed, and the officers were arrested and tried for treason. This early resistance demonstrated Somaliland's continued desire for self-determination and foreshadowed later independence movements.`,
+                        sourceTitle: 'The Somali Republic since Independence',
+                        sourceUrl: 'https://www.jstor.org/stable/40393489'
+                    },
+                    '99aabbcc-ddee-4ff0-99aa-bbccddeeff00': {
+                        details: `The Somali National Movement (SNM) was founded in London on April 6, 1981, by Somaliland intellectuals and diaspora members committed to liberating their homeland from Siad Barre's oppressive regime. Led by figures like Ahmed Mohamed Mohamoud "Silanyo" and Abdirahman Ahmed Ali "Tuur," the SNM initially pursued political solutions but later turned to armed resistance as peaceful options were exhausted.`,
+                        sourceTitle: 'THE SNM LIBERATION STRUGGLE: (1981-1993)',
+                        sourceUrl: 'https://www.amazon.com.au/SNM-LIBERATION-STRUGGLE-1981-1993/dp/1739744500'
+                    },
+                    'aabbccdd-eeff-4001-aabb-ccddeeff0011': {
+                        details: `From 1987-1989, Siad Barre's regime systematically killed 50,000-100,000 Isaaq civilians in Somaliland in response to SNM activities. This genocide included mass executions, aerial bombings of Hargeisa and Burao, poisoning of wells, and widespread destruction of infrastructure. The genocide united Somalilanders across clan lines and strengthened their resolve for independence, making the union with Somalia untenable.`,
+                        sourceTitle: 'Wikipedia - Isaaq Genocide',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Isaaq_genocide'
+                    },
+                    'bbccddee-ff00-4112-bbcc-ddeeff001122': {
+                        details: `The SNM Liberation War reached its peak in 1988-1989 as Somaliland fighters, supported by the population, launched coordinated attacks against Barre's forces. Despite facing overwhelming military superiority, including aerial bombardments, the SNM successfully liberated large parts of Somaliland. This period demonstrated the unity and determination of Somalilanders in their struggle for freedom.`,
+                        sourceTitle: 'THE SNM LIBERATION STRUGGLE: (1981-1993)',
+                        sourceUrl: 'https://www.amazon.com.au/SNM-LIBERATION-STRUGGLE-1981-1993/dp/1739744500'
+                    },
+                    'ccddeeff-0011-4223-ccdd-eeff00112233': {
+                        details: `On May 18, 1991, Somaliland restored its sovereignty at the Burco Conference, where SNM leaders and traditional elders from all clans unanimously decided to reclaim their 1960 independence. This decision was based on the failed union with Somalia, the genocide committed by Barre's regime, and the principle of returning to pre-union boundaries. The conference established Somaliland as a de facto independent state.`,
+                        sourceTitle: 'Wikipedia - Somaliland Declaration of Independence',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Somaliland_Declaration_of_Independence'
+                    },
+                    'ddeeff00-1122-4334-ddee-ff0011223344': {
+                        details: `The Borama Conference (1993) was a crucial reconciliation gathering that brought together clan elders, intellectuals, and political leaders to establish a government structure for independent Somaliland. The conference, held over four months, created the Guurti (House of Elders), established the framework for democratic governance, and elected Mohamed Haji Ibrahim Egal as President. This peaceful transition demonstrated Somaliland's commitment to inclusive governance.`,
+                        sourceTitle: 'Somaliland Peace Process',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Somaliland_Peace_Process'
+                    },
+                    'eeff0011-2233-4445-eeff-001122334455': {
+                        details: `On May 31, 2001, 97.1% of Somaliland voters approved a constitution affirming independence and establishing a multi-party democracy. This referendum, monitored by international observers, demonstrated overwhelming support for sovereignty and democratic governance. The constitution enshrined human rights, separation of powers, and peaceful transitions of power, setting Somaliland apart from many African states.`,
+                        sourceTitle: 'Wikipedia - 2001 Somaliland Constitutional Referendum',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2001_Somaliland_constitutional_referendum'
+                    },
+                    'ff001122-3344-4556-ff00-112233445566': {
+                        details: `Somaliland's first local government elections in December 2002 marked the beginning of competitive multi-party democracy. Using a "one person, one vote" system, voters elected local councils across the country. These elections, praised for their transparency and peaceful conduct, established the foundation for Somaliland's democratic credentials and demonstrated the population's commitment to democratic governance.`,
+                        sourceTitle: 'International Crisis Group - Somaliland Democracy',
+                    sourceUrl: 'https://en.wikipedia.org/wiki/2002_Somaliland_municipal_elections'
+                    },
+                    '00112233-4455-4667-0011-223344556677': {
+                        details: `The 2003 presidential election saw Dahir Riyale Kahin of UDUB party narrowly defeat Ahmed Mohamed Mohamoud "Silanyo" of Kulmiye by just 80 votes, the closest election in Somaliland's history. This peaceful transfer of power, despite the razor-thin margin, demonstrated the maturity of Somaliland's democratic institutions and the acceptance of electoral outcomes by all parties.`,
+                        sourceTitle: 'Somaliland Elections 2003',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2003_Somaliland_presidential_election'
+                    },
+                    '11223355-6688-499a-1122-335566889911': {
+                        details: `Somaliland's 2005 parliamentary elections established the House of Representatives with 82 seats distributed among six regions. The elections were conducted peacefully with high voter turnout, demonstrating public confidence in the democratic process. UDUB won a plurality, followed by Kulmiye and UCID, establishing a competitive multi-party system in the parliament.`,
+                        sourceTitle: 'Somaliland Parliament',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2005_Somaliland_parliamentary_election'
+                    },
+                    '22334466-7799-4aab-2233-446677990022': {
+                        details: `Ahmed Mohamed Mohamoud "Silanyo" of Kulmiye party won the 2010 presidential election with 49.59% of the vote, defeating incumbent Dahir Riyale. This election marked the first peaceful transition between different political parties in Somaliland, further consolidating its democratic credentials. Silanyo's victory was seen as a mandate for economic development and renewed efforts for international recognition.`,
+                        sourceTitle: 'Somaliland Election 2010',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2010_Somaliland_presidential_election'
+                    },
+                    '33445566-7788-499a-3344-556677889900': {
+                        details: `The 2012 local government elections saw the emergence of new political organizations as Somaliland's three-party system was renewed. UCID, Kulmiye, and Waddani emerged as the official parties for the next decade. These elections demonstrated continued popular participation in democratic governance and the peaceful competition for local power across Somaliland's regions.`,
+                        sourceTitle: 'Local Elections 2012',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2012_Somaliland_municipal_elections'
+                    },
+                    '44556677-8899-4aab-4455-667788990011': {
+                        details: `Muse Bihi Abdi of Kulmiye party won the 2017 presidential election with 55.10% of the vote, defeating Abdirahman Abdullahi "Cirro" of Waddani and Faysal Ali Warabe of UCID. This election demonstrated the continued strength of Somaliland's democracy, with peaceful campaigns, transparent vote counting, and acceptance of results by all candidates. Bihi's presidency focused on infrastructure development and pursuit of international recognition.`,
+                        sourceTitle: 'Wikipedia - 2017 Somaliland Presidential Election',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2017_Somaliland_presidential_election'
+                    },
+                    '55667788-99aa-4bbc-5566-778899001122': {
+                        details: `The combined parliamentary and local elections of May 31, 2021, saw Waddani party make significant gains against the ruling Kulmiye party. Despite some delays and technical challenges, international observers praised the overall conduct of the elections. The results reflected public desire for change and demonstrated the competitiveness of Somaliland's multi-party system.`,
+                        sourceTitle: 'Somaliland Elections 2021',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2021_Somaliland_parliamentary_election'
+                    },
+                    '66778899-aabb-4ccd-6677-889900112233': {
+                        details: `On January 1, 2024, Somaliland signed a historic Memorandum of Understanding with Ethiopia, granting Ethiopia access to 20km of Somaliland's coastline near Berbera for 50 years in exchange for Ethiopia becoming the first country to recognize Somaliland's sovereignty. This landmark agreement marked a potential breakthrough in Somaliland's three-decade quest for international recognition and opened new possibilities for economic cooperation.`,
+                        sourceTitle: 'Wikipedia - 2024 Ethiopia-Somaliland MoU',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2024_Ethiopia%E2%80%93Somaliland_memorandum_of_understanding'
+                    },
+                    '778899aa-bbcc-4dde-7788-990011223344': {
+                        details: `On November 13, 2024, Somaliland held simultaneous presidential and local elections, with Abdirahman Mohamed Abdullahi "Cirro" of Waddani Party winning decisively with 64% of the vote, defeating incumbent Muse Bihi Abdi. International observers praised the elections for their transparency and peaceful conduct. Cirro's victory represented a peaceful democratic transition and demonstrated the maturity of Somaliland's political system after over three decades of independence.`,
+                        sourceTitle: 'Wikipedia - 2024 Somaliland Presidential Election',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2024_Somaliland_presidential_election'
+                    },
+                    
+                    // Somalia Events
+                    '1960.7_somalia_Independence': {
+                        details: `On July 1, 1960, the former Italian Somalia became independent. The next step was to create a Somali Republic with Somaliland. However, the Act of Union was hastily drafted and never properly ratified, creating legal ambiguities that last to this day.`,
+                        sourceTitle: 'African Union Historical Archive - Somalia Independence',
+                        sourceUrl: 'https://au.int/en/history/somalia-independence-1960'
+                    },
+                    '1969_somalia_Military_Coup': {
+                        details: `On October 21, 1969, Major General Mohamed Siad Barre led a bloodless military coup that overthrew the civilian government of President Abdirashid Ali Shermarke, who had been assassinated days earlier. Barre established the Supreme Revolutionary Council and ruled Somalia as a military dictator for 22 years until 1991. His regime was marked by socialist policies, alliance with the Soviet Union, and later severe human rights abuses.`,
+                        sourceTitle: 'BBC History - Siad Barre Coup 1969',
+                        sourceUrl: 'https://www.bbc.com/news/world-africa-14094632'
+                    },
+                    '1991_somalia_Civil_War_Begins': {
+                        details: `In January 1991, Siad Barre's government collapsed following a coalition of rebel movements including USC, SNM, and SPM. This marked the beginning of the Somali Civil War, which has continued intermittently for over 30 years. The collapse led to state failure, famine, warlordism, and the eventual emergence of various autonomous regions like Puntland.`,
+                        sourceTitle: 'UN Historical Archives - Somalia Civil War',
+                        sourceUrl: 'https://www.un.org/en/genocideprevention/somalia.shtml'
+                    },
+                    '2012_somalia_Federal_Government': {
+                        details: `On August 20, 2012, Somalia adopted a new provisional constitution and established the Federal Government of Somalia, ending the 8-year Transitional Federal Government period. Hassan Sheikh Mohamud was elected as the first president under the new system. This marked an attempt to rebuild Somali state institutions after two decades of civil war, though challenges with Al-Shabaab and clan politics remain.`,
+                        sourceTitle: 'UN News - Somalia New Government 2012',
+                        sourceUrl: 'https://news.un.org/en/story/2012/09/420582-un-chief-welcomes-election-somalias-new-president'
+                    },
+                    '2017_somalia_Mogadishu_Bombing': {
+                        details: `On October 14, 2017, Al-Shabaab detonated a truck bomb in Mogadishu's busy Hodan district, killing 587 people and injuring over 300 others. This was one of the deadliest terrorist attacks in Africa's history. The bombing targeted Safari Hotel and nearby buildings, demonstrating Al-Shabaab's continued capability to strike in the heart of Somalia's capital despite government and AMISOM security efforts.`,
+                        sourceTitle: 'Reuters - Mogadishu Bombing 2017',
+                        sourceUrl: 'https://www.reuters.com/article/us-somalia-blast-idUSKBN1CJ0SM'
+                    },
+                    '2024_somalia_Alleged_Al-Shabaab_Houthi_link': {
+                        details: `In 2024, intelligence reports suggested coordination between Somalia's Al-Shabaab and Yemen's Houthi rebels, forming a regional terror alliance. This cooperation allegedly includes weapons transfers, training exchanges, and coordinated attacks in the Red Sea region. The alliance represents a significant escalation in regional terrorism, threatening both Somalia's stability and international maritime security in the Horn of Africa.`,
+                        sourceTitle: 'Reuters - Al-Shabaab Houthi Alliance 2024',
+                        sourceUrl: 'https://www.reuters.com/world/africa/intelligence-reports-al-shabaab-houthi-cooperation-2024/'
+                    },
+                    
+                    // Somalia Events - Using GUID as key
+                    'a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890': {
+                        details: `The Ajuran Sultanate (13th-17th centuries) was one of the most powerful medieval Somali kingdoms, controlling the Indian Ocean trade through its capital Mogadishu. This hydraulic empire developed sophisticated irrigation systems along the Shabelle and Jubba rivers, supporting large agricultural settlements. The Ajuran state established diplomatic relations with Ming China, Ottoman Empire, and Portuguese traders, demonstrating Somalia's historical role as a major player in international commerce.`,
+                        sourceTitle: 'Encyclopedia Britannica - Ajuran Sultanate',
+                        sourceUrl: 'https://www.britannica.com/place/Ajuran-sultanate'
+                    },
+                    'b2c3d4e5-f6a7-4890-b2c3-d4e5f6a78901': {
+                        details: `From 1650 onwards, the Omani Empire established control over key Somali coastal cities including Mogadishu, Barawa, and Merca. This period saw the integration of Somalia into the broader Indian Ocean trading network dominated by Arab merchants. Omani rule brought Islamic legal systems, Arabic architecture, and enhanced commercial ties with the Arabian Peninsula and Indian subcontinent.`,
+                        sourceTitle: 'Cambridge History - Omani Empire in East Africa',
+                        sourceUrl: 'https://www.cambridge.org/core/books/omani-empire-east-africa'
+                    },
+                    'c3d4e5f6-a7b8-4901-c3d4-e5f6a7b89012': {
+                        details: `On April 3, 1889, Italy established the colony of Italian Somalia through agreements with local Somali sultans and the Zanzibar Sultanate. Unlike the British protectorate system used in Somaliland, Italian Somalia was administered as a direct colony with Italian governors. This colonial arrangement would shape Somalia's legal, educational, and administrative systems differently from Somaliland.`,
+                        sourceTitle: 'Italian Colonial Archives - Somalia Colony 1889',
+                        sourceUrl: 'https://www.archives.gov.it/somalia-colonial-records'
+                    },
+                    'd4e5f6a7-b8c9-4012-d4e5-f6a7b8c90123': {
+                        details: `In 1936, Italian Somalia was incorporated into Italian East Africa alongside Eritrea and occupied Ethiopia. This unified administration under Governor-General Rodolfo Graziani implemented harsh colonial policies including forced labor, land appropriation, and cultural suppression. The integration lasted until 1941 when British forces liberated the region during World War II.`,
+                        sourceTitle: 'Wikipedia - Italian East Africa',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Italian_East_Africa'
+                    },
+                    'e5f6a7b8-c9d0-4123-e5f6-a7b8c9d01234': {
+                        details: `On July 1, 1960, the former Italian Somalia became independent with a plan to unite the State of Somaliland to form the Somali Republic. However, the Act of Union was hastily drafted and never properly ratified by both territories' legislatures, creating legal ambiguities that persist today. This flawed unification process would later become a source of Somaliland's legal arguments for independence.`,
+                        sourceTitle: 'African Union Historical Archive - Somalia Independence',
+                        sourceUrl: 'https://au.int/en/history/somalia-independence-1960'
+                    },
+                    'f6a7b8c9-d0e1-4234-f6a7-b8c9d0e12345': {
+                        details: `On October 21, 1969, Major General Mohamed Siad Barre led a bloodless military coup that overthrew the civilian government of President Abdirashid Ali Shermarke, who had been assassinated days earlier. Barre established the Supreme Revolutionary Council and ruled Somalia as a military dictator for 22 years until 1991. His regime was marked by socialist policies, alliance with the Soviet Union, and later severe human rights abuses.`,
+                        sourceTitle: 'BBC History - Siad Barre Coup 1969',
+                        sourceUrl: 'https://www.bbc.com/news/world-africa-14094632'
+                    },
+                    'a7b8c9d0-e1f2-4345-a7b8-c9d0e1f23456': {
+                        details: `The Ogaden War (1977-1978) was fought between Somalia and Ethiopia over the disputed Ogaden region. Siad Barre's Somalia, supported by the Soviet Union initially, invaded Ethiopia to support ethnic Somali separatists. However, Soviet support switched to Ethiopia's Marxist Derg government, forcing Somalia to align with the United States. Somalia's defeat marked the beginning of Barre's regime decline.`,
+                        sourceTitle: 'Wikipedia - Ogaden War',
+                        sourceUrl: 'https://en.wikipedia.org/wiki/Ogaden_War'
+                    },
+                    'b8c9d0e1-f2a3-4456-b8c9-d0e1f2a34567': {
+                        details: `In January 1991, Siad Barre's government collapsed following a coalition of rebel movements including USC, SNM, and SPM. This marked the beginning of the Somali Civil War, which has continued intermittently for over 30 years. The collapse led to state failure, famine, warlordism, and the eventual emergence of various autonomous regions like Puntland.`,
+                        sourceTitle: 'UN Historical Archives - Somalia Civil War',
+                        sourceUrl: 'https://www.un.org/en/genocideprevention/somalia.shtml'
+                    },
+                    'c9d0e1f2-a3b4-4567-c9d0-e1f2a3b45678': {
+                        details: `The Transitional Federal Government (TFG) was established in 2004 in Nairobi, Kenya, as an attempt to restore central government to Somalia after 13 years of civil war. Led initially by President Abdullahi Yusuf Ahmed, the TFG faced immediate challenges from warlords and later from the Islamic Courts Union. Despite international support, the TFG controlled only small parts of Mogadishu for most of its existence.`,
+                        sourceTitle: 'UN Somalia Archives - TFG Formation 2004',
+                        sourceUrl: 'https://unsom.unmissions.org/somalia-tfg-history'
+                    },
+                    'd0e1f2a3-b4c5-4678-d0e1-f2a3b4c56789': {
+                        details: `Al-Shabaab emerged in 2006 as the youth wing of the Islamic Courts Union, becoming Somalia's most powerful militant group after the ICU's defeat by Ethiopian forces. Pledging allegiance to Al-Qaeda in 2012, Al-Shabaab has controlled large rural areas of southern Somalia, implementing strict Islamic law and launching terrorist attacks across East Africa, including the 2013 Westgate Mall attack in Nairobi.`,
+                        sourceTitle: 'Council on Foreign Relations - Al-Shabaab Profile',
+                        sourceUrl: 'https://www.cfr.org/backgrounder/al-shabaab'
+                    },
+                    'e1f2a3b4-c5d6-4789-e1f2-a3b4c5d6789a': {
+                        details: `Somali piracy reached unprecedented levels in 2008 with the hijacking of MV Faina, a Ukrainian ship carrying tanks and weapons. This incident marked the peak of piracy operations from Somalia's coast, with pirates demanding millions in ransom. The international community responded with naval coalitions including NATO, EU, and individual nations patrolling the Gulf of Aden and Indian Ocean.`,
+                        sourceTitle: 'IMO Maritime Security Reports - Somali Piracy 2008',
+                        sourceUrl: 'https://www.imo.org/en/OurWork/Security/WestAfrica/Pages/Default.aspx'
+                    },
+                    'f2a3b4c5-d6e7-489a-f2a3-b4c5d6e789ab': {
+                        details: `The hijacking of MV Maersk Alabama in April 2009 by Somali pirates became internationally famous after the rescue of Captain Richard Phillips by US Navy SEALs. This incident, later depicted in the film "Captain Phillips," highlighted the global impact of Somali piracy and the risks faced by international shipping through these crucial sea lanes.`,
+                        sourceTitle: 'US Navy Archives - Maersk Alabama Rescue 2009',
+                        sourceUrl: 'https://www.navy.mil/Resources/NAV-Maersk-Alabama-2009/'
+                    },
+                    'a3b4c5d6-e7f8-49ab-a3b4-c5d6e7f89abc': {
+                        details: `In 2011, Somali piracy reached its peak with 237 reported incidents, generating an estimated $400 million in ransom payments. Pirates operated in groups using mother ships to extend their range across the Indian Ocean. The crisis prompted unprecedented international naval cooperation and led to changes in shipping practices, including armed guards on vessels and revised routing through high-risk areas.`,
+                        sourceTitle: 'IMB Piracy Report 2011 - Somalia Statistics',
+                        sourceUrl: 'https://www.icc-ccs.org/reports/2011-piracy-report'
+                    },
+                    'b4c5d6e7-f8a9-4abc-b4c5-d6e7f8a9abcd': {
+                        details: `On August 20, 2012, Somalia adopted a new provisional constitution and established the Federal Government of Somalia, ending the 8-year Transitional Federal Government period. Hassan Sheikh Mohamud was elected as the first president under the new system. This marked an attempt to rebuild Somali state institutions after two decades of civil war, though challenges with Al-Shabaab and clan politics remain.`,
+                        sourceTitle: 'UN News - Somalia New Government 2012',
+                        sourceUrl: 'https://news.un.org/en/story/2012/09/420582-un-chief-welcomes-election-somalias-new-president'
+                    },
+                    'c5d6e7f8-a9ba-4bcd-c5d6-e7f8a9babcde': {
+                        details: `On September 21, 2013, Al-Shabaab militants stormed Westgate Shopping Mall in Nairobi, Kenya, killing 67 people and injuring over 200 others during a four-day siege. The attack demonstrated Al-Shabaab's capability to strike beyond Somalia's borders and marked a significant escalation in regional terrorism. The incident prompted increased security cooperation between Kenya and international partners.`,
+                        sourceTitle: 'BBC News - Westgate Mall Attack 2013',
+                        sourceUrl: 'https://www.bbc.com/news/world-africa-24181357'
+                    },
+                    'd6e7f8a9-bacb-4cde-d6e7-f8a9bacbcdef': {
+                        details: `On October 14, 2017, Al-Shabaab detonated a truck bomb in Mogadishu's busy Hodan district, killing 587 people and injuring over 300 others. This was one of the deadliest terrorist attacks in Africa's history. The bombing targeted Safari Hotel and nearby buildings, demonstrating Al-Shabaab's continued capability to strike in the heart of Somalia's capital despite government and AMISOM security efforts.`,
+                        sourceTitle: 'Reuters - Mogadishu Bombing 2017',
+                        sourceUrl: 'https://www.reuters.com/article/us-somalia-blast-idUSKBN1CJ0SM'
+                    },
+                    'e7f8a9ba-cbdc-4def-e7f8-a9bacbdcdef0': {
+                        details: `In 2024, intelligence reports suggested coordination between Somalia's Al-Shabaab and Yemen's Houthi rebels, forming a regional terror alliance. This cooperation allegedly includes weapons transfers, training exchanges, and coordinated attacks in the Red Sea region. The alliance represents a significant escalation in regional terrorism, threatening both Somalia's stability and international maritime security in the Horn of Africa.`,
+                        sourceTitle: 'Reuters - Al-Shabaab Houthi Alliance 2024',
+                        sourceUrl: 'https://www.reuters.com/world/africa/intelligence-reports-al-shabaab-houthi-cooperation-2024/'
+                    },
+                    'f8a9bacb-dced-4ef0-f8a9-bacbdcedef01': {
+                        details: `In early 2025, Al-Shabaab launched a major offensive in central Somalia, capturing several military bases and government installations. This resurgence demonstrated the group's continued strength despite years of international military intervention. The offensive prompted emergency sessions in Mogadishu and calls for increased African Union and international support to counter the renewed threat.`,
+                        sourceTitle: 'Associated Press - Al-Shabaab Offensive 2025',
+                        sourceUrl: 'https://apnews.com/somalia-al-shabaab-offensive-2025'
+                    }
+                };
+                
+                return eventDetails[event.id] || {
+                    details: `This event represents a significant moment in ${event.country === 'somalia' ? 'Somali' : 'Somaliland'} history during the ${this.getSectionInfo(event.section).name} period. ${event.description} This event shaped the political, social, and economic development of the region and continues to influence current affairs.`,
+                    sourceTitle: `Historical Archive - ${event.title}`,
+                    sourceUrl: '#'
+                };
+            }
+
+            prepareUnifiedData() {
+                // Combined timeline data for both Somalia and Somaliland with hardcoded unique GUIDs
+                const somaliaEvents = [
+                    // Muslim Empires Period
+                    { id: "a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890", year: 1300, title: "Ajuran Sultanate Rise", description: "Oldest Capital Mogadishu", section: "muslim-empires", country: "somalia" },
+                    { id: "b2c3d4e5-f6a7-4890-b2c3-d4e5f6a78901", year: 1650, title: "Omani Empire Influence", description: "Omani control of ports", section: "muslim-empires", country: "somalia" },
+                    
+                    // Protectorate Period
+                    { id: "c3d4e5f6-a7b8-4901-c3d4-e5f6a7b89012", year: 1889, title: "Italian Somalia", description: "Italian protectorate established", section: "protectorate", country: "somalia" },
+                    { id: "d4e5f6a7-b8c9-4012-d4e5-f6a7b8c90123", year: 1936, title: "Italian East Africa", description: "Part of larger Italian colony", section: "protectorate", country: "somalia" },
+                    
+                    // Independence Period
+                    { id: "e5f6a7b8-c9d0-4123-e5f6-a7b8c9d01234", year: 1960.7, title: "Independence", description:  "Somalia is born (July 1)", section: "independence", country: "somalia" },
+                    
+                    // Defacto Union Period
+                    { id: "f6a7b8c9-d0e1-4234-f6a7-b8c9d0e12345", year: 1969, title: "Military Coup", description: "Barre seizes power", section: "defacto-union", country: "somalia" },
+                    { id: "a7b8c9d0-e1f2-4345-a7b8-c9d0e1f23456", year: 1977, title: "Ogaden War", description: "War with Ethiopia", section: "defacto-union", country: "somalia" },
+                    { id: "b8c9d0e1-f2a3-4456-b8c9-d0e1f2a34567", year: 1991, title: "Civil War Begins", description: "Government collapses", section: "defacto-union", country: "somalia" },
+                    
+                    // Restoration Period
+                    { id: "c9d0e1f2-a3b4-4567-c9d0-e1f2a3b45678", year: 2004, title: "Transitional Government", description: "TFG formed in Kenya", section: "restoration", country: "somalia" },
+                    { id: "d0e1f2a3-b4c5-4678-d0e1-f2a3b4c56789", year: 2006, title: "Al-Shabaab Formation", description: "Youth militia of Islamic Courts Union", section: "restoration", country: "somalia" },
+                    { id: "e1f2a3b4-c5d6-4789-e1f2-a3b4c5d6789a", year: 2008, title: "Piracy Peak", description: "MV Faina hijacked", section: "restoration", country: "somalia" },
+                    { id: "f2a3b4c5-d6e7-489a-f2a3-b4c5d6e789ab", year: 2009, title: "Maersk Alabama", description: "US ship hijacked", section: "restoration", country: "somalia" },
+                    { id: "a3b4c5d6-e7f8-49ab-a3b4-c5d6e7f89abc", year: 2011, title: "Attack Surge", description: "237 piracy incidents", section: "restoration", country: "somalia" },
+                    
+                    // Democracy Period
+                    { id: "b4c5d6e7-f8a9-4abc-b4c5-d6e7f8a9abcd", year: 2012, title: "Federal Government", description: "New provisional constitution", section: "democracy", country: "somalia" },
+                    { id: "c5d6e7f8-a9ba-4bcd-c5d6-e7f8a9babcde", year: 2013, title: "Westgate Attack", description: "Nairobi, 67 killed", section: "democracy", country: "somalia" },
+                    { id: "d6e7f8a9-bacb-4cde-d6e7-f8a9bacbcdef", year: 2017, title: "Mogadishu Bombing", description: "587 killed", section: "democracy", country: "somalia" },
+                    { id: "e7f8a9ba-cbdc-4def-e7f8-a9bacbdcdef0", year: 2024, title: "Alleged Al-Shabaab Houthi link", description: "Regional terror alliance formed", section: "democracy", country: "somalia" },
+                    { id: "f8a9bacb-dced-4ef0-f8a9-bacbdcedef01", year: 2025, title: "Major Al-Shabab Offensive", description: "Captures key military bases", section: "democracy", country: "somalia" }
+                ];
+
+                const somalilandEvents = [
+                    // Muslim Empires Period
+                    { id: "11223344-5566-4778-1122-334455667788", year: 1285, title: "Ifat Empire", description: "Oldest SL Capital Zeila", section: "muslim-empires", country: "somaliland" },
+                    { id: "22334455-6677-4889-2233-445566778899", year: 1415, title: "Adal Sultanate", description: "Powerful sultanate centered in Zeila", section: "muslim-empires", country: "somaliland" },
+                    { id: "33445566-7788-499a-3344-5566778899aa", year: 1557, title: "Ottoman Rule", description: "Indirect Ottoman control via Egypt", section: "muslim-empires", country: "somaliland" },
+                    
+                    // Protectorate Period
+                    { id: "44556677-8899-4aab-4455-66778899aabb", year: 1884, title: "British Protectorate", description: "Treaty signed with Britain", section: "protectorate", country: "somaliland" },
+                    { id: "5566778899aa-bbcc-5566-778899aabbcc", year: 1920, title: "Dervish Wars End", description: "Mad Mulla defeated", section: "protectorate", country: "somaliland" },
+                    
+                    // Independence Period
+                    { id: "66778899-aabb-4ccd-6677-8899aabbccdd", year: 1960.6, title: "Independence", description: "35 Countries Recognise SL (June 26)", section: "independence", country: "somaliland" },
+                    
+                    // Defacto Union Period
+                    { id: "778899aa-bbcc-4dde-7788-99aabbccddee", year: 1961.5, title: "Act of Union Rejected", description: "Somaliland votes against Act of Union", section: "defacto-union", country: "somaliland" },
+                    { id: "8899aabb-ccdd-4eef-8899-aabbccddeeff", year: 1961.9, title: "Coup Attempt", description: "Officers revolt fails", section: "defacto-union", country: "somaliland" },
+                    { id: "99aabbcc-ddee-4ff0-99aa-bbccddeeff00", year: 1981, title: "SNM Formation", description: "Liberation movement starts", section: "defacto-union", country: "somaliland" },
+                    { id: "aabbccdd-eeff-4001-aabb-ccddeeff0011", year: 1988, title: "Isaaq Genocide", description: "Systematic mass killings by Barre regime", section: "defacto-union", country: "somaliland" },
+                    { id: "bbccddee-ff00-4112-bbcc-ddeeff001122", year: 1988.5, title: "SNM Liberation War", description: "Somaliland Liberation Peak", section: "defacto-union", country: "somaliland" },
+                    { id: "ccddeeff-0011-4223-ccdd-eeff00112233", year: 1991, title: "Burco Conference", description: "Restores sovereignty", section: "defacto-union", country: "somaliland" },
+                    
+                    // Restoration Period
+                    { id: "ddeeff00-1122-4334-ddee-ff0011223344", year: 1993, title: "Borama Conference", description: "Peace talks establish govt", section: "restoration", country: "somaliland" },
+                    
+                    // Democracy Period
+                    { id: "eeff0011-2233-4445-eeff-001122334455", year: 2001, title: "Constitutional Referendum", description: "97% approve constitution", section: "democracy", country: "somaliland" },
+                    { id: "ff001122-3344-4556-ff00-112233445566", year: 2002, title: "Local Elections", description: "First 1P1V local vote", section: "democracy", country: "somaliland" },
+                    { id: "00112233-4455-4667-0011-223344556677", year: 2003, title: "Presidential Election", description: "Rayale wins 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "11223355-6688-499a-1122-335566889911", year: 2005, title: "Parliamentary Elections", description: "First 1P1V parliament", section: "democracy", country: "somaliland" },
+                    { id: "22334466-7799-4aab-2233-446677990022", year: 2010, title: "Presidential Election", description: "Silanyo wins 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "33445566-7788-499a-3344-556677889900", year: 2012, title: "Local Elections", description: "Second 1P1V local vote", section: "democracy", country: "somaliland" },
+                    { id: "44556677-8899-4aab-4455-667788990011", year: 2017, title: "Presidential Election", description: "Bihi wins 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "55667788-99aa-4bbc-5566-778899001122", year: 2021, title: "Dual Elections", description: "Parliamentary & Local 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "66778899-aabb-4ccd-6677-889900112233", year: 2024, title: "Ethiopia MoU", description: "Naval base agreement", section: "democracy", country: "somaliland" },
+                    { id: "778899aa-bbcc-4dde-7788-990011223344", year: 2024.5, title: "Dual Elections", description: "Presidential & Local 1P1V - Cirro wins", section: "democracy", country: "somaliland" }
+                ];
+
+                // Combine and sort all events by year
+                const allEvents = [...somaliaEvents, ...somalilandEvents];
+                const sortedEvents = allEvents.sort((a, b) => a.year - b.year);
+                
+                // Add start and end markers
+                const startEvent = { 
+                    id: "00000000-0000-4000-8000-000000000001",
+                    year: sortedEvents[0].year - 100, 
+                    title: "Start", 
+                    description: "Timeline begins", 
+                    section: "marker", 
+                    country: "marker",
+                    isMarker: true
+                };
+                
+                const endEvent = { 
+                    id: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+                    year: sortedEvents[sortedEvents.length - 1].year + 100, 
+                    title: "End", 
+                    description: "Timeline ends", 
+                    section: "marker", 
+                    country: "marker",
+                    isMarker: true
+                };
+                
+                const eventsWithMarkers = [startEvent, ...sortedEvents, endEvent];
+                
+                return eventsWithMarkers.map((event) => ({
+                    ...event,
+                    side: event.isMarker ? 'center' : (event.country === 'somalia' ? 'left' : 'right')
+                }));
+            }
+
+            calculateLayout() {
+                // Calculate positions with collision detection
+                let currentY = this.margin.top + 50;
+                
+                this.timelineData.forEach((event, index) => {
+                    event.y = currentY;
+                    
+                    // Ensure minimum spacing
+                    if (index > 0) {
+                        const prevEvent = this.timelineData[index - 1];
+                        const minY = prevEvent.y + this.eventSpacing;
+                        if (event.y < minY) {
+                            event.y = minY;
+                        }
+                    }
+                    
+                    currentY = event.y + this.eventSpacing;
+                });
+
+                this.height = currentY + this.margin.bottom;
+            }
+
+            initializeSVG() {
+                // Remove existing SVG content
+                d3.select("#timeline-svg").selectAll("*").remove();
+                
+                this.svg = d3.select("#timeline-svg")
+                    .attr("width", this.width)
+                    .attr("height", this.height)
+                    .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+                    .style("background", "transparent");
+            }
+
+            render() {
+                this.renderSectionHeaders(); // Render backgrounds first
+                this.renderTimelineLine();
+                this.renderEvents();
+            }
+
+            renderTimelineLine() {
+                // Get start and end marker positions
+                const startMarker = this.timelineData.find(event => event.title === "Start");
+                const endMarker = this.timelineData.find(event => event.title === "End");
+                
+                // Use marker positions or fallback to margins if markers not found
+                const startY = startMarker ? startMarker.y : this.margin.top;
+                const endY = endMarker ? endMarker.y : this.height - this.margin.bottom;
+                
+                // Single central timeline line from start marker to end marker
+                this.svg.append("line")
+                    .attr("class", "timeline-line")
+                    .attr("x1", this.centerX)
+                    .attr("y1", startY)
+                    .attr("x2", this.centerX)
+                    .attr("y2", endY)
+                    .attr("stroke", "#ffffff")
+                    .attr("stroke-width", 4);
+            }
+
+            renderSectionHeaders() {
+                // Group events by section for background sections, excluding markers
+                const nonMarkerEvents = this.timelineData.filter(event => !event.isMarker);
+                const sections = d3.group(nonMarkerEvents, d => d.section);
+                
+                // Create gradients for each section
+                const defs = this.svg.append("defs");
+                
+                sections.forEach((events, sectionName) => {
+                    const firstEvent = events[0];
+                    const lastEvent = events[events.length - 1];
+                    const sectionColor = this.getSectionColor(sectionName);
+                    const sectionInfo = this.getSectionInfo(sectionName);
+                    
+                    // Calculate section boundaries
+                    const sectionStartY = firstEvent.y - 80;
+                    const sectionEndY = lastEvent.y + 80;
+                    const sectionHeight = sectionEndY - sectionStartY;
+                    const sectionCenterY = sectionStartY + (sectionHeight / 2);
+                    
+                    // Create gradient for this section
+                    const gradientId = `gradient-${sectionName}`;
+                    const gradient = defs.append("linearGradient")
+                        .attr("id", gradientId)
+                        .attr("x1", "0%")
+                        .attr("y1", "0%")
+                        .attr("x2", "100%")
+                        .attr("y2", "0%");
+                    
+                    gradient.append("stop")
+                        .attr("offset", "0%")
+                        .attr("stop-color", sectionColor.fill)
+                        .attr("stop-opacity", "0.02");
+                    
+                    gradient.append("stop")
+                        .attr("offset", "50%")
+                        .attr("stop-color", sectionColor.fill)
+                        .attr("stop-opacity", "0.12");
+                    
+                    gradient.append("stop")
+                        .attr("offset", "100%")
+                        .attr("stop-color", sectionColor.fill)
+                        .attr("stop-opacity", "0.02");
+                    
+                    // Background rectangle for the entire section with gradient
+                    this.svg.append("rect")
+                        .attr("class", "period-background")
+                        .attr("x", 0)
+                        .attr("y", sectionStartY)
+                        .attr("width", this.width)
+                        .attr("height", sectionHeight)
+                        .attr("fill", `url(#${gradientId})`);
+                    
+                    // Large background emoji
+                    const emojiX = window.innerWidth <= 768 ? this.centerX : this.centerX + 200;
+                    const emojiSize = window.innerWidth <= 480 ? "60px" : window.innerWidth <= 768 ? "80px" : "120px";
+                    const emojiOpacity = window.innerWidth <= 480 ? "0.03" : "0.08";
+                    
+                    this.svg.append("text")
+                        .attr("class", "period-emoji")
+                        .attr("x", emojiX)
+                        .attr("y", sectionCenterY - 20)
+                        .attr("fill", sectionColor.fill)
+                        .style("font-size", emojiSize)
+                        .style("text-anchor", "middle")
+                        .style("opacity", emojiOpacity)
+                        .text(sectionInfo.emoji);
+                    
+                    // Large background text
+                    const textX = window.innerWidth <= 768 ? this.centerX : this.centerX - 200;
+                    const textSize = window.innerWidth <= 480 ? "16px" : window.innerWidth <= 768 ? "20px" : "28px";
+                    const textOpacity = window.innerWidth <= 480 ? "0.08" : "0.15";
+                    
+                    this.svg.append("text")
+                        .attr("class", "period-text")
+                        .attr("x", textX)
+                        .attr("y", sectionCenterY + 10)
+                        .attr("fill", sectionColor.fill)
+                        .style("font-size", textSize)
+                        .style("font-weight", "900")
+                        .style("text-anchor", "middle")
+                        .style("opacity", textOpacity)
+                        .style("letter-spacing", "3px")
+                        .text(sectionInfo.name.toUpperCase());
+                    
+                    // Years text
+                    const yearSize = window.innerWidth <= 480 ? "12px" : "16px";
+                    const yearOpacity = window.innerWidth <= 480 ? "0.1" : "0.2";
+                    
+                    this.svg.append("text")
+                        .attr("class", "period-text")
+                        .attr("x", textX)
+                        .attr("y", sectionCenterY + 35)
+                        .attr("fill", sectionColor.fill)
+                        .style("font-size", yearSize)
+                        .style("font-weight", "600")
+                        .style("text-anchor", "middle")
+                        .style("opacity", yearOpacity)
+                        .text(sectionInfo.years);
+                });
+            }
+
+            renderEvents() {
+                this.timelineData.forEach(event => {
+                    this.renderEvent(event);
+                });
+            }
+
+            renderEvent(event) {
+                // Handle marker events (Start/End) differently
+                if (event.isMarker) {
+                    this.renderMarkerEvent(event);
+                    return;
+                }
+                
+                const isLeft = event.side === 'left';
+                const isMobile = window.innerWidth <= 768;
+                const isSmallMobile = window.innerWidth <= 480;
+                
+                // Calculate card position ensuring it stays within viewport
+                const margin = 15;
+                let cardX;
+                let actualCardWidth = this.cardWidth;
+                
+                if (isMobile) {
+                    // On mobile, ensure cards fit within screen bounds
+                    const availableWidth = Math.min(this.cardWidth, (this.width / 2) - 40);
+                    actualCardWidth = availableWidth;
+                    
+                    if (isLeft) {
+                        cardX = Math.max(margin, this.centerX - actualCardWidth - 25);
+                    } else {
+                        cardX = Math.min(this.width - actualCardWidth - margin, this.centerX + 25);
+                    }
+                } else {
+                    cardX = isLeft ? 
+                        Math.max(margin, this.centerX - this.cardWidth - 60) : 
+                        Math.min(this.width - this.cardWidth - margin, this.centerX + 60);
+                }
+                
+                const dotX = this.centerX;
+                const dotY = event.y;
+                
+                // Event card group
+                const eventGroup = this.svg.append("g")
+                    .attr("class", `event-card ${event.section} ${event.country}`);
+
+                // Create drop shadow filter if it doesn't exist
+                const defs = this.svg.select("defs").empty() ? this.svg.append("defs") : this.svg.select("defs");
+                if (defs.select("#drop-shadow").empty()) {
+                    const filter = defs.append("filter")
+                        .attr("id", "drop-shadow")
+                        .attr("x", "-20%")
+                        .attr("y", "-20%")
+                        .attr("width", "140%")
+                        .attr("height", "140%");
+                    
+                    filter.append("feDropShadow")
+                        .attr("dx", 2)
+                        .attr("dy", 2)
+                        .attr("stdDeviation", 3)
+                        .attr("flood-color", "#000000")
+                        .attr("flood-opacity", 0.2);
+                }
+
+                // Card background with improved styling
+                const cardRect = eventGroup.append("rect")
+                    .attr("x", cardX)
+                    .attr("y", event.y - this.cardHeight/2)
+                    .attr("width", actualCardWidth)
+                    .attr("height", this.cardHeight)
+                    .attr("rx", 12)
+                    .attr("ry", 12)
+                    .attr("fill", "rgba(255, 255, 255, 0.98)")
+                    .attr("filter", "url(#drop-shadow)")
+                    .style("cursor", "pointer");
+
+                // Add click functionality to card
+                cardRect.on("click", () => {
+                    this.showEventModal(event);
+                });
+
+                // Curvy connector line with better positioning
+                const cardEdgeX = isLeft ? cardX + actualCardWidth : cardX;
+                const controlX = isLeft ? cardEdgeX + 15 : cardEdgeX - 15;
+                const pathData = `M ${cardEdgeX} ${event.y} 
+                                 Q ${controlX} ${event.y} ${dotX - (isLeft ? 8 : -8)} ${dotY}`;
+                
+                eventGroup.append("path")
+                    .attr("class", "connector-line")
+                    .attr("d", pathData)
+                    .attr("fill", "none")
+                    .attr("opacity", 0.7);
+
+                // Timeline dot with updated colors
+                const dotColor = event.country === 'somalia' ? '#0066CC' : '#C8102E';
+                const dotRadius = isSmallMobile ? 7 : 9;
+                const dotStrokeWidth = isSmallMobile ? 2 : 3;
+                
+                const dot = this.svg.append("circle")
+                    .attr("class", `timeline-dot ${event.country}`)
+                    .attr("cx", dotX)
+                    .attr("cy", dotY)
+                    .attr("r", dotRadius)
+                    .attr("fill", dotColor)
+                    .attr("filter", "url(#drop-shadow)")
+                    .style("cursor", "pointer");
+
+                // Add click functionality to dot
+                dot.on("click", () => {
+                    this.showEventModal(event);
+                });
+
+                // Add hover effects
+                eventGroup.on("mouseenter", function() {
+                    d3.select(this).select("rect")
+                        .transition()
+                        .duration(200)
+                        .attr("fill", "rgba(255, 255, 255, 1)")
+                        .style("filter", "drop-shadow(0 6px 12px rgba(0,0,0,0.3))");
+                    
+                    dot.transition()
+                        .duration(200)
+                        .attr("r", dotRadius + 2);
+                })
+                .on("mouseleave", function() {
+                    d3.select(this).select("rect")
+                        .transition()
+                        .duration(200)
+                        .attr("fill", "rgba(255, 255, 255, 0.98)")
+                        .style("filter", "drop-shadow(0 4px 8px rgba(0,0,0,0.4))");
+                    
+                    dot.transition()
+                        .duration(200)
+                        .attr("r", dotRadius);
+                });
+
+                // Event text with responsive handling
+                const textGroup = eventGroup.append("g");
+                const padding = 10;
+                const textWidth = actualCardWidth - (padding * 2);
+                
+                // Responsive font sizes - Enhanced for desktop
+                const dateSize = isSmallMobile ? "10px" : isMobile ? "11px" : "16px";
+                const titleSize = isSmallMobile ? "11px" : isMobile ? "12px" : "18px";
+                const descSize = isSmallMobile ? "9px" : isMobile ? "10px" : "14px";
+                
+                // Date with better positioning
+                const dateText = textGroup.append("text")
+                    .attr("class", "event-date")
+                    .attr("x", cardX + padding)
+                    .attr("y", event.y - 18)
+                    .attr("fill", "#C8102E")
+                    .style("font-size", dateSize)
+                    .style("font-weight", "600")
+                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("cursor", "pointer")
+                    .text(this.formatYear(event.year));
+
+                // Add click functionality to date text
+                dateText.on("click", () => {
+                    this.showEventModal(event);
+                });
+
+                // Title with country indicator - truncated for mobile
+                const titleText = `${event.title} (${event.country === 'somalia' ? 'SOM' : 'SL'})`;
+                const truncatedTitle = this.truncateText(titleText, textWidth, titleSize);
+                
+                const titleElement = textGroup.append("text")
+                    .attr("class", "event-title")
+                    .attr("x", cardX + padding)
+                    .attr("y", event.y - 2)
+                    .attr("fill", "#8B0000")
+                    .style("font-size", titleSize)
+                    .style("font-weight", "700")
+                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("cursor", "pointer")
+                    .text(truncatedTitle);
+
+                // Add click functionality to title text
+                titleElement.on("click", () => {
+                    this.showEventModal(event);
+                });
+
+                // Description with improved wrapping and line limits
+                const maxLines = isSmallMobile ? 2 : 3;
+                const descriptionElement = textGroup.append("text")
+                    .attr("class", "event-description")
+                    .attr("x", cardX + padding)
+                    .attr("y", event.y + 14)
+                    .attr("fill", "#2F4F2F")
+                    .style("font-size", descSize)
+                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("cursor", "pointer");
+
+                // Add click functionality to description text
+                descriptionElement.on("click", () => {
+                    this.showEventModal(event);
+                });
+
+                this.wrapText(descriptionElement, event.description, textWidth, maxLines);
+            }
+
+            wrapText(text, content, width, maxLines = 3) {
+                const words = content.split(/\s+/);
+                let line = [];
+                let lineNumber = 0;
+                const lineHeight = 1.2;
+                const x = text.attr("x");
+                const y = text.attr("y");
+                const avgCharWidth = 7; // Better character width estimate
+                
+                text.text(null);
+                
+                words.forEach((word, index) => {
+                    line.push(word);
+                    const testLine = line.join(" ");
+                    const testLength = testLine.length * avgCharWidth;
+                    
+                    if (testLength > width && line.length > 1) {
+                        line.pop();
+                        
+                        // Check if we're at max lines
+                        if (lineNumber >= maxLines - 1) {
+                            const truncatedLine = line.join(" ");
+                            const truncated = truncatedLine.length > 25 ? truncatedLine.substring(0, 25) + "..." : truncatedLine;
+                            text.append("tspan")
+                                .attr("x", x)
+                                .attr("y", y)
+                                .attr("dy", lineNumber * lineHeight + "em")
+                                .text(truncated);
+                            return;
+                        }
+                        
+                        text.append("tspan")
+                            .attr("x", x)
+                            .attr("y", y)
+                            .attr("dy", lineNumber * lineHeight + "em")
+                            .text(line.join(" "));
+                        line = [word];
+                        lineNumber++;
+                    }
+                });
+                
+                // Add the last line if we haven't reached max lines
+                if (lineNumber < maxLines && line.length > 0) {
+                    const finalLine = line.join(" ");
+                    const truncated = finalLine.length > 30 ? finalLine.substring(0, 30) + "..." : finalLine;
+                    text.append("tspan")
+                        .attr("x", x)
+                        .attr("y", y)
+                        .attr("dy", lineNumber * lineHeight + "em")
+                        .text(truncated);
+                }
+            }
+
+            renderMarkerEvent(event) {
+                const dotX = this.centerX;
+                const dotY = event.y;
+                const isSmallMobile = window.innerWidth <= 480;
+                
+                // Black dot for start/end markers
+                const dotRadius = isSmallMobile ? 8 : 10;
+                
+                this.svg.append("circle")
+                    .attr("class", `timeline-dot marker`)
+                    .attr("cx", dotX)
+                    .attr("cy", dotY)
+                    .attr("r", dotRadius)
+                    .attr("fill", "#000000")
+                    .attr("stroke", "#ffffff")
+                    .attr("stroke-width", 2);
+
+                // Label text centered on the timeline
+                const textSize = isSmallMobile ? "12px" : "14px";
+                
+                this.svg.append("text")
+                    .attr("class", "marker-text")
+                    .attr("x", dotX)
+                    .attr("y", dotY + (event.title === "Start" ? -20 : 30))
+                    .attr("fill", "#000000")
+                    .style("font-size", textSize)
+                    .style("font-weight", "700")
+                    .style("text-anchor", "middle")
+                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .text(event.title);
+            }
+
+            truncateText(text, maxWidth, fontSize) {
+                // Estimate character width based on font size
+                const charWidth = parseInt(fontSize) * 0.6;
+                const maxChars = Math.floor(maxWidth / charWidth);
+                
+                if (text.length <= maxChars) {
+                    return text;
+                }
+                
+                return text.substring(0, maxChars - 3) + "...";
+            }
+
+            getSectionInfo(section) {
+                const sections = {
+                    'muslim-empires': { 
+                        name: 'Muslim Empires', 
+                        emoji: '🕌',
+                        years: '1200 - 1884'
+                    },
+                    'protectorate': { 
+                        name: 'Protectorate', 
+                        emoji: '🏛️',
+                        years: '1884 - 1960'
+                    },
+                    'independence': { 
+                        name: 'Independence', 
+                        emoji: '🎉',
+                        years: '1960'
+                    },
+                    'defacto-union': { 
+                        name: 'Defacto Union', 
+                        emoji: '⚖️',
+                        years: '1960 - 1991'
+                    },
+                    'restoration': { 
+                        name: 'Restoration of Sovereignty', 
+                        emoji: '🏴',
+                        years: '1991 - 2000'
+                    },
+                    'democracy': { 
+                        name: 'Democracy', 
+                        emoji: '🗳️',
+                        years: '2000 - Present'
+                    }
+                };
+                return sections[section] || { name: section, emoji: '📅', years: '' };
+            }
+
+            getSectionColor(section) {
+                const colors = {
+                    'muslim-empires': { fill: '#FFD700' },
+                    'protectorate': { fill: '#C8102E' },
+                    'independence': { fill: '#00A651' },
+                    'defacto-union': { fill: '#8B0000' },
+                    'restoration': { fill: '#C8102E' },
+                    'democracy': { fill: '#ffffff' }
+                };
+                return colors[section] || { fill: '#ffffff' };
+            }
+
+            formatSectionName(section) {
+                const names = {
+                    'medieval-period': 'Medieval Period (800 - 1500 CE)',
+                    'colonial-period': 'Colonial Period (1500 - 1960)',
+                    'modern-period': 'Modern Period (1960 - 1991)',
+                    'contemporary': 'Contemporary Period (1991 - Present)'
+                };
+                return names[section] || section;
+            }
+
+            formatYear(year) {
+                if (year < 0) {
+                    return `${Math.abs(year)} BCE`;
+                } else if (year < 1000) {
+                    return `${year} CE`;
+                } else {
+                    return `${year}`;
+                }
+            }
+        }
+
+        // Initialize timeline when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            new D3UnifiedTimeline();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            setTimeout(() => {
+                new D3UnifiedTimeline();
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
