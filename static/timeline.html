@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/webslides.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/css/svg-icons.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    
+
     <style>
         /* D3.js Timeline Styles */
         .timeline-container {
@@ -33,7 +33,7 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .timeline-subtitle {
@@ -85,12 +85,29 @@
         }
 
         /* Section styles for different historical periods - Somaliland flag colors only */
-        .muslim-empires { fill: #FFED4E; }
-        .protectorate { fill: #DC143C; }
-        .independence { fill: #228B22; }
-        .defacto-union { fill: #A0522D; }
-        .restoration { fill: #B22222; }
-        .democracy { fill: #f8f8ff; }
+        .muslim-empires {
+            fill: #FFED4E;
+        }
+
+        .protectorate {
+            fill: #DC143C;
+        }
+
+        .independence {
+            fill: #228B22;
+        }
+
+        .defacto-union {
+            fill: #A0522D;
+        }
+
+        .restoration {
+            fill: #B22222;
+        }
+
+        .democracy {
+            fill: #f8f8ff;
+        }
 
         /* Period background sections */
         .period-background {
@@ -116,23 +133,23 @@
             stroke: #ffffff;
             stroke-width: 4;
             fill: none;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         /* Timeline dots with updated colors */
         .timeline-dot.somalia {
             fill: #0066CC;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
         }
 
         .timeline-dot.somaliland {
             fill: #C8102E;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
         }
 
         /* Event cards with enhanced contrast */
         .event-card {
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
         }
 
         .event-card rect {
@@ -146,14 +163,14 @@
             stroke-width: 2;
             fill: none;
             opacity: 0.9;
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
         }
 
         /* Text styles with Somaliland flag colors - Enhanced for desktop */
         .event-date {
             font-size: 22px;
-            font-weight: 600;
-            fill: #C8102E;
+            font-weight: 900;
+            fill: #196532;
         }
 
         .event-title {
@@ -248,6 +265,7 @@
                 opacity: 0;
                 transform: translateY(-30px) scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -534,23 +552,31 @@
             .legend-text {
                 font-size: 18px;
             }
-            
+
             .event-title {
-                font-size: 16px !important;
+                font-size: 18px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 4px !important;
             }
-            
+
             .event-description {
-                font-size: 14px !important;
+                display: none !important;
             }
 
             .event-date {
-                font-size: 16px !important;
+                font-size: 18px !important;
+                margin-bottom: 2px !important;
             }
 
-            /* Improve event card visibility on mobile with better shadows */
+            /* Improve event card visibility and padding on mobile */
             .event-card rect {
-                filter: drop-shadow(0 3px 8px rgba(0,0,0,0.35));
+                filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
                 fill: rgba(255, 255, 255, 0.99);
+            }
+
+            /* Add better text positioning with padding for mobile event cards */
+            .event-card text {
+                dominant-baseline: hanging;
             }
 
             /* Make period text smaller on mobile */
@@ -568,12 +594,12 @@
             .connector-line {
                 stroke: #ffffff;
                 opacity: 0.8;
-                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+                filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
             }
 
             /* Timeline dots responsive */
             .timeline-dot {
-                filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+                filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
             }
         }
 
@@ -614,7 +640,7 @@
                 font-size: 14px !important;
                 line-height: 1.2;
             }
-            
+
             .event-description {
                 font-size: 12px !important;
                 line-height: 1.3;
@@ -624,10 +650,18 @@
                 font-size: 14px !important;
             }
 
-            /* Ensure text stays within bounds */
+            /* Ensure text stays within bounds with better padding */
             .event-card text {
                 overflow: hidden;
                 text-overflow: ellipsis;
+                dominant-baseline: central;
+                text-anchor: start;
+            }
+
+            /* Increase card padding on very small screens */
+            .event-card rect {
+                filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+                fill: rgba(255, 255, 255, 0.99);
             }
 
             /* Reduce visual noise on very small screens */
@@ -643,12 +677,12 @@
 
             /* Optimize timeline line for small screens with better visibility */
             .timeline-line {
-                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
             }
 
             .connector-line {
                 opacity: 0.7;
-                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+                filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
             }
         }
 
@@ -669,7 +703,8 @@
 
 <body>
     <header style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-        <a href="/" style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 8px; backdrop-filter: blur(10px);">
+        <a href="/"
+            style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 8px; backdrop-filter: blur(10px);">
             <svg class="fa-bars" width="24" height="24">
                 <use xlink:href="#fa-bars" />
             </svg>
@@ -678,16 +713,16 @@
 
     <div class="timeline-container">
         <div class="timeline-header">
-            <h1 class="timeline-title">The Somaliland - Somalia  Timeline</h1>
+            <h1 class="timeline-title">The Somaliland - Somalia Timeline</h1>
             <p class="timeline-subtitle">700 Years of distinct histories</p>
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-dot somalia"></div>
-                    <span class="legend-text">Somalia</span>
+                    <span class="legend-text">Somalia (left)</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-dot somaliland"></div>
-                    <span class="legend-text">Somaliland</span>
+                    <span class="legend-text">Somaliland (right)</span>
                 </div>
             </div>
         </div>
@@ -716,9 +751,9 @@
             </div>
         </div>
     </div>
-    
+
     <script src="/js/svg-icons.js"></script>
-    
+
     <script>
         // D3.js Unified Timeline Implementation
         class D3UnifiedTimeline {
@@ -730,7 +765,7 @@
                 this.eventSpacing = 120; // Minimum spacing between events
                 this.cardWidth = 300;
                 this.cardHeight = 95; // Increased for larger text
-                
+
                 // Mobile responsive adjustments
                 if (window.innerWidth <= 768) {
                     this.margin = { top: 60, right: 20, bottom: 60, left: 20 };
@@ -738,14 +773,14 @@
                     this.cardHeight = 70;
                     this.eventSpacing = 100;
                 }
-                
+
                 if (window.innerWidth <= 480) {
                     this.margin = { top: 40, right: 10, bottom: 40, left: 10 };
                     this.cardWidth = Math.min(200, window.innerWidth - 80);
                     this.cardHeight = 60;
                     this.eventSpacing = 80;
                 }
-                
+
                 this.timelineData = this.prepareUnifiedData();
                 this.calculateLayout();
                 this.initializeSVG();
@@ -756,19 +791,19 @@
             setupModal() {
                 const modal = document.getElementById('eventModal');
                 const closeBtn = document.getElementById('modalClose');
-                
+
                 // Close modal when clicking close button
                 closeBtn.onclick = () => {
                     modal.style.display = 'none';
                 };
-                
+
                 // Close modal when clicking outside
                 window.onclick = (event) => {
                     if (event.target === modal) {
                         modal.style.display = 'none';
                     }
                 };
-                
+
                 // Close modal with ESC key
                 document.addEventListener('keydown', (event) => {
                     if (event.key === 'Escape' && modal.style.display === 'block') {
@@ -788,10 +823,10 @@
                 const modalSourceLink = document.getElementById('modalSourceLink');
                 const modalSource = document.getElementById('modalSource');
                 const modalEventImage = document.getElementById('modalEventImage');
-                
+
                 // Get detailed information for the event
                 const detailedInfo = this.getEventDetails(eventData);
-                
+
                 modalTitle.textContent = eventData.title;
                 modalYear.textContent = this.formatYear(eventData.year);
                 modalCountry.textContent = eventData.country === 'somalia' ? 'Somalia' : eventData.country === 'somaliland' ? 'Somaliland' : 'Timeline';
@@ -800,39 +835,39 @@
                 modalDetails.innerHTML = detailedInfo.details;
                 modalSourceLink.textContent = detailedInfo.sourceTitle;
                 modalSourceLink.href = detailedInfo.sourceUrl;
-                
+
                 // Set event image
                 this.setModalEventImage(modalEventImage, eventData.id);
-                
+
                 // Hide source section for Somalia events
                 if (eventData.country === 'somalia') {
                     modalSource.style.display = 'none';
                 } else {
                     modalSource.style.display = 'block';
                 }
-                
+
                 modal.style.display = 'block';
             }
 
             setModalEventImage(imageElement, eventId) {
                 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
                 let imageFound = false;
-                
+
                 // Reset image first
                 imageElement.style.display = 'none';
                 imageElement.classList.remove('loaded');
                 imageElement.src = '';
-                
+
                 // Function to try loading an image with a specific extension
                 const tryLoadImage = (index) => {
                     if (index >= imageExtensions.length || imageFound) {
                         return;
                     }
-                    
+
                     const ext = imageExtensions[index];
                     const imagePath = `/assets/img/timeline/${eventId}${ext}`;
                     const img = new Image();
-                    
+
                     img.onload = () => {
                         if (!imageFound) {
                             imageElement.src = imagePath;
@@ -844,15 +879,15 @@
                             imageFound = true;
                         }
                     };
-                    
+
                     img.onerror = () => {
                         // Try next extension
                         tryLoadImage(index + 1);
                     };
-                    
+
                     img.src = imagePath;
                 };
-                
+
                 // Start trying with the first extension
                 tryLoadImage(0);
             }
@@ -933,7 +968,7 @@
                     'ff001122-3344-4556-ff00-112233445566': {
                         details: `Somaliland's first local government elections in December 2002 marked the beginning of competitive multi-party democracy. Using a "one person, one vote" system, voters elected local councils across the country. These elections, praised for their transparency and peaceful conduct, established the foundation for Somaliland's democratic credentials and demonstrated the population's commitment to democratic governance.`,
                         sourceTitle: 'International Crisis Group - Somaliland Democracy',
-                    sourceUrl: 'https://en.wikipedia.org/wiki/2002_Somaliland_municipal_elections'
+                        sourceUrl: 'https://en.wikipedia.org/wiki/2002_Somaliland_municipal_elections'
                     },
                     '00112233-4455-4667-0011-223344556677': {
                         details: `The 2003 presidential election saw Dahir Riyale Kahin of UDUB party narrowly defeat Ahmed Mohamed Mohamoud "Silanyo" of Kulmiye by just 80 votes, the closest election in Somaliland's history. This peaceful transfer of power, despite the razor-thin margin, demonstrated the maturity of Somaliland's democratic institutions and the acceptance of electoral outcomes by all parties.`,
@@ -975,7 +1010,7 @@
                         sourceTitle: 'Wikipedia - 2024 Somaliland Presidential Election',
                         sourceUrl: 'https://en.wikipedia.org/wiki/2024_Somaliland_presidential_election'
                     },
-                    
+
                     // Somalia Events
                     '1960.7_somalia_Independence': {
                         details: `On July 1, 1960, the former Italian Somalia became independent. The next step was to create a Somali Republic with Somaliland. However, the Act of Union was hastily drafted and never properly ratified, creating legal ambiguities that last to this day.`,
@@ -1007,7 +1042,7 @@
                         sourceTitle: 'Reuters - Al-Shabaab Houthi Alliance 2024',
                         sourceUrl: 'https://www.reuters.com/world/africa/intelligence-reports-al-shabaab-houthi-cooperation-2024/'
                     },
-                    
+
                     // Somalia Events - Using GUID as key
                     'a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890': {
                         details: `The Ajuran Sultanate (13th-17th centuries) was one of the most powerful medieval Somali kingdoms, controlling the Indian Ocean trade through its capital Mogadishu. This hydraulic empire developed sophisticated irrigation systems along the Shabelle and Jubba rivers, supporting large agricultural settlements. The Ajuran state established diplomatic relations with Ming China, Ottoman Empire, and Portuguese traders, demonstrating Somalia's historical role as a major player in international commerce.`,
@@ -1100,7 +1135,7 @@
                         sourceUrl: 'https://apnews.com/somalia-al-shabaab-offensive-2025'
                     }
                 };
-                
+
                 return eventDetails[event.id] || {
                     details: `This event represents a significant moment in ${event.country === 'somalia' ? 'Somali' : 'Somaliland'} history during the ${this.getSectionInfo(event.section).name} period. ${event.description} This event shaped the political, social, and economic development of the region and continues to influence current affairs.`,
                     sourceTitle: `Historical Archive - ${event.title}`,
@@ -1114,26 +1149,26 @@
                     // Muslim Empires Period
                     { id: "a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890", year: 1300, title: "Ajuran Sultanate Rise", description: "Oldest Capital Mogadishu", section: "muslim-empires", country: "somalia" },
                     { id: "b2c3d4e5-f6a7-4890-b2c3-d4e5f6a78901", year: 1650, title: "Omani Empire Influence", description: "Omani control of ports", section: "muslim-empires", country: "somalia" },
-                    
+
                     // Protectorate Period
                     { id: "c3d4e5f6-a7b8-4901-c3d4-e5f6a7b89012", year: 1889, title: "Italian Somalia", description: "Italian protectorate established", section: "protectorate", country: "somalia" },
                     { id: "d4e5f6a7-b8c9-4012-d4e5-f6a7b8c90123", year: 1936, title: "Italian East Africa", description: "Part of larger Italian colony", section: "protectorate", country: "somalia" },
-                    
+
                     // Independence Period
-                    { id: "e5f6a7b8-c9d0-4123-e5f6-a7b8c9d01234", year: 1960.7, title: "Independence", description:  "Somalia is born (July 1)", section: "independence", country: "somalia" },
-                    
+                    { id: "e5f6a7b8-c9d0-4123-e5f6-a7b8c9d01234", year: 1960.7, title: "Independence", description: "Somalia is born (July 1)", section: "independence", country: "somalia" },
+
                     // Defacto Union Period
                     { id: "f6a7b8c9-d0e1-4234-f6a7-b8c9d0e12345", year: 1969, title: "Military Coup", description: "Barre seizes power", section: "defacto-union", country: "somalia" },
                     { id: "a7b8c9d0-e1f2-4345-a7b8-c9d0e1f23456", year: 1977, title: "Ogaden War", description: "War with Ethiopia", section: "defacto-union", country: "somalia" },
                     { id: "b8c9d0e1-f2a3-4456-b8c9-d0e1f2a34567", year: 1991, title: "Civil War Begins", description: "Government collapses", section: "defacto-union", country: "somalia" },
-                    
+
                     // Restoration Period
                     { id: "c9d0e1f2-a3b4-4567-c9d0-e1f2a3b45678", year: 2004, title: "Transitional Government", description: "TFG formed in Kenya", section: "restoration", country: "somalia" },
                     { id: "d0e1f2a3-b4c5-4678-d0e1-f2a3b4c56789", year: 2006, title: "Al-Shabaab Formation", description: "Youth militia of Islamic Courts Union", section: "restoration", country: "somalia" },
                     { id: "e1f2a3b4-c5d6-4789-e1f2-a3b4c5d6789a", year: 2008, title: "Piracy Peak", description: "MV Faina hijacked", section: "restoration", country: "somalia" },
                     { id: "f2a3b4c5-d6e7-489a-f2a3-b4c5d6e789ab", year: 2009, title: "Maersk Alabama", description: "US ship hijacked", section: "restoration", country: "somalia" },
                     { id: "a3b4c5d6-e7f8-49ab-a3b4-c5d6e7f89abc", year: 2011, title: "Attack Surge", description: "237 piracy incidents", section: "restoration", country: "somalia" },
-                    
+
                     // Democracy Period
                     { id: "b4c5d6e7-f8a9-4abc-b4c5-d6e7f8a9abcd", year: 2012, title: "Federal Government", description: "New provisional constitution", section: "democracy", country: "somalia" },
                     { id: "c5d6e7f8-a9ba-4bcd-c5d6-e7f8a9babcde", year: 2013, title: "Westgate Attack", description: "Nairobi, 67 killed", section: "democracy", country: "somalia" },
@@ -1147,14 +1182,14 @@
                     { id: "11223344-5566-4778-1122-334455667788", year: 1285, title: "Ifat Empire", description: "Oldest SL Capital Zeila", section: "muslim-empires", country: "somaliland" },
                     { id: "22334455-6677-4889-2233-445566778899", year: 1415, title: "Adal Sultanate", description: "Powerful sultanate centered in Zeila", section: "muslim-empires", country: "somaliland" },
                     { id: "33445566-7788-499a-3344-5566778899aa", year: 1557, title: "Ottoman Rule", description: "Indirect Ottoman control via Egypt", section: "muslim-empires", country: "somaliland" },
-                    
+
                     // Protectorate Period
                     { id: "44556677-8899-4aab-4455-66778899aabb", year: 1884, title: "British Protectorate", description: "Treaty signed with Britain", section: "protectorate", country: "somaliland" },
                     { id: "5566778899aa-bbcc-5566-778899aabbcc", year: 1920, title: "Dervish Wars End", description: "Mad Mulla defeated", section: "protectorate", country: "somaliland" },
-                    
+
                     // Independence Period
                     { id: "66778899-aabb-4ccd-6677-8899aabbccdd", year: 1960.6, title: "Independence", description: "35 Countries Recognise SL (June 26)", section: "independence", country: "somaliland" },
-                    
+
                     // Defacto Union Period
                     { id: "778899aa-bbcc-4dde-7788-99aabbccddee", year: 1961.5, title: "Act of Union Rejected", description: "Somaliland votes against Act of Union", section: "defacto-union", country: "somaliland" },
                     { id: "8899aabb-ccdd-4eef-8899-aabbccddeeff", year: 1961.9, title: "Coup Attempt", description: "Officers revolt fails", section: "defacto-union", country: "somaliland" },
@@ -1162,10 +1197,10 @@
                     { id: "aabbccdd-eeff-4001-aabb-ccddeeff0011", year: 1988, title: "Isaaq Genocide", description: "Systematic mass killings by Barre regime", section: "defacto-union", country: "somaliland" },
                     { id: "bbccddee-ff00-4112-bbcc-ddeeff001122", year: 1988.5, title: "SNM Liberation War", description: "Somaliland Liberation Peak", section: "defacto-union", country: "somaliland" },
                     { id: "ccddeeff-0011-4223-ccdd-eeff00112233", year: 1991, title: "Burco Conference", description: "Restores sovereignty", section: "defacto-union", country: "somaliland" },
-                    
+
                     // Restoration Period
                     { id: "ddeeff00-1122-4334-ddee-ff0011223344", year: 1993, title: "Borama Conference", description: "Peace talks establish govt", section: "restoration", country: "somaliland" },
-                    
+
                     // Democracy Period
                     { id: "eeff0011-2233-4445-eeff-001122334455", year: 2001, title: "Constitutional Referendum", description: "97% approve constitution", section: "democracy", country: "somaliland" },
                     { id: "ff001122-3344-4556-ff00-112233445566", year: 2002, title: "Local Elections", description: "First 1P1V local vote", section: "democracy", country: "somaliland" },
@@ -1176,36 +1211,36 @@
                     { id: "44556677-8899-4aab-4455-667788990011", year: 2017, title: "Presidential Election", description: "Bihi wins 1P1V", section: "democracy", country: "somaliland" },
                     { id: "55667788-99aa-4bbc-5566-778899001122", year: 2021, title: "Dual Elections", description: "Parliamentary & Local 1P1V", section: "democracy", country: "somaliland" },
                     { id: "66778899-aabb-4ccd-6677-889900112233", year: 2024, title: "Ethiopia MoU", description: "Naval base agreement", section: "democracy", country: "somaliland" },
-                    { id: "778899aa-bbcc-4dde-7788-990011223344", year: 2024.5, title: "Dual Elections", description: "Presidential & Local 1P1V - Cirro wins", section: "democracy", country: "somaliland" }
+                    { id: "778899aa-bbcc-4dde-7788-990011223344", year: 2024.5, title: "Dual Elections", description: "Presidential & Party 1P1V - Irro wins", section: "democracy", country: "somaliland" }
                 ];
 
                 // Combine and sort all events by year
                 const allEvents = [...somaliaEvents, ...somalilandEvents];
                 const sortedEvents = allEvents.sort((a, b) => a.year - b.year);
-                
+
                 // Add start and end markers
-                const startEvent = { 
+                const startEvent = {
                     id: "00000000-0000-4000-8000-000000000001",
-                    year: sortedEvents[0].year - 100, 
-                    title: "Start", 
-                    description: "Timeline begins", 
-                    section: "marker", 
+                    year: sortedEvents[0].year - 100,
+                    title: "Start",
+                    description: "Timeline begins",
+                    section: "marker",
                     country: "marker",
                     isMarker: true
                 };
-                
-                const endEvent = { 
+
+                const endEvent = {
                     id: "ffffffff-ffff-4fff-8fff-ffffffffffff",
-                    year: sortedEvents[sortedEvents.length - 1].year + 100, 
-                    title: "End", 
-                    description: "Timeline ends", 
-                    section: "marker", 
+                    year: sortedEvents[sortedEvents.length - 1].year + 100,
+                    title: "End",
+                    description: "Timeline ends",
+                    section: "marker",
                     country: "marker",
                     isMarker: true
                 };
-                
+
                 const eventsWithMarkers = [startEvent, ...sortedEvents, endEvent];
-                
+
                 return eventsWithMarkers.map((event) => ({
                     ...event,
                     side: event.isMarker ? 'center' : (event.country === 'somalia' ? 'left' : 'right')
@@ -1215,10 +1250,10 @@
             calculateLayout() {
                 // Calculate positions with collision detection
                 let currentY = this.margin.top + 50;
-                
+
                 this.timelineData.forEach((event, index) => {
                     event.y = currentY;
-                    
+
                     // Ensure minimum spacing
                     if (index > 0) {
                         const prevEvent = this.timelineData[index - 1];
@@ -1227,7 +1262,7 @@
                             event.y = minY;
                         }
                     }
-                    
+
                     currentY = event.y + this.eventSpacing;
                 });
 
@@ -1237,7 +1272,7 @@
             initializeSVG() {
                 // Remove existing SVG content
                 d3.select("#timeline-svg").selectAll("*").remove();
-                
+
                 this.svg = d3.select("#timeline-svg")
                     .attr("width", this.width)
                     .attr("height", this.height)
@@ -1255,11 +1290,11 @@
                 // Get start and end marker positions
                 const startMarker = this.timelineData.find(event => event.title === "Start");
                 const endMarker = this.timelineData.find(event => event.title === "End");
-                
+
                 // Use marker positions or fallback to margins if markers not found
                 const startY = startMarker ? startMarker.y : this.margin.top;
                 const endY = endMarker ? endMarker.y : this.height - this.margin.bottom;
-                
+
                 // Single central timeline line from start marker to end marker
                 this.svg.append("line")
                     .attr("class", "timeline-line")
@@ -1275,22 +1310,22 @@
                 // Group events by section for background sections, excluding markers
                 const nonMarkerEvents = this.timelineData.filter(event => !event.isMarker);
                 const sections = d3.group(nonMarkerEvents, d => d.section);
-                
+
                 // Create gradients for each section
                 const defs = this.svg.append("defs");
-                
+
                 sections.forEach((events, sectionName) => {
                     const firstEvent = events[0];
                     const lastEvent = events[events.length - 1];
                     const sectionColor = this.getSectionColor(sectionName);
                     const sectionInfo = this.getSectionInfo(sectionName);
-                    
+
                     // Calculate section boundaries
                     const sectionStartY = firstEvent.y - 80;
                     const sectionEndY = lastEvent.y + 80;
                     const sectionHeight = sectionEndY - sectionStartY;
                     const sectionCenterY = sectionStartY + (sectionHeight / 2);
-                    
+
                     // Create gradient for this section
                     const gradientId = `gradient-${sectionName}`;
                     const gradient = defs.append("linearGradient")
@@ -1299,22 +1334,22 @@
                         .attr("y1", "0%")
                         .attr("x2", "100%")
                         .attr("y2", "0%");
-                    
+
                     gradient.append("stop")
                         .attr("offset", "0%")
                         .attr("stop-color", sectionColor.fill)
                         .attr("stop-opacity", "0.02");
-                    
+
                     gradient.append("stop")
                         .attr("offset", "50%")
                         .attr("stop-color", sectionColor.fill)
                         .attr("stop-opacity", "0.12");
-                    
+
                     gradient.append("stop")
                         .attr("offset", "100%")
                         .attr("stop-color", sectionColor.fill)
                         .attr("stop-opacity", "0.02");
-                    
+
                     // Background rectangle for the entire section with gradient
                     this.svg.append("rect")
                         .attr("class", "period-background")
@@ -1323,12 +1358,12 @@
                         .attr("width", this.width)
                         .attr("height", sectionHeight)
                         .attr("fill", `url(#${gradientId})`);
-                    
+
                     // Large background emoji
                     const emojiX = window.innerWidth <= 768 ? this.centerX : this.centerX + 200;
                     const emojiSize = window.innerWidth <= 480 ? "60px" : window.innerWidth <= 768 ? "80px" : "120px";
                     const emojiOpacity = window.innerWidth <= 480 ? "0.03" : "0.08";
-                    
+
                     this.svg.append("text")
                         .attr("class", "period-emoji")
                         .attr("x", emojiX)
@@ -1338,12 +1373,12 @@
                         .style("text-anchor", "middle")
                         .style("opacity", emojiOpacity)
                         .text(sectionInfo.emoji);
-                    
+
                     // Large background text
                     const textX = window.innerWidth <= 768 ? this.centerX : this.centerX - 200;
                     const textSize = window.innerWidth <= 480 ? "16px" : window.innerWidth <= 768 ? "20px" : "28px";
                     const textOpacity = window.innerWidth <= 480 ? "0.08" : "0.15";
-                    
+
                     this.svg.append("text")
                         .attr("class", "period-text")
                         .attr("x", textX)
@@ -1355,11 +1390,11 @@
                         .style("opacity", textOpacity)
                         .style("letter-spacing", "3px")
                         .text(sectionInfo.name.toUpperCase());
-                    
+
                     // Years text
                     const yearSize = window.innerWidth <= 480 ? "12px" : "16px";
                     const yearOpacity = window.innerWidth <= 480 ? "0.1" : "0.2";
-                    
+
                     this.svg.append("text")
                         .attr("class", "period-text")
                         .attr("x", textX)
@@ -1385,35 +1420,35 @@
                     this.renderMarkerEvent(event);
                     return;
                 }
-                
+
                 const isLeft = event.side === 'left';
                 const isMobile = window.innerWidth <= 768;
                 const isSmallMobile = window.innerWidth <= 480;
-                
+
                 // Calculate card position ensuring it stays within viewport
                 const margin = 15;
                 let cardX;
                 let actualCardWidth = this.cardWidth;
-                
+
                 if (isMobile) {
                     // On mobile, ensure cards fit within screen bounds
                     const availableWidth = Math.min(this.cardWidth, (this.width / 2) - 40);
                     actualCardWidth = availableWidth;
-                    
+
                     if (isLeft) {
                         cardX = Math.max(margin, this.centerX - actualCardWidth - 25);
                     } else {
                         cardX = Math.min(this.width - actualCardWidth - margin, this.centerX + 25);
                     }
                 } else {
-                    cardX = isLeft ? 
-                        Math.max(margin, this.centerX - this.cardWidth - 60) : 
+                    cardX = isLeft ?
+                        Math.max(margin, this.centerX - this.cardWidth - 60) :
                         Math.min(this.width - this.cardWidth - margin, this.centerX + 60);
                 }
-                
+
                 const dotX = this.centerX;
                 const dotY = event.y;
-                
+
                 // Event card group
                 const eventGroup = this.svg.append("g")
                     .attr("class", `event-card ${event.section} ${event.country}`);
@@ -1427,7 +1462,7 @@
                         .attr("y", "-20%")
                         .attr("width", "140%")
                         .attr("height", "140%");
-                    
+
                     filter.append("feDropShadow")
                         .attr("dx", 2)
                         .attr("dy", 2)
@@ -1439,7 +1474,7 @@
                 // Card background with improved styling
                 const cardRect = eventGroup.append("rect")
                     .attr("x", cardX)
-                    .attr("y", event.y - this.cardHeight/2)
+                    .attr("y", event.y - this.cardHeight / 2)
                     .attr("width", actualCardWidth)
                     .attr("height", this.cardHeight)
                     .attr("rx", 12)
@@ -1458,7 +1493,7 @@
                 const controlX = isLeft ? cardEdgeX + 15 : cardEdgeX - 15;
                 const pathData = `M ${cardEdgeX} ${event.y} 
                                  Q ${controlX} ${event.y} ${dotX - (isLeft ? 8 : -8)} ${dotY}`;
-                
+
                 eventGroup.append("path")
                     .attr("class", "connector-line")
                     .attr("d", pathData)
@@ -1469,7 +1504,7 @@
                 const dotColor = event.country === 'somalia' ? '#0066CC' : '#C8102E';
                 const dotRadius = isSmallMobile ? 7 : 9;
                 const dotStrokeWidth = isSmallMobile ? 2 : 3;
-                
+
                 const dot = this.svg.append("circle")
                     .attr("class", `timeline-dot ${event.country}`)
                     .attr("cx", dotX)
@@ -1485,39 +1520,39 @@
                 });
 
                 // Add hover effects
-                eventGroup.on("mouseenter", function() {
+                eventGroup.on("mouseenter", function () {
                     d3.select(this).select("rect")
                         .transition()
                         .duration(200)
                         .attr("fill", "rgba(255, 255, 255, 1)")
                         .style("filter", "drop-shadow(0 6px 12px rgba(0,0,0,0.3))");
-                    
+
                     dot.transition()
                         .duration(200)
                         .attr("r", dotRadius + 2);
                 })
-                .on("mouseleave", function() {
-                    d3.select(this).select("rect")
-                        .transition()
-                        .duration(200)
-                        .attr("fill", "rgba(255, 255, 255, 0.98)")
-                        .style("filter", "drop-shadow(0 4px 8px rgba(0,0,0,0.4))");
-                    
-                    dot.transition()
-                        .duration(200)
-                        .attr("r", dotRadius);
-                });
+                    .on("mouseleave", function () {
+                        d3.select(this).select("rect")
+                            .transition()
+                            .duration(200)
+                            .attr("fill", "rgba(255, 255, 255, 0.98)")
+                            .style("filter", "drop-shadow(0 4px 8px rgba(0,0,0,0.4))");
+
+                        dot.transition()
+                            .duration(200)
+                            .attr("r", dotRadius);
+                    });
 
                 // Event text with responsive handling
                 const textGroup = eventGroup.append("g");
                 const padding = 10;
                 const textWidth = actualCardWidth - (padding * 2);
-                
+
                 // Responsive font sizes - Enhanced for desktop
                 const dateSize = isSmallMobile ? "10px" : isMobile ? "11px" : "16px";
                 const titleSize = isSmallMobile ? "11px" : isMobile ? "12px" : "18px";
                 const descSize = isSmallMobile ? "9px" : isMobile ? "10px" : "14px";
-                
+
                 // Date with better positioning
                 const dateText = textGroup.append("text")
                     .attr("class", "event-date")
@@ -1535,25 +1570,48 @@
                     this.showEventModal(event);
                 });
 
-                // Title with country indicator - truncated for mobile
+                // Title with country indicator - multiline for mobile, truncated for desktop
                 const titleText = `${event.title} (${event.country === 'somalia' ? 'SOM' : 'SL'})`;
-                const truncatedTitle = this.truncateText(titleText, textWidth, titleSize);
-                
-                const titleElement = textGroup.append("text")
-                    .attr("class", "event-title")
-                    .attr("x", cardX + padding)
-                    .attr("y", event.y - 2)
-                    .attr("fill", "#8B0000")
-                    .style("font-size", titleSize)
-                    .style("font-weight", "700")
-                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
-                    .style("cursor", "pointer")
-                    .text(truncatedTitle);
 
-                // Add click functionality to title text
-                titleElement.on("click", () => {
-                    this.showEventModal(event);
-                });
+                if (isMobile) {
+                    // On mobile, use multiline text wrapping instead of truncation
+                    const titleElement = textGroup.append("text")
+                        .attr("class", "event-title")
+                        .attr("x", cardX + padding)
+                        .attr("y", event.y - 2)
+                        .attr("fill", "#8B0000")
+                        .style("font-size", titleSize)
+                        .style("font-weight", "700")
+                        .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                        .style("cursor", "pointer");
+
+                    // Add click functionality to title text
+                    titleElement.on("click", () => {
+                        this.showEventModal(event);
+                    });
+
+                    // Use wrapText for mobile titles - allow 2 lines max
+                    this.wrapText(titleElement, titleText, textWidth, 2, true);
+                } else {
+                    // On desktop, use single line with truncation
+                    const truncatedTitle = this.truncateText(titleText, textWidth, titleSize);
+
+                    const titleElement = textGroup.append("text")
+                        .attr("class", "event-title")
+                        .attr("x", cardX + padding)
+                        .attr("y", event.y - 2)
+                        .attr("fill", "#8B0000")
+                        .style("font-size", titleSize)
+                        .style("font-weight", "700")
+                        .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                        .style("cursor", "pointer")
+                        .text(truncatedTitle);
+
+                    // Add click functionality to title text
+                    titleElement.on("click", () => {
+                        this.showEventModal(event);
+                    });
+                }
 
                 // Description with improved wrapping and line limits
                 const maxLines = isSmallMobile ? 2 : 3;
@@ -1574,7 +1632,7 @@
                 this.wrapText(descriptionElement, event.description, textWidth, maxLines);
             }
 
-            wrapText(text, content, width, maxLines = 3) {
+            wrapText(text, content, width, maxLines = 3, isTitle = false) {
                 const words = content.split(/\s+/);
                 let line = [];
                 let lineNumber = 0;
@@ -1582,21 +1640,25 @@
                 const x = text.attr("x");
                 const y = text.attr("y");
                 const avgCharWidth = 7; // Better character width estimate
-                
+
                 text.text(null);
-                
+
                 words.forEach((word, index) => {
                     line.push(word);
                     const testLine = line.join(" ");
                     const testLength = testLine.length * avgCharWidth;
-                    
+
                     if (testLength > width && line.length > 1) {
                         line.pop();
-                        
+
                         // Check if we're at max lines
                         if (lineNumber >= maxLines - 1) {
                             const truncatedLine = line.join(" ");
-                            const truncated = truncatedLine.length > 25 ? truncatedLine.substring(0, 25) + "..." : truncatedLine;
+                            // For titles on mobile, don't add "..." - just cut cleanly
+                            const isMobile = window.innerWidth <= 768;
+                            const truncated = (isTitle && isMobile) ?
+                                truncatedLine :
+                                (truncatedLine.length > 25 ? truncatedLine.substring(0, 25) + "..." : truncatedLine);
                             text.append("tspan")
                                 .attr("x", x)
                                 .attr("y", y)
@@ -1604,7 +1666,7 @@
                                 .text(truncated);
                             return;
                         }
-                        
+
                         text.append("tspan")
                             .attr("x", x)
                             .attr("y", y)
@@ -1614,11 +1676,15 @@
                         lineNumber++;
                     }
                 });
-                
+
                 // Add the last line if we haven't reached max lines
                 if (lineNumber < maxLines && line.length > 0) {
                     const finalLine = line.join(" ");
-                    const truncated = finalLine.length > 30 ? finalLine.substring(0, 30) + "..." : finalLine;
+                    // For titles on mobile, don't add "..." - just cut cleanly
+                    const isMobile = window.innerWidth <= 768;
+                    const truncated = (isTitle && isMobile) ?
+                        finalLine :
+                        (finalLine.length > 30 ? finalLine.substring(0, 30) + "..." : finalLine);
                     text.append("tspan")
                         .attr("x", x)
                         .attr("y", y)
@@ -1631,10 +1697,10 @@
                 const dotX = this.centerX;
                 const dotY = event.y;
                 const isSmallMobile = window.innerWidth <= 480;
-                
+
                 // Black dot for start/end markers
                 const dotRadius = isSmallMobile ? 8 : 10;
-                
+
                 this.svg.append("circle")
                     .attr("class", `timeline-dot marker`)
                     .attr("cx", dotX)
@@ -1646,7 +1712,7 @@
 
                 // Label text centered on the timeline
                 const textSize = isSmallMobile ? "12px" : "14px";
-                
+
                 this.svg.append("text")
                     .attr("class", "marker-text")
                     .attr("x", dotX)
@@ -1663,43 +1729,43 @@
                 // Estimate character width based on font size
                 const charWidth = parseInt(fontSize) * 0.6;
                 const maxChars = Math.floor(maxWidth / charWidth);
-                
+
                 if (text.length <= maxChars) {
                     return text;
                 }
-                
+
                 return text.substring(0, maxChars - 3) + "...";
             }
 
             getSectionInfo(section) {
                 const sections = {
-                    'muslim-empires': { 
-                        name: 'Muslim Empires', 
+                    'muslim-empires': {
+                        name: 'Muslim Empires',
                         emoji: '🕌',
                         years: '1200 - 1884'
                     },
-                    'protectorate': { 
-                        name: 'Protectorate', 
+                    'protectorate': {
+                        name: 'Protectorate',
                         emoji: '🏛️',
                         years: '1884 - 1960'
                     },
-                    'independence': { 
-                        name: 'Independence', 
+                    'independence': {
+                        name: 'Independence',
                         emoji: '🎉',
                         years: '1960'
                     },
-                    'defacto-union': { 
-                        name: 'Defacto Union', 
+                    'defacto-union': {
+                        name: 'Defacto Union',
                         emoji: '⚖️',
                         years: '1960 - 1991'
                     },
-                    'restoration': { 
-                        name: 'Restoration of Sovereignty', 
+                    'restoration': {
+                        name: 'Restoration of Sovereignty',
                         emoji: '🏴',
                         years: '1991 - 2000'
                     },
-                    'democracy': { 
-                        name: 'Democracy', 
+                    'democracy': {
+                        name: 'Democracy',
                         emoji: '🗳️',
                         years: '2000 - Present'
                     }
@@ -1741,12 +1807,12 @@
         }
 
         // Initialize timeline when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             new D3UnifiedTimeline();
         });
 
         // Handle window resize
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             setTimeout(() => {
                 new D3UnifiedTimeline();
             }, 100);
