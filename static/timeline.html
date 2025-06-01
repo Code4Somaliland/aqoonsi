@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Timeline - Somaliland Recognition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="/css/webslides.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/css/svg-icons.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -14,12 +16,12 @@
         .timeline-container {
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(#000, rgba(0, 0, 0, 0)), url(/assets/img/timeline/lasgeel.webp);
+            background: linear-gradient(#000, rgba(0, 0, 0, 0)), url(/assets/img/timeline/lasgeel.png);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Crimson Text', serif;
             padding: 20px;
         }
 
@@ -150,6 +152,7 @@
         /* Event cards with enhanced contrast */
         .event-card {
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+            position: relative;
         }
 
         .event-card rect {
@@ -171,17 +174,23 @@
             font-size: 22px;
             font-weight: 900;
             fill: #196532;
+            text-anchor: middle;
+            dominant-baseline: central;
         }
 
         .event-title {
             font-size: 26px;
             font-weight: 700;
             fill: #8B0000;
+            text-anchor: middle;
+            dominant-baseline: central;
         }
 
         .event-description {
-            font-size: 20px;
-            fill: #2F4F2F;
+            font-size: 25px;
+            fill: #000;
+            text-anchor: middle;
+            dominant-baseline: central;
         }
 
         /* Somalia-specific text colors - black dates and blue text matching dot color */
@@ -216,7 +225,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(248, 249, 250, 0.95)), url('/assets/img/timeline/lasgeel.webp');
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(248, 249, 250, 0.95)), url('/assets/img/timeline/lasgeel.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -253,6 +262,11 @@
         .modal-event-image.loaded {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .menuToggle {
+
+            margin-left: 92% !important;
         }
 
         /* Responsive image sizing */
@@ -568,6 +582,8 @@
                 font-size: 18px !important;
                 line-height: 1.3 !important;
                 margin-bottom: 4px !important;
+                text-anchor: middle;
+                dominant-baseline: central;
             }
 
             .event-description {
@@ -577,6 +593,8 @@
             .event-date {
                 font-size: 18px !important;
                 margin-bottom: 2px !important;
+                text-anchor: middle;
+                dominant-baseline: central;
             }
 
             /* Improve event card visibility and padding on mobile */
@@ -587,7 +605,8 @@
 
             /* Add better text positioning with padding for mobile event cards */
             .event-card text {
-                dominant-baseline: hanging;
+                text-anchor: middle;
+                dominant-baseline: central;
             }
 
             /* Make period text smaller on mobile */
@@ -666,7 +685,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 dominant-baseline: central;
-                text-anchor: start;
+                text-anchor: middle;
             }
 
             /* Increase card padding on very small screens */
@@ -709,18 +728,278 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Right Side Menu Styles */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-overlay.open {
+            right: 0;
+        }
+
+        .menu-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(200, 16, 46, 0.1);
+        }
+
+        .menu-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #C8102E;
+            margin: 0;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #C8102E;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .menu-close:hover {
+            background: rgba(200, 16, 46, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .menu-content {
+            padding: 20px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .menu-section {
+            margin-bottom: 30px;
+        }
+
+        .menu-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #C8102E;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-item:hover {
+            background: rgba(200, 16, 46, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .menu-item-content {
+            flex: 1;
+        }
+
+        .menu-item-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .menu-item-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+            opacity: 0.8;
+        }
+
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(200, 16, 46, 0.1), rgba(200, 16, 46, 0.05));
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(200, 16, 46, 0.2);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #C8102E;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile menu adjustments */
+        @media (max-width: 768px) {
+            .menu-overlay {
+                width: 100%;
+                right: -100%;
+            }
+
+            .menu-overlay.open {
+                right: 0;
+            }
+
+            .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-        <a href="/"
-            style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 8px; backdrop-filter: blur(10px);">
-            <svg class="fa-bars" width="24" height="24">
-                <use xlink:href="#fa-bars" />
+        <button id="menuToggle"
+            style="margin-left: 92%; color: white; background: rgba(255, 255, 255, 0.1); padding: 12px; border: none; border-radius: 8px; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s ease;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z" />
             </svg>
-        </a>
+        </button>
     </header>
+
+    <!-- Menu Backdrop -->
+    <div id="menuBackdrop" class="menu-backdrop"></div>
+
+    <!-- Right Side Menu -->
+    <div id="rightMenu" class="menu-overlay">
+        <div class="menu-header">
+            <h3 class="menu-title">The Timeline</h3>
+            <button class="menu-close" id="menuClose">&times;</button>
+        </div>
+        <div class="menu-content">
+
+            <!-- Historical Periods Section -->
+            <div class="menu-section">
+                <h4 class="menu-section-title">Historical Periods</h4>
+                <div class="menu-item" onclick="scrollToSection('muslim-empires')">
+                    <div class="menu-item-icon">🕌</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Muslim Empires</div>
+                        <div class="menu-item-subtitle">1200 - 1884</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToSection('protectorate')">
+                    <div class="menu-item-icon">🏛️</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Protectorate</div>
+                        <div class="menu-item-subtitle">1884 - 1960</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToSection('independence')">
+                    <div class="menu-item-icon">🎉</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Independence</div>
+                        <div class="menu-item-subtitle">1960</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToSection('defacto-union')">
+                    <div class="menu-item-icon">⚖️</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Defacto Union</div>
+                        <div class="menu-item-subtitle">1960 - 1991</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToSection('restoration')">
+                    <div class="menu-item-icon">🏴</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Restoration</div>
+                        <div class="menu-item-subtitle">1991 - 2000</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToSection('democracy')">
+                    <div class="menu-item-icon">🗳️</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Democracy</div>
+                        <div class="menu-item-subtitle">2000 - Present</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Section -->
+            <div class="menu-section">
+                <h4 class="menu-section-title">Quick Actions</h4>
+                <div class="menu-item" onclick="scrollToTop()">
+                    <div class="menu-item-icon">⬆️</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Go to Top</div>
+                        <div class="menu-item-subtitle">Start of timeline</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="scrollToBottom()">
+                    <div class="menu-item-icon">⬇️</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Go to Bottom</div>
+                        <div class="menu-item-subtitle">End of timeline</div>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <div class="menu-item-icon">🏠</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Home</div>
+                        <div class="menu-item-subtitle">Return to main site</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="timeline-container">
         <div class="timeline-header">
@@ -763,9 +1042,175 @@
         </div>
     </div>
 
+    <div class="menu-overlay" id="rightMenu">
+        <div class="menu-header">
+            <h2 class="menu-title">Timeline Navigation</h2>
+            <button class="menu-close" id="menuCloseBtn">&times;</button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section">
+                <div class="menu-section-title">About the Timeline</div>
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <svg width="20" height="20">
+                            <use xlink:href="#info-icon" />
+                        </svg>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">What is this timeline about?</div>
+                        <div class="menu-item-subtitle">Learn about the history and significance of the Somaliland and
+                            Somalia timeline.</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <svg width="20" height="20">
+                            <use xlink:href="#book-icon" />
+                        </svg>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Historical Sources</div>
+                        <div class="menu-item-subtitle">Explore the sources and references used in this timeline.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-section">
+                <div class="menu-section-title">Timeline Sections</div>
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <svg width="20" height="20">
+                            <use xlink:href="#flag-icon" />
+                        </svg>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Somaliland</div>
+                        <div class="menu-item-subtitle">Events and milestones in the history of Somaliland.</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <svg width="20" height="20">
+                            <use xlink:href="#sword-icon" />
+                        </svg>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">Somalia</div>
+                        <div class="menu-item-subtitle">Key events in the history of Somalia.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-section">
+                <div class="menu-section-title">Statistics</div>
+                <div class="statistics-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">700+</div>
+                        <div class="stat-label">Years of History</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Major Events</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Sources Cited</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Sections in Timeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
     <script src="/js/svg-icons.js"></script>
 
     <script>
+        // Menu functionality
+        function initializeMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const rightMenu = document.getElementById('rightMenu');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+
+            function openMenu() {
+                rightMenu.classList.add('open');
+                menuBackdrop.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                rightMenu.classList.remove('open');
+                menuBackdrop.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            menuBackdrop.addEventListener('click', closeMenu);
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && rightMenu.classList.contains('open')) {
+                    closeMenu();
+                }
+            });
+        }
+
+        // Navigation functions
+        function scrollToSection(sectionName) {
+            const events = document.querySelectorAll('.event-card');
+            let targetEvent = null;
+
+            events.forEach(event => {
+                if (event.classList.contains(sectionName)) {
+                    if (!targetEvent) {
+                        targetEvent = event;
+                    }
+                }
+            });
+
+            if (targetEvent) {
+                const rect = targetEvent.getBoundingClientRect();
+                const elementTop = rect.top + window.pageYOffset;
+                const offsetPosition = elementTop - 100; // Account for header
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close menu after navigation
+                closeMenu();
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            closeMenu();
+        }
+
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+            closeMenu();
+        }
+
+        function closeMenu() {
+            const rightMenu = document.getElementById('rightMenu');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            rightMenu.classList.remove('open');
+            menuBackdrop.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
         // D3.js Unified Timeline Implementation
         class D3UnifiedTimeline {
             constructor() {
@@ -922,7 +1367,7 @@
                         sourceUrl: 'https://en.wikipedia.org/wiki/Khedivate_of_Egypt'
                     },
                     '44556677-8899-4aab-4455-66778899aabb': {
-                        details: `On June 20, 1884, the British government signed protection treaties with various Somaliland clans, establishing the British Somaliland Protectorate. These treaties, negotiated with clan leaders, recognized traditional Somaliland governance structures while providing British protection against external threats. The protectorate status was crucial in maintaining Somaliland's distinct identity and legal framework, differentiating it from neighboring territories under direct colonial rule. There were only 200 British officers at most in Somaliland.`,
+                        details: `On June 20, 1884, the British government signed protection treaties with various Somaliland clans, formally establishing the British Somaliland Protectorate. These six treaties, negotiated individually with distinct clan leaders, demonstrate the political independence and autonomy of each clan—directly contradicting assertions that the Isaaq constitute a monolithic entity. The agreements also confirm that the Samaroon and Warsangeli clans were equal stakeholders alongside other clans. While the focus was primarily on coastal clans due to strategic considerations, this did not exclude inland clans from protectorate status. The treaties recognized and preserved traditional Somaliland governance structures while providing British protection against external threats. This protectorate arrangement was fundamentally different from direct colonial rule, allowing Somaliland to maintain its distinct political identity and legal framework. Notably, the British maintained only a minimal administrative presence, with fewer than 200 officers overseeing the entire territory—a testament to the effectiveness of the existing indigenous governance systems.`,
                         sourceTitle: 'National Archives UK - British Somaliland Treaties',
                         sourceUrl: 'https://www.somalilandcurrent.com/british-treaty-with-somaliland-tribes/'
                     },
@@ -1011,6 +1456,11 @@
                         sourceTitle: 'Somaliland Elections 2021',
                         sourceUrl: 'https://en.wikipedia.org/wiki/2021_Somaliland_parliamentary_election'
                     },
+                    '5566778899aa-bbcc-5566-778899001122': {
+                        details: `In February 2023, armed clashes erupted in Las Anod, the administrative capital of Sool region, as pro-Somalia militias supported by Mogadishu launched an insurgency to undermine Somaliland's territorial integrity. This proxy war represented Somalia's attempt to destabilize Somaliland by exploiting clan divisions and providing weapons and funding to local militias. The conflict displaced thousands of civilians and highlighted the ongoing territorial disputes between Somalia and Somaliland, with Somalia using indirect warfare tactics to challenge Somaliland's control over its eastern regions.`,
+                        sourceTitle: 'UN report on Casualties ',
+                        sourceUrl: 'https://www.securitycouncilreport.org/whatsinblue/2023/09/somalia-meeting-under-any-other-business.php'
+                    },
                     '66778899-aabb-4ccd-6677-889900112233': {
                         details: `On January 1, 2024, Somaliland signed a historic Memorandum of Understanding with Ethiopia, granting Ethiopia access to 20km of Somaliland's coastline near Berbera for 50 years in exchange for Ethiopia becoming the first country to recognize Somaliland's sovereignty. This landmark agreement marked a potential breakthrough in Somaliland's three-decade quest for international recognition and opened new possibilities for economic cooperation.`,
                         sourceTitle: 'Wikipedia - 2024 Ethiopia-Somaliland MoU',
@@ -1048,7 +1498,7 @@
                         sourceTitle: 'Reuters - Mogadishu Bombing 2017',
                         sourceUrl: 'https://www.reuters.com/article/us-somalia-blast-idUSKBN1CJ0SM'
                     },
-                    '2024_somalia_Alleged_Al-Shabaab_Houthi_link': {
+                    '2024_somalia_Al-Shabaab_Houthi_link': {
                         details: `In 2024, intelligence reports suggested coordination between Somalia's Al-Shabaab and Yemen's Houthi rebels, forming a regional terror alliance. This cooperation allegedly includes weapons transfers, training exchanges, and coordinated attacks in the Red Sea region. The alliance represents a significant escalation in regional terrorism, threatening both Somalia's stability and international maritime security in the Horn of Africa.`,
                         sourceTitle: 'Reuters - Al-Shabaab Houthi Alliance 2024',
                         sourceUrl: 'https://www.reuters.com/world/africa/intelligence-reports-al-shabaab-houthi-cooperation-2024/'
@@ -1184,7 +1634,7 @@
                     { id: "b4c5d6e7-f8a9-4abc-b4c5-d6e7f8a9abcd", year: 2012, title: "Federal Government", description: "New provisional constitution", section: "democracy", country: "somalia" },
                     { id: "c5d6e7f8-a9ba-4bcd-c5d6-e7f8a9babcde", year: 2013, title: "Westgate Attack", description: "Nairobi, 67 killed", section: "democracy", country: "somalia" },
                     { id: "d6e7f8a9-bacb-4cde-d6e7-f8a9bacbcdef", year: 2017, title: "Mogadishu Bombing", description: "587 killed", section: "democracy", country: "somalia" },
-                    { id: "e7f8a9ba-cbdc-4def-e7f8-a9bacbdcdef0", year: 2024, title: "Alleged Al-Shabaab Houthi link", description: "Regional terror alliance formed", section: "democracy", country: "somalia" },
+                    { id: "e7f8a9ba-cbdc-4def-e7f8-a9bacbdcdef0", year: 2024, title: "Al-Shabaab Houthi link", description: "Regional terror alliance formed", section: "democracy", country: "somalia" },
                     { id: "f8a9bacb-dced-4ef0-f8a9-bacbdcedef01", year: 2025, title: "Major Al-Shabab Offensive", description: "Captures key military bases", section: "democracy", country: "somalia" }
                 ];
 
@@ -1221,6 +1671,7 @@
                     { id: "33445566-7788-499a-3344-556677889900", year: 2012, title: "Local Elections", description: "Second 1P1V local vote", section: "democracy", country: "somaliland" },
                     { id: "44556677-8899-4aab-4455-667788990011", year: 2017, title: "Presidential Election", description: "Bihi wins 1P1V", section: "democracy", country: "somaliland" },
                     { id: "55667788-99aa-4bbc-5566-778899001122", year: 2021, title: "Dual Elections", description: "Parliamentary & Local 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "5566778899aa-bbcc-5566-778899001122", year: 2023, title: "Las Anod Insurgency", description: "Somalia's Proxy War", section: "democracy", country: "somaliland" },
                     { id: "66778899-aabb-4ccd-6677-889900112233", year: 2024, title: "Ethiopia MoU", description: "Naval base agreement", section: "democracy", country: "somaliland" },
                     { id: "778899aa-bbcc-4dde-7788-990011223344", year: 2024.5, title: "Dual Elections", description: "Presidential & Party 1P1V - Irro wins", section: "democracy", country: "somaliland" }
                 ];
@@ -1402,8 +1853,8 @@
                         .style("letter-spacing", "3px")
                         .text(sectionInfo.name.toUpperCase());
 
-                    // Years text
-                    const yearSize = window.innerWidth <= 480 ? "12px" : "16px";
+                    // Years text - Increased by 100%
+                    const yearSize = window.innerWidth <= 480 ? "24px" : "32px";
                     const yearOpacity = window.innerWidth <= 480 ? "0.1" : "0.2";
 
                     this.svg.append("text")
@@ -1494,6 +1945,9 @@
                     .attr("filter", "url(#drop-shadow)")
                     .style("cursor", "pointer");
 
+                // Add animated background based on country
+                this.addAnimatedBackground(eventGroup, cardX, event.y - this.cardHeight / 2, actualCardWidth, this.cardHeight, event.country);
+
                 // Add click functionality to card
                 cardRect.on("click", () => {
                     this.showEventModal(event);
@@ -1558,21 +2012,22 @@
                 const textGroup = eventGroup.append("g");
                 const padding = 10;
                 const textWidth = actualCardWidth - (padding * 2);
+                const cardCenterX = cardX + (actualCardWidth / 2);
 
                 // Responsive font sizes - Enhanced for desktop
                 const dateSize = isSmallMobile ? "10px" : isMobile ? "11px" : "16px";
                 const titleSize = isSmallMobile ? "11px" : isMobile ? "12px" : "18px";
                 const descSize = isSmallMobile ? "9px" : isMobile ? "10px" : "14px";
 
-                // Date with better positioning
+                // Date with better positioning - centered
                 const dateText = textGroup.append("text")
                     .attr("class", `event-date ${event.country}`)
-                    .attr("x", cardX + padding)
+                    .attr("x", cardCenterX)
                     .attr("y", event.y - 18)
                     .attr("fill", "#C8102E")
                     .style("font-size", dateSize)
                     .style("font-weight", "600")
-                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("font-family", "Crimson Text, serif")
                     .style("cursor", "pointer")
                     .text(this.formatYear(event.year));
 
@@ -1588,12 +2043,12 @@
                     // On mobile, use multiline text wrapping instead of truncation
                     const titleElement = textGroup.append("text")
                         .attr("class", `event-title ${event.country}`)
-                        .attr("x", cardX + padding)
+                        .attr("x", cardCenterX)
                         .attr("y", event.y - 2)
                         .attr("fill", "#8B0000")
                         .style("font-size", titleSize)
                         .style("font-weight", "700")
-                        .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                        .style("font-family", "Crimson Text, serif")
                         .style("cursor", "pointer");
 
                     // Add click functionality to title text
@@ -1604,17 +2059,17 @@
                     // Use wrapText for mobile titles - allow 2 lines max
                     this.wrapText(titleElement, titleText, textWidth, 2, true);
                 } else {
-                    // On desktop, use single line with truncation
+                    // On desktop, use single line with truncation - centered
                     const truncatedTitle = this.truncateText(titleText, textWidth, titleSize);
 
                     const titleElement = textGroup.append("text")
                         .attr("class", `event-title ${event.country}`)
-                        .attr("x", cardX + padding)
+                        .attr("x", cardCenterX)
                         .attr("y", event.y - 2)
                         .attr("fill", "#8B0000")
                         .style("font-size", titleSize)
                         .style("font-weight", "700")
-                        .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                        .style("font-family", "Crimson Text, serif")
                         .style("cursor", "pointer")
                         .text(truncatedTitle);
 
@@ -1624,15 +2079,16 @@
                     });
                 }
 
-                // Description with improved wrapping and line limits
+                // Description with improved wrapping and line limits - centered
                 const maxLines = isSmallMobile ? 2 : 3;
+                const descriptionY = isMobile ? event.y + 14 : event.y + 22; // More spacing on desktop
                 const descriptionElement = textGroup.append("text")
                     .attr("class", "event-description")
-                    .attr("x", cardX + padding)
-                    .attr("y", event.y + 14)
+                    .attr("x", cardCenterX)
+                    .attr("y", descriptionY)
                     .attr("fill", "#2F4F2F")
                     .style("font-size", descSize)
-                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("font-family", "Crimson Text, serif")
                     .style("cursor", "pointer");
 
                 // Add click functionality to description text
@@ -1647,7 +2103,7 @@
                 const words = content.split(/\s+/);
                 let line = [];
                 let lineNumber = 0;
-                const lineHeight = 1.2;
+                const lineHeight = 1.5;
                 const x = text.attr("x");
                 const y = text.attr("y");
                 const avgCharWidth = 7; // Better character width estimate
@@ -1674,6 +2130,7 @@
                                 .attr("x", x)
                                 .attr("y", y)
                                 .attr("dy", lineNumber * lineHeight + "em")
+                                .style("text-anchor", "middle")
                                 .text(truncated);
                             return;
                         }
@@ -1682,6 +2139,7 @@
                             .attr("x", x)
                             .attr("y", y)
                             .attr("dy", lineNumber * lineHeight + "em")
+                            .style("text-anchor", "middle")
                             .text(line.join(" "));
                         line = [word];
                         lineNumber++;
@@ -1700,6 +2158,7 @@
                         .attr("x", x)
                         .attr("y", y)
                         .attr("dy", lineNumber * lineHeight + "em")
+                        .style("text-anchor", "middle")
                         .text(truncated);
                 }
             }
@@ -1732,7 +2191,7 @@
                     .style("font-size", textSize)
                     .style("font-weight", "700")
                     .style("text-anchor", "middle")
-                    .style("font-family", "system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+                    .style("font-family", "Crimson Text, serif")
                     .text(event.title);
             }
 
@@ -1804,6 +2263,180 @@
                     'contemporary': 'Contemporary Period (1991 - Present)'
                 };
                 return names[section] || section;
+            }            addAnimatedBackground(eventGroup, cardX, cardY, cardWidth, cardHeight, country) {
+                // Apply flame animations with country-specific colors
+                // Reduce flame animation height by 50% on mobile devices
+                const isMobile = window.innerWidth <= 768;
+                const backgroundHeight = isMobile ? cardHeight / 4 : cardHeight / 2; // Bottom half only, quarter on mobile
+
+                // Create clipping path for rounded bottom corners
+                const clipId = `clip-${Date.now()}-${Math.random()}`;
+                const defs = this.svg.select("defs").empty() ? this.svg.append("defs") : this.svg.select("defs");
+
+                defs.append("clipPath")
+                    .attr("id", clipId)
+                    .append("rect")
+                    .attr("x", cardX)
+                    .attr("y", cardY + cardHeight - backgroundHeight)
+                    .attr("width", cardWidth)
+                    .attr("height", backgroundHeight)
+                    .attr("rx", 8)
+                    .attr("ry", 8);
+
+                // Apply flame animations with country-specific colors
+                this.createFlamesAnimation(eventGroup, cardX, cardY, cardWidth, cardHeight, clipId, country);
+            }
+
+            createFlamesAnimation(eventGroup, cardX, cardY, cardWidth, cardHeight, clipId, country) {
+                // Reduce flame animation height by 50% on mobile devices
+                const isMobile = window.innerWidth <= 768;
+                const backgroundHeight = isMobile ? cardHeight / 6 : cardHeight / 2;
+                const baseY = cardY + cardHeight - backgroundHeight;
+
+                // Create dramatic flame layers with country-specific colors
+                for (let i = 0; i < 4; i++) {
+                    const flameGroup = eventGroup.append("g")
+                        .attr("clip-path", `url(#${clipId})`);
+
+                    // Create animated flame paths for more realistic fire effect
+                    const flamePath = flameGroup.append("path");
+
+                    // Country-specific flame colors
+                    const flameColors = country === 'somalia' ? [
+                        "rgba(0, 102, 255, 0.9)",    // Bright blue
+                        "rgba(30, 144, 255, 0.8)",   // Dodger blue
+                        "rgba(70, 180, 255, 0.7)",   // Light blue
+                        "rgba(135, 206, 250, 0.6)"   // Sky blue
+                    ] : [
+                        "rgba(255, 0, 0, 0.9)",      // Bright red
+                        "rgba(255, 69, 0, 0.8)",     // Orange red
+                        "rgba(255, 140, 0, 0.7)",    // Orange
+                        "rgba(255, 215, 0, 0.6)"     // Gold
+                    ];
+
+                    // Create flame-like path that changes shape
+                    const animateFlame = () => {
+                        const waveHeight = 8 + Math.random() * 12;
+                        const waveCount = 3 + Math.random() * 2;
+                        let pathData = `M ${cardX} ${baseY + backgroundHeight}`;
+
+                        // Create wavy flame top
+                        for (let x = 0; x <= cardWidth; x += cardWidth / 10) {
+                            const currentX = cardX + x;
+                            const waveY = baseY + backgroundHeight - waveHeight * Math.sin((x / cardWidth) * Math.PI * waveCount + i);
+                            pathData += ` L ${currentX} ${waveY}`;
+                        }
+
+                        pathData += ` L ${cardX + cardWidth} ${baseY + backgroundHeight} Z`;
+
+                        flamePath
+                            .attr("d", pathData)
+                            .attr("fill", flameColors[i])
+                            .transition()
+                            .duration(400 + Math.random() * 200)
+                            .ease(d3.easeLinear)
+                            .on("end", animateFlame);
+                    };
+
+                    // Start the flame animation
+                    animateFlame();
+
+                    // Add pulsing opacity for flickering effect
+                    flamePath
+                        .transition()
+                        .duration(300 + i * 100)
+                        .ease(d3.easeSinInOut)
+                        .style("opacity", 0.6)
+                        .transition()
+                        .duration(300 + i * 100)
+                        .ease(d3.easeSinInOut)
+                        .style("opacity", 1)
+                        .on("end", function repeat() {
+                            d3.select(this)
+                                .transition()
+                                .duration(300 + i * 100)
+                                .ease(d3.easeSinInOut)
+                                .style("opacity", 0.6)
+                                .transition()
+                                .duration(300 + i * 100)
+                                .ease(d3.easeSinInOut)
+                                .style("opacity", 1)
+                                .on("end", repeat);
+                        });
+                }
+            }
+
+            createWavesAnimation(eventGroup, cardX, cardY, cardWidth, cardHeight, clipId) {
+                const backgroundHeight = cardHeight / 2;
+                const baseY = cardY + cardHeight - backgroundHeight;
+
+                // Create dramatic wave layers with high visibility
+                for (let i = 0; i < 4; i++) {
+                    const waveGroup = eventGroup.append("g")
+                        .attr("clip-path", `url(#${clipId})`);
+
+                    // Create animated wave paths for realistic water effect
+                    const wavePath = waveGroup.append("path");
+
+                    const waveColors = [
+                        "rgba(0, 102, 204, 0.9)",    // Deep blue
+                        "rgba(30, 144, 255, 0.8)",   // Dodger blue
+                        "rgba(135, 206, 250, 0.7)",  // Light sky blue
+                        "rgba(173, 216, 230, 0.6)"   // Light blue
+                    ];
+
+                    // Create wave-like path that flows horizontally
+                    let waveOffset = 0;
+                    const animateWave = () => {
+                        waveOffset += 0.2;
+                        const waveHeight = 6 + i * 2;
+                        const waveFreq = 2 + i * 0.5;
+
+                        let pathData = `M ${cardX} ${baseY + backgroundHeight}`;
+
+                        // Create flowing wave pattern
+                        for (let x = 0; x <= cardWidth; x += 2) {
+                            const currentX = cardX + x;
+                            const waveY = baseY + waveHeight * Math.sin((x / cardWidth) * Math.PI * waveFreq + waveOffset);
+                            pathData += ` L ${currentX} ${waveY}`;
+                        }
+
+                        pathData += ` L ${cardX + cardWidth} ${baseY + backgroundHeight} Z`;
+
+                        wavePath
+                            .attr("d", pathData)
+                            .attr("fill", waveColors[i]);
+
+                        // Continue animation
+                        requestAnimationFrame(animateWave);
+                    };
+
+                    // Start the wave animation
+                    animateWave();
+
+                    // Add subtle opacity variation for depth
+                    wavePath
+                        .transition()
+                        .duration(2000 + i * 300)
+                        .ease(d3.easeSinInOut)
+                        .style("opacity", 0.7)
+                        .transition()
+                        .duration(2000 + i * 300)
+                        .ease(d3.easeSinInOut)
+                        .style("opacity", 1)
+                        .on("end", function repeat() {
+                            d3.select(this)
+                                .transition()
+                                .duration(2000 + i * 300)
+                                .ease(d3.easeSinInOut)
+                                .style("opacity", 0.7)
+                                .transition()
+                                .duration(2000 + i * 300)
+                                .ease(d3.easeSinInOut)
+                                .style("opacity", 1)
+                                .on("end", repeat);
+                        });
+                }
             }
 
             formatYear(year) {
@@ -1819,6 +2452,7 @@
 
         // Initialize timeline when DOM is loaded
         document.addEventListener('DOMContentLoaded', function () {
+            initializeMenu();
             new D3UnifiedTimeline();
         });
 
@@ -1827,6 +2461,35 @@
             setTimeout(() => {
                 new D3UnifiedTimeline();
             }, 100);
+        });
+
+        // Right menu functionality
+        const menuOverlay = document.getElementById('rightMenu');
+        const menuCloseBtn = document.getElementById('menuCloseBtn');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+
+        // Open menu function
+        function openMenu() {
+            menuOverlay.classList.add('open');
+            menuBackdrop.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close menu function
+        function closeMenu() {
+            menuOverlay.classList.remove('open');
+            menuBackdrop.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners for menu
+        menuCloseBtn.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', closeMenu);
+
+        // Open menu on header button click
+        document.querySelector('header a').addEventListener('click', (e) => {
+            e.preventDefault();
+            openMenu();
         });
     </script>
 </body>
