@@ -2,10 +2,9 @@
 
 This document provides a complete list of all hardcoded GUIDs assigned to each event in the timeline.
 
-## Somalia Events (18 total)
+## Somalia Events (17 total)
 
-### Muslim Empires Period (2 events)
-- `a1b2c3d4-e5f6-4789-a1b2-c3d4e5f67890` - 1300: Ajuran Sultanate Rise
+### Muslim Empires Period (1 event)
 - `b2c3d4e5-f6a7-4890-b2c3-d4e5f6a78901` - 1650: Omani Empire Influence
 
 ### Protectorate Period (2 events)
@@ -82,7 +81,7 @@ This document provides a complete list of all hardcoded GUIDs assigned to each e
 
 ---
 
-**Total Events: 47 (18 Somalia + 25 Somaliland + 2 Markers)**
+**Total Events: 46 (17 Somalia + 25 Somaliland + 2 Markers)**
 
 Each GUID is unique and will remain consistent across all page loads. These GUIDs are suitable for:
 - Database primary keys
