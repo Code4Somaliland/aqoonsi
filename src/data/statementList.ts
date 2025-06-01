@@ -200,9 +200,17 @@ export const statementList: StatementModel[] = [
         subtitle: `American business magnate`,
         image: `/assets/img/forground/billgates.jpeg`,
         imageStyle: `max-width: 50%;"`,
-        country: `🇺🇸`
-    }),
+        country: `🇺🇸`    }),
     new StatementModel({
+        modelName: "plo",
+        text: `We believe that through diplomacy Somaliland will gain acceptance in the world as it should`,
+        url: `https://x.com/MariamRobly/status/1928912867501215819`,
+        title: `Prof PLO Lumumba`,
+        subtitle: `Kenyan lawyer and Pan-Africanist`,
+        image: `/assets/img/forground/plo.png`,
+        imageStyle: `max-width: 50%;"`,
+        country: `🇰🇪`
+    }),    new StatementModel({
         modelName: 'veit',
         title: 'Veit Dengler',
         subtitle: 'Member of the Austrian 🇦🇹 Parliament',
@@ -365,6 +373,5 @@ export const statementList: StatementModel[] = [
         subtitle: `Research Fellow, Israel-Africa Relations Institute`,
         image: `/assets/img/forground/terdiman.jpg`,
         imageStyle: `max-width: 50%;"`,
-        country: `🇮🇱`
-    }),
+        country: `🇮🇱`    }),
 ]
