@@ -34,7 +34,7 @@ This document provides a complete list of all hardcoded GUIDs assigned to each e
 - `e7f8a9ba-cbdc-4def-e7f8-a9bacbdcdef0` - 2024: Alleged Al-Shabaab Houthi link
 - `f8a9bacb-dced-4ef0-f8a9-bacbdcedef01` - 2025: Major Al-Shabab Offensive
 
-## Somaliland Events (24 total)
+## Somaliland Events (25 total)
 
 ### Muslim Empires Period (3 events)
 - `11223344-5566-4778-1122-334455667788` - 1285: Ifat Empire
@@ -59,14 +59,16 @@ This document provides a complete list of all hardcoded GUIDs assigned to each e
 ### Restoration Period (1 event)
 - `ddeeff00-1122-4334-ddee-ff0011223344` - 1993: Borama Conference
 
-### Democracy Period (11 events)
+### Democracy Period (13 events)
 - `eeff0011-2233-4445-eeff-001122334455` - 2001: Constitutional Referendum
 - `ff001122-3344-4556-ff00-112233445566` - 2002: Local Elections
 - `00112233-4455-4667-0011-223344556677` - 2003: Presidential Election
 - `11223355-6688-499a-1122-335566889911` - 2005: Parliamentary Elections
 - `22334466-7799-4aab-2233-446677990022` - 2010: Presidential Election
 - `33445566-7788-499a-3344-556677889900` - 2012: Local Elections
+- `77889900-aabb-4ccd-7788-99001122aabb` - 2016: DP World Berbera Deal
 - `44556677-8899-4aab-4455-667788990011` - 2017: Presidential Election
+- `88990011-bbcc-4dde-8899-001122334455` - 2020: Taiwan Diplomatic Ties
 - `55667788-99aa-4bbc-5566-778899001122` - 2021: Dual Elections
 - `5566778899aa-bbcc-5566-778899001122` - 2023: Las Anod Insurgency
 - `66778899-aabb-4ccd-6677-889900112233` - 2024: Ethiopia MoU
@@ -80,7 +82,7 @@ This document provides a complete list of all hardcoded GUIDs assigned to each e
 
 ---
 
-**Total Events: 44 (18 Somalia + 24 Somaliland + 2 Markers)**
+**Total Events: 47 (18 Somalia + 25 Somaliland + 2 Markers)**
 
 Each GUID is unique and will remain consistent across all page loads. These GUIDs are suitable for:
 - Database primary keys

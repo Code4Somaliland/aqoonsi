@@ -1446,10 +1446,20 @@
                         sourceTitle: 'Local Elections 2012',
                         sourceUrl: 'https://en.wikipedia.org/wiki/2012_Somaliland_municipal_elections'
                     },
+                    '77889900-aabb-4ccd-7788-99001122aabb': {
+                        details: `In 2016, DP World signed a historic $442 million agreement with Somaliland to modernize and operate the Port of Berbera for 30 years, marking one of the largest foreign investments in the region. Despite Somalia's immediate rejection and declaration that the deal was "null and void," the agreement proceeded successfully, demonstrating Somaliland's commercial sovereignty and ability to attract major international investment. Somalia's diplomatic interference failed to derail the project, which later expanded to include Ethiopia as a stakeholder in 2018. The deal transformed Berbera into a world-class port facility, creating thousands of jobs and positioning Somaliland as a key logistics hub for the Horn of Africa. This success story proved that Somaliland could secure significant international partnerships despite lacking formal recognition, with the port becoming a symbol of the territory's economic resilience and commercial independence from Mogadishu's control.`,
+                        sourceTitle: 'DP World Berbera Port Agreement 2016',
+                        sourceUrl: 'https://www.dpworld.com/news-centre/dp-world-berbera-port-development'
+                    },
                     '44556677-8899-4aab-4455-667788990011': {
                         details: `Muse Bihi Abdi of Kulmiye party won the 2017 presidential election with 55.10% of the vote, defeating Abdirahman Abdullahi "Cirro" of Waddani and Faysal Ali Warabe of UCID. This election demonstrated the continued strength of Somaliland's democracy, with peaceful campaigns, transparent vote counting, and acceptance of results by all candidates. Bihi's presidency focused on infrastructure development and pursuit of international recognition.`,
                         sourceTitle: 'Wikipedia - 2017 Somaliland Presidential Election',
                         sourceUrl: 'https://en.wikipedia.org/wiki/2017_Somaliland_presidential_election'
+                    },
+                    '88990011-bbcc-4dde-8899-001122334455': {
+                        details: `In July 2020, Somaliland and Taiwan established formal diplomatic relations, making Somaliland Taiwan's first African diplomatic partner in decades and Taiwan becoming the first major partner to recognize Somaliland's independence since 1991. Despite intense pressure from China and threats of economic retaliation, both territories proceeded with the historic agreement, opening representative offices in Taipei and Hargeisa. The partnership encompasses cooperation in healthcare, education, agriculture, fisheries, energy, mining, and technology transfer. China immediately condemned the move and pressured countries to oppose the relationship, but the partnership endured and flourished. This breakthrough demonstrated that Somaliland could successfully pursue international recognition despite superpower opposition, while Taiwan gained a strategic foothold in Africa. The relationship has since expanded with multiple high-level visits, development projects, and joint initiatives that showcase the success of cooperation between two democratic territories seeking international legitimacy.`,
+                        sourceTitle: 'Taiwan-Somaliland Diplomatic Relations 2020',
+                        sourceUrl: 'https://english.president.gov.tw/News/6052'
                     },
                     '55667788-99aa-4bbc-5566-778899001122': {
                         details: `The combined parliamentary and local elections of May 31, 2021, saw Waddani party make significant gains against the ruling Kulmiye party. Despite some delays and technical challenges, international observers praised the overall conduct of the elections. The results reflected public desire for change and demonstrated the competitiveness of Somaliland's multi-party system.`,
@@ -1669,7 +1679,9 @@
                     { id: "11223355-6688-499a-1122-335566889911", year: 2005, title: "Parliamentary Elections", description: "First 1P1V parliament", section: "democracy", country: "somaliland" },
                     { id: "22334466-7799-4aab-2233-446677990022", year: 2010, title: "Presidential Election", description: "Silanyo wins 1P1V", section: "democracy", country: "somaliland" },
                     { id: "33445566-7788-499a-3344-556677889900", year: 2012, title: "Local Elections", description: "Second 1P1V local vote", section: "democracy", country: "somaliland" },
+                    { id: "77889900-aabb-4ccd-7788-99001122aabb", year: 2016, title: "DP World Berbera Deal", description: "$442M port modernization", section: "democracy", country: "somaliland" },
                     { id: "44556677-8899-4aab-4455-667788990011", year: 2017, title: "Presidential Election", description: "Bihi wins 1P1V", section: "democracy", country: "somaliland" },
+                    { id: "88990011-bbcc-4dde-8899-001122334455", year: 2020, title: "Taiwan Diplomatic Ties", description: "First Partnership", section: "democracy", country: "somaliland" },
                     { id: "55667788-99aa-4bbc-5566-778899001122", year: 2021, title: "Dual Elections", description: "Parliamentary & Local 1P1V", section: "democracy", country: "somaliland" },
                     { id: "5566778899aa-bbcc-5566-778899001122", year: 2023, title: "Las Anod Insurgency", description: "Somalia's Proxy War", section: "democracy", country: "somaliland" },
                     { id: "66778899-aabb-4ccd-6677-889900112233", year: 2024, title: "Ethiopia MoU", description: "Naval base agreement", section: "democracy", country: "somaliland" },
@@ -2263,7 +2275,7 @@
                     'contemporary': 'Contemporary Period (1991 - Present)'
                 };
                 return names[section] || section;
-            }            addAnimatedBackground(eventGroup, cardX, cardY, cardWidth, cardHeight, country) {
+            } addAnimatedBackground(eventGroup, cardX, cardY, cardWidth, cardHeight, country) {
                 // Apply flame animations with country-specific colors
                 // Reduce flame animation height by 50% on mobile devices
                 const isMobile = window.innerWidth <= 768;
