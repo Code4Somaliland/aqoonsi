@@ -2311,19 +2311,17 @@
                         .attr("clip-path", `url(#${clipId})`);
 
                     // Create animated flame paths for more realistic fire effect
-                    const flamePath = flameGroup.append("path");
-
-                    // Country-specific flame colors
+                    const flamePath = flameGroup.append("path");                // Country-specific flame colors (reduced opacity by 75% from original)
                     const flameColors = country === 'somalia' ? [
-                        "rgba(0, 102, 255, 0.9)",    // Bright blue
-                        "rgba(30, 144, 255, 0.8)",   // Dodger blue
-                        "rgba(70, 180, 255, 0.7)",   // Light blue
-                        "rgba(135, 206, 250, 0.6)"   // Sky blue
+                        "rgba(0, 102, 255, 0.225)",   // Bright blue
+                        "rgba(30, 144, 255, 0.2)",    // Dodger blue
+                        "rgba(70, 180, 255, 0.175)",  // Light blue
+                        "rgba(135, 206, 250, 0.15)"   // Sky blue
                     ] : [
-                        "rgba(255, 0, 0, 0.9)",      // Bright red
-                        "rgba(255, 69, 0, 0.8)",     // Orange red
-                        "rgba(255, 140, 0, 0.7)",    // Orange
-                        "rgba(255, 215, 0, 0.6)"     // Gold
+                        "rgba(255, 0, 0, 0.225)",     // Bright red
+                        "rgba(255, 69, 0, 0.2)",      // Orange red
+                        "rgba(255, 140, 0, 0.175)",   // Orange
+                        "rgba(255, 215, 0, 0.15)"     // Gold
                     ];
 
                     // Create flame-like path that changes shape
