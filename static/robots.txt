@@ -1,3 +1,18 @@
 User-agent: *
-Disallow: 
-Sitemap: https://SomalilandRecognition.com/sitemap.xml
+Allow: /
+Disallow: /assets/file/
+Disallow: /static/
+Crawl-delay: 1
+
+# Allow important bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://somalilandrecognition.com/sitemap.xml
